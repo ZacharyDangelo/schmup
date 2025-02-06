@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://d3vgec77riiqu"]
+[gd_scene load_steps=3 format=3 uid="uid://d3vgec77riiqu"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://bp1y734evu31y" path="res://icon.svg" id="1_fxap3"]
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_xel10"]
+
+[node name="Player" type="Node2D"]
+position = Vector2(326, 200)
+script = ExtResource("1_xel10")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite"]
+texture = ExtResource("1_fxap3")
