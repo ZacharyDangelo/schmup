@@ -3,9 +3,10 @@
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_4vd5h"]
 [ext_resource type="Texture2D" uid="uid://cv1bja2088xja" path="res://sprites/Arwing.png" id="2_p5reh"]
 
-[node name="Player" type="Node2D"]
+[node name="Player" type="Node2D" node_paths=PackedStringArray("sprite")]
 position = Vector2(164, 200)
 script = ExtResource("1_4vd5h")
+sprite = NodePath("Sprite/Sprite2D")
 metadata/_edit_group_ = true
 
 [node name="Sprite" type="Node2D" parent="."]

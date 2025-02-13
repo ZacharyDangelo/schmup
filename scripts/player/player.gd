@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var sprite: Sprite2D
+
 @export var max_speed_x = 5
 @export var acceleration_x = 5
 @export var deceleration_x = 2.5
@@ -33,8 +35,10 @@ func _process(delta):
 	if Input.is_action_pressed("move_up"):
 		input_vector.y -= 1
 	if Input.is_action_pressed("move_left"):
+		sprite.flip_h = true
 		input_vector.x -= 1
 	if Input.is_action_pressed("move_right"):
+		sprite.flip_h = false
 		input_vector.x += 1
 	
 	if input_vector != Vector2.ZERO:
@@ -72,9 +76,3 @@ func _process(delta):
 
 	# Move the player
 	position += last_velocity
-
-	# Clamp position to screen bounds
-	position = position.clamp(
-		Vector2(78, screen_offset),
-		Vector2(screen_size.x - 5, screen_size.y - screen_offset)
-	)

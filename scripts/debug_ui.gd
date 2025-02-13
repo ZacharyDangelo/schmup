@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 var player
-var velocity_label
 
 @export var enabled: bool
 
@@ -20,6 +19,7 @@ var velocity_label
 
 @export var force_turn_input: CheckBox
 
+@export var velocity_label: Label
 @export var export_button: Button
 @export var import_button: Button
 
@@ -28,7 +28,6 @@ func _ready():
 		return
 	player = get_node('%Player')
 	
-	velocity_label = get_child(0).get_child(0) # gross
 
 	# Set initial values for vertical movement
 	max_speed_y_input.value = player.max_speed_y

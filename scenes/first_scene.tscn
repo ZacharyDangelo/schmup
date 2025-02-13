@@ -1,12 +1,62 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3vgec77riiqu"]
+[gd_scene load_steps=4 format=3 uid="uid://d3vgec77riiqu"]
 
 [ext_resource type="PackedScene" uid="uid://c7hgmmou0ia8o" path="res://scenes/player.tscn" id="1_tul1x"]
+[ext_resource type="Texture2D" uid="uid://hrs8o2hkcyh5" path="res://space_bg.png" id="2_30i84"]
 [ext_resource type="PackedScene" uid="uid://dxogv416tnuca" path="res://scenes/debug_ui.tscn" id="2_j8gc4"]
 
 [node name="Game" type="Node"]
 
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="SpaceBg5" type="Sprite2D" parent="Node2D"]
+position = Vector2(-74595, -43189)
+rotation = 1.61445
+scale = Vector2(56.7766, 700.541)
+texture = ExtResource("2_30i84")
+
+[node name="SpaceBg3" type="Sprite2D" parent="Node2D"]
+position = Vector2(-1317, -1873)
+scale = Vector2(15.4028, 33.8693)
+texture = ExtResource("2_30i84")
+
+[node name="SpaceBg4" type="Sprite2D" parent="Node2D"]
+position = Vector2(14025, 11435)
+scale = Vector2(7.53502, 26.4677)
+texture = ExtResource("2_30i84")
+
+[node name="SpaceBg2" type="Sprite2D" parent="Node2D"]
+position = Vector2(-64, 84)
+texture = ExtResource("2_30i84")
+
+[node name="SpaceBg" type="Sprite2D" parent="Node2D"]
+position = Vector2(-11760, 1115.25)
+scale = Vector2(3.655, 10.6485)
+texture = ExtResource("2_30i84")
+
+[node name="SpaceBg6" type="Sprite2D" parent="Node2D"]
+position = Vector2(-20133, 55599)
+scale = Vector2(44.443, 92.7496)
+texture = ExtResource("2_30i84")
+
+[node name="SpaceBg7" type="Sprite2D" parent="Node2D"]
+position = Vector2(120539, 66223)
+scale = Vector2(44.443, 92.7496)
+texture = ExtResource("2_30i84")
+
+[node name="SpaceBg8" type="Sprite2D" parent="Node2D"]
+position = Vector2(-7461, -75217)
+scale = Vector2(44.443, 92.7496)
+texture = ExtResource("2_30i84")
+
 [node name="Player" parent="." instance=ExtResource("1_tul1x")]
 unique_name_in_owner = true
+position = Vector2(0, 0)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
 
 [node name="DEBUG_UI" parent="." instance=ExtResource("2_j8gc4")]
+offset = Vector2(380, 0)
+scale = Vector2(0.66, 0.66)
+transform = Transform2D(0.66, 0, 0, 0.66, 380, 0)
 enabled = true
