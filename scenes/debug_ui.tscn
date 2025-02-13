@@ -3,13 +3,17 @@
 [ext_resource type="Script" path="res://scripts/debug_ui.gd" id="1_fpvob"]
 [ext_resource type="FontFile" uid="uid://t8h1shroylrt" path="res://fonts/monogram.ttf" id="1_oyxfi"]
 
-[node name="DEBUG_UI" type="CanvasLayer" node_paths=PackedStringArray("max_speed_input", "acceleration_input", "deceleration_input", "friction_input", "turn_speed_input", "force_turn_input")]
+[node name="DEBUG_UI" type="CanvasLayer" node_paths=PackedStringArray("max_speed_y_input", "acceleration_y_input", "deceleration_y_input", "friction_input", "turn_speed_y_input", "max_speed_x_input", "acceleration_x_input", "deceleration_x_input", "turn_speed_x_input", "force_turn_input")]
 script = ExtResource("1_fpvob")
-max_speed_input = NodePath("VBoxContainer/MaxSpeedInput")
-acceleration_input = NodePath("VBoxContainer/AccelerationInput")
-deceleration_input = NodePath("VBoxContainer/DecelerationInput")
+max_speed_y_input = NodePath("VBoxContainer/MaxSpeedInput")
+acceleration_y_input = NodePath("VBoxContainer/AccelerationInput")
+deceleration_y_input = NodePath("VBoxContainer/DecelerationInput")
 friction_input = NodePath("VBoxContainer/FrictionInput")
-turn_speed_input = NodePath("VBoxContainer/TurnSpeed")
+turn_speed_y_input = NodePath("VBoxContainer/TurnSpeed")
+max_speed_x_input = NodePath("VBoxContainer/MaxSpeedInput2")
+acceleration_x_input = NodePath("VBoxContainer/AccelerationInput2")
+deceleration_x_input = NodePath("VBoxContainer/DecelerationInput2")
+turn_speed_x_input = NodePath("VBoxContainer/TurnSpeed2")
 force_turn_input = NodePath("VBoxContainer/ForceTurnInput")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -22,6 +26,10 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_oyxfi")
 theme_override_font_sizes/font_size = 36
 text = "current velocity:"
+
+[node name="VerticalSettingsLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "VERTICAL SETTINGS"
 
 [node name="MaxSpeedInput" type="SpinBox" parent="VBoxContainer"]
 layout_mode = 2
@@ -38,18 +46,57 @@ layout_mode = 2
 step = 0.1
 prefix = "deceleration"
 
-[node name="FrictionInput" type="SpinBox" parent="VBoxContainer"]
-layout_mode = 2
-step = 0.1
-prefix = "friction"
-
 [node name="TurnSpeed" type="SpinBox" parent="VBoxContainer"]
 layout_mode = 2
 step = 0.1
 prefix = "turn_speed"
+
+[node name="FrictionInput" type="SpinBox" parent="VBoxContainer"]
+layout_mode = 2
+step = 0.1
+prefix = "friction"
 
 [node name="ForceTurnInput" type="CheckBox" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_oyxfi")
 theme_override_font_sizes/font_size = 24
 text = "Force Turn"
+
+[node name="VerticalSettingsLabel2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "HORIZONTAL SETTINGS"
+
+[node name="MaxSpeedInput2" type="SpinBox" parent="VBoxContainer"]
+layout_mode = 2
+step = 0.1
+prefix = "max_speed"
+
+[node name="AccelerationInput2" type="SpinBox" parent="VBoxContainer"]
+layout_mode = 2
+step = 0.1
+prefix = "acceleration"
+
+[node name="DecelerationInput2" type="SpinBox" parent="VBoxContainer"]
+layout_mode = 2
+step = 0.1
+prefix = "deceleration"
+
+[node name="TurnSpeed2" type="SpinBox" parent="VBoxContainer"]
+layout_mode = 2
+step = 0.1
+prefix = "turn_speed"
+
+[node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Export" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Export Settings"
+
+[node name="Import" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Import Settings"
+
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Export" to="." method="_on_export_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Import" to="." method="_on_import_pressed"]
