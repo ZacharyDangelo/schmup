@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7hgmmou0ia8o"]
+
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_4vd5h"]
+[ext_resource type="Texture2D" uid="uid://cv1bja2088xja" path="res://sprites/Arwing.png" id="2_p5reh"]
+
+[node name="Player" type="Node2D"]
+position = Vector2(164, 200)
+script = ExtResource("1_4vd5h")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite"]
+texture = ExtResource("2_p5reh")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 32)

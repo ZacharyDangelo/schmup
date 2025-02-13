@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxogv416tnuca"]
+
+[ext_resource type="Script" path="res://scripts/debug_ui.gd" id="1_fpvob"]
+[ext_resource type="FontFile" uid="uid://t8h1shroylrt" path="res://fonts/monogram.ttf" id="1_oyxfi"]
+
+[node name="DEBUG_UI" type="CanvasLayer" node_paths=PackedStringArray("max_speed_input", "acceleration_input", "deceleration_input", "friction_input", "turn_speed_input", "force_turn_input")]
+script = ExtResource("1_fpvob")
+max_speed_input = NodePath("VBoxContainer/MaxSpeedInput")
+acceleration_input = NodePath("VBoxContainer/AccelerationInput")
+deceleration_input = NodePath("VBoxContainer/DecelerationInput")
+friction_input = NodePath("VBoxContainer/FrictionInput")
+turn_speed_input = NodePath("VBoxContainer/TurnSpeed")
+force_turn_input = NodePath("VBoxContainer/ForceTurnInput")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 787.0
+offset_right = 1147.0
+offset_bottom = 51.0
+
+[node name="VelocityLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_oyxfi")
+theme_override_font_sizes/font_size = 36
+text = "current velocity:"
+
+[node name="MaxSpeedInput" type="SpinBox" parent="VBoxContainer"]
+layout_mode = 2
+step = 0.1
+prefix = "max_speed"
+
+[node name="AccelerationInput" type="SpinBox" parent="VBoxContainer"]
+layout_mode = 2
+step = 0.1
+prefix = "acceleration"
+
+[node name="DecelerationInput" type="SpinBox" parent="VBoxContainer"]
+layout_mode = 2
+step = 0.1
+prefix = "deceleration"
+
+[node name="FrictionInput" type="SpinBox" parent="VBoxContainer"]
+layout_mode = 2
+step = 0.1
+prefix = "friction"
+
+[node name="TurnSpeed" type="SpinBox" parent="VBoxContainer"]
+layout_mode = 2
+step = 0.1
+prefix = "turn_speed"
+
+[node name="ForceTurnInput" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_oyxfi")
+theme_override_font_sizes/font_size = 24
+text = "Force Turn"
