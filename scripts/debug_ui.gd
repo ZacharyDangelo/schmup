@@ -2,7 +2,9 @@ extends CanvasLayer
 
 var player
 
-@export var enabled: bool
+
+@export var toggle_button: Button
+@export var tools_container: Control
 
 # Vertical movement inputs
 @export var max_speed_y_input: SpinBox
@@ -23,9 +25,9 @@ var player
 @export var export_button: Button
 @export var import_button: Button
 
+
+
 func _ready():
-	if !enabled:
-		return
 	player = get_node('%Player')
 	
 
@@ -60,8 +62,6 @@ func _ready():
 	force_turn_input.toggled.connect(_on_force_turn_toggled)
 
 func _process(delta):
-	if !enabled:
-		return
 	var format_string = "current velocity: (%s, %s)"
 	var x = round(player.last_velocity.x)
 	var y = round(player.last_velocity.y)
@@ -174,3 +174,7 @@ func _on_export_pressed():
 
 func _on_import_pressed():
 	import_player_settings_from_clipboard()
+
+
+func _on_toggle_pressed():
+	tools_container.visible = !tools_container.visible

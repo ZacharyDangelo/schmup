@@ -17,9 +17,12 @@ extends Node2D
 var screen_size
 var screen_offset = 40
 var last_velocity = Vector2.ZERO
+var camera
 
 func _ready():
 	screen_size = get_viewport_rect().size
+	camera = get_node('%Camera')
+	camera.get
 
 func _process(delta):
 	var input_vector = Vector2.ZERO
@@ -35,10 +38,8 @@ func _process(delta):
 	if Input.is_action_pressed("move_up"):
 		input_vector.y -= 1
 	if Input.is_action_pressed("move_left"):
-		sprite.flip_h = true
 		input_vector.x -= 1
 	if Input.is_action_pressed("move_right"):
-		sprite.flip_h = false
 		input_vector.x += 1
 	
 	if input_vector != Vector2.ZERO:
@@ -74,5 +75,14 @@ func _process(delta):
 	last_velocity.x = clamp(last_velocity.x, -max_speed_x, max_speed_x)
 	last_velocity.y = clamp(last_velocity.y, -max_speed_y, max_speed_y)
 
-	# Move the player
+	# Move the player based on velocity
 	position += last_velocity
+	# Move the player based on camera scroll speed
+	position += Vector2(camera.scroll_speed * delta,0)
+	
+	
+	# Clamp the players position
+	position = position.clamp(
+		Vector2(-560, -300),
+		Vector2(screen_size.x, 300)
+	)
