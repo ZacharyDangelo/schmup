@@ -6,7 +6,7 @@
 [node name="Projectile" type="Node2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_284jt")
-speed = 75.0
+speed = 900.0
 speed_mod = 10.0
 
 [node name="Sprite" type="Sprite2D" parent="."]

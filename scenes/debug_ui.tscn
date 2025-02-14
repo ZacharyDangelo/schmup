@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/debug_ui.gd" id="1_fpvob"]
 [ext_resource type="FontFile" uid="uid://t8h1shroylrt" path="res://fonts/monogram.ttf" id="1_oyxfi"]
 
-[node name="DEBUG_UI" type="CanvasLayer" node_paths=PackedStringArray("toggle_button", "tools_container", "max_speed_y_input", "acceleration_y_input", "deceleration_y_input", "friction_input", "turn_speed_y_input", "max_speed_x_input", "acceleration_x_input", "deceleration_x_input", "turn_speed_x_input", "force_turn_input", "velocity_label")]
+[node name="DEBUG_UI" type="CanvasLayer" node_paths=PackedStringArray("toggle_button", "tools_container", "max_speed_y_input", "acceleration_y_input", "deceleration_y_input", "friction_input", "turn_speed_y_input", "max_speed_x_input", "acceleration_x_input", "deceleration_x_input", "turn_speed_x_input", "force_turn_input", "velocity_label", "export_button", "import_button")]
 script = ExtResource("1_fpvob")
 toggle_button = NodePath("Toggle")
 tools_container = NodePath("Tools")
@@ -18,6 +18,8 @@ deceleration_x_input = NodePath("Tools/VBoxContainer/DecelerationInput2")
 turn_speed_x_input = NodePath("Tools/VBoxContainer/TurnSpeed2")
 force_turn_input = NodePath("Tools/VBoxContainer/ForceTurnInput")
 velocity_label = NodePath("Tools/VBoxContainer/VelocityLabel")
+export_button = NodePath("Tools/VBoxContainer/VBoxContainer/Export")
+import_button = NodePath("Tools/VBoxContainer/VBoxContainer/Import")
 
 [node name="Toggle" type="Button" parent="."]
 offset_left = 783.0

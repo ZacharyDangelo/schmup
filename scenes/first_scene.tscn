@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3vgec77riiqu"]
+[gd_scene load_steps=7 format=3 uid="uid://d3vgec77riiqu"]
 
 [ext_resource type="PackedScene" uid="uid://c7hgmmou0ia8o" path="res://scenes/player.tscn" id="1_tul1x"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="2_0uke8"]
 [ext_resource type="Texture2D" uid="uid://hrs8o2hkcyh5" path="res://space_bg.png" id="2_30i84"]
-[ext_resource type="PackedScene" uid="uid://dxogv416tnuca" path="res://scenes/debug_ui.tscn" id="2_j8gc4"]
 [ext_resource type="Script" path="res://scripts/background.gd" id="5_2rvh4"]
 [ext_resource type="Texture2D" uid="uid://bbsy2s18qoxb5" path="res://bgs/stars.png" id="6_p8r1f"]
 [ext_resource type="Texture2D" uid="uid://b0bkar6t4rp6d" path="res://black.png" id="7_2dc0e"]
@@ -85,11 +84,4 @@ offset = Vector2(0, -361.57)
 [node name="Player" parent="." instance=ExtResource("1_tul1x")]
 unique_name_in_owner = true
 position = Vector2(-549, 0)
-
-[node name="DEBUG_UI" parent="." instance=ExtResource("2_j8gc4")]
-offset = Vector2(380, 0)
-scale = Vector2(0.66, 0.66)
-transform = Transform2D(0.66, 0, 0, 0.66, 380, 0)
-
-[node name="ProjectileContainer" type="Node2D" parent="."]
-unique_name_in_owner = true
+speed = 600.0

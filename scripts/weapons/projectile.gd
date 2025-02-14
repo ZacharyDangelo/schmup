@@ -5,4 +5,4 @@ extends Node2D
 
 
 func _process(delta):
-	position += Vector2(speed * speed_mod * delta,0)
+	position += Vector2(speed * delta,0)
