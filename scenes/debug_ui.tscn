@@ -27,6 +27,7 @@ offset_bottom = 47.0
 text = "Toggle DevTools"
 
 [node name="Tools" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 
