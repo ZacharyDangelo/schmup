@@ -90,3 +90,6 @@ position = Vector2(-549, 0)
 offset = Vector2(380, 0)
 scale = Vector2(0.66, 0.66)
 transform = Transform2D(0.66, 0, 0, 0.66, 380, 0)
+
+[node name="ProjectileContainer" type="Node2D" parent="."]
+unique_name_in_owner = true

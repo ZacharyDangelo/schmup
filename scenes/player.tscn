@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7hgmmou0ia8o"]
+[gd_scene load_steps=5 format=3 uid="uid://c7hgmmou0ia8o"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_4vd5h"]
 [ext_resource type="Texture2D" uid="uid://cv1bja2088xja" path="res://sprites/Arwing.png" id="2_p5reh"]
+[ext_resource type="Script" path="res://scripts/player/weapon.gd" id="3_6qpjo"]
+[ext_resource type="PackedScene" uid="uid://qd4i4sjjsbsm" path="res://scenes/projectile.tscn" id="4_syuc0"]
 
 [node name="Player" type="Node2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_4vd5h")
@@ -14,3 +16,11 @@ metadata/_edit_group_ = true
 texture = ExtResource("2_p5reh")
 region_enabled = true
 region_rect = Rect2(0, 0, 64, 32)
+
+[node name="Weapon" type="Node2D" parent="."]
+script = ExtResource("3_6qpjo")
+fire_delay = 0.4
+projectile = ExtResource("4_syuc0")
+
+[node name="FirePoint" type="Node2D" parent="Weapon"]
+position = Vector2(12, 2)

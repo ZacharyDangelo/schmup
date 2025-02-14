@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://qd4i4sjjsbsm"]
+
+[ext_resource type="Script" path="res://scripts/weapons/projectile.gd" id="1_284jt"]
+[ext_resource type="Texture2D" uid="uid://drgce5lu5oi1f" path="res://sprites/fish.png" id="2_ca58g"]
+
+[node name="Projectile" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_284jt")
+speed = 75.0
+speed_mod = 10.0
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_ca58g")
