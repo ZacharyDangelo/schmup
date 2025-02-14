@@ -81,8 +81,8 @@ func _process(delta):
 	position += Vector2(camera.scroll_speed * delta,0)
 	
 	
-	# Clamp the players position
-	position = position.clamp(
-		Vector2(-560, -300),
-		Vector2(screen_size.x, 300)
-	)
+	# Clamp the players position based on the camera
+	var half_screen = get_viewport_rect().size * 0.5 / camera.zoom  # Adjust for zoom
+	var min_bounds = (camera.position - camera.offset) - half_screen + camera.screen_padding
+	var max_bounds = (camera.position - camera.offset) + half_screen + - camera.screen_padding
+	position = position.clamp(min_bounds, max_bounds)
