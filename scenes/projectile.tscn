@@ -1,13 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://qd4i4sjjsbsm"]
+[gd_scene load_steps=4 format=3 uid="uid://qd4i4sjjsbsm"]
 
 [ext_resource type="Script" path="res://scripts/weapons/projectile.gd" id="1_284jt"]
 [ext_resource type="Texture2D" uid="uid://drgce5lu5oi1f" path="res://sprites/fish.png" id="2_ca58g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_117se"]
+size = Vector2(28, 12)
 
 [node name="Projectile" type="Node2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_284jt")
 speed = 900.0
 speed_mod = 10.0
+ttl = 2.5
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_ca58g")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_117se")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
