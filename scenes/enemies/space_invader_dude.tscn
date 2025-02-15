@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6xnbsmu7oojo"]
+
+[ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/enemy.tscn" id="1_bya8h"]
+[ext_resource type="Texture2D" uid="uid://8oqmlyfn2bqj" path="res://sprites/space_invaders_other_dude2.png" id="2_ixa6d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srr2v"]
+size = Vector2(6, 7.6)
+
+[node name="Enemy" instance=ExtResource("1_bya8h")]
+position = Vector2(663, 320)
+sprite = ExtResource("2_ixa6d")
+health = 5
+points = 100
+
+[node name="Area2D" type="Area2D" parent="." index="1"]
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(-3.8147e-07, 0.2)
+shape = SubResource("RectangleShape2D_srr2v")

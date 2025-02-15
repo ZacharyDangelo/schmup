@@ -1,21 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://ga7gbovh7j5q"]
+[gd_scene load_steps=5 format=3 uid="uid://ga7gbovh7j5q"]
 
 [ext_resource type="Texture2D" uid="uid://8oqmlyfn2bqj" path="res://sprites/space_invaders_other_dude2.png" id="1_6ahtt"]
 [ext_resource type="Script" path="res://scripts/enemy/enemy.gd" id="1_ah7db"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_40ve6"]
-size = Vector2(5, 8)
+[ext_resource type="Texture2D" uid="uid://bp1y734evu31y" path="res://icon.svg" id="2_637g1"]
+[ext_resource type="Script" path="res://scripts/enemy/movement/base_movement.gd" id="4_cdciw"]
 
 [node name="Enemy" type="Node2D"]
 scale = Vector2(5, 5)
 script = ExtResource("1_ah7db")
+sprite = ExtResource("2_637g1")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_6ahtt")
 
-[node name="Hitbox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-shape = SubResource("RectangleShape2D_40ve6")
-
-[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[node name="Movement" type="Node2D" parent="."]
+script = ExtResource("4_cdciw")
