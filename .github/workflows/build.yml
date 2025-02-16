@@ -35,7 +35,7 @@ jobs:
       - name: Build Game
         run: |
           mkdir -p build/windows
-          .\godot.exe -v --headless --export-release "Windows Desktop" build/windows/game.exe
+          .\godot.exe -v --headless --export-release "Windows Desktop" ./build/windows/game.exe
 
       - name: List build/windows Directory Contents
         run: |
