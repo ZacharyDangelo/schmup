@@ -1,0 +1,44 @@
+name: Godot CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Godot
+        run: winget install -e --id GodotEngine.Godot
+
+      - name: Download Godot Export Templates
+        run: |
+          mkdir -p %APPDATA%\Godot\export_templates
+          curl -L -o templates.zip https://github.com/godotengine/godot/releases/latest/download/Godot_v4.1.3-stable_export_templates.tpz
+          tar -xvf templates.zip -C %APPDATA%\Godot\export_templates
+
+      - name: Build Game
+        run: |
+          mkdir -p build/windows
+          Godot -v --headless --export-release "Windows Desktop" build/windows/game.exe
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: game-build
+          path: build/windows/
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/windows/game.exe
+          tag_name: latest
+          release_name: Latest Release
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
