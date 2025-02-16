@@ -19,7 +19,6 @@ jobs:
           & "C:\Program Files\7-Zip\7z.exe" x godot.exe.zip -aoa
           Rename-Item -Path "Godot_v4.3-stable_win64.exe" -NewName "godot.exe"
 
-
       - name: Download Godot Export Templates
         run: |
           # Create the export_templates directory using PowerShell
@@ -31,15 +30,17 @@ jobs:
           # Extract the templates.zip archive to the export_templates directory using 7-Zip
           & "C:\Program Files\7-Zip\7z.exe" x templates.zip -aoa -o"$env:APPDATA\Godot\export_templates"
 
-
       - name: Build Game
         run: |
-          mkdir -p build/windows
-          .\godot.exe -v --headless --export-release "Windows Desktop" ./build/windows/game.exe
+          # Create build/windows directory using PowerShell
+          New-Item -ItemType Directory -Force "build\windows"
+          # Build the game using Godot
+          .\godot.exe -v --headless --export-release "Windows Desktop" "build\windows\game.exe"
 
       - name: List build/windows Directory Contents
         run: |
-          Get-ChildItem -Recurse .\
+          Write-Host "Listing contents of build/windows:"
+          Get-ChildItem -Recurse .\build\windows\
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
