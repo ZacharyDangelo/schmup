@@ -24,7 +24,7 @@ jobs:
           New-Item -ItemType Directory -Force "$env:APPDATA\Godot\export_templates"
           
           # Download the export templates file
-          Invoke-WebRequest -Uri "https://github.com/godotengine/godot/releases/latest/download/Godot_v4.1.3-stable_export_templates.tpz" -OutFile "templates.zip"
+          Invoke-WebRequest -Uri "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz" -OutFile "templates.zip"
           
           # Extract the templates.zip archive to the export_templates directory using 7-Zip
           & "C:\Program Files\7-Zip\7z.exe" x templates.zip -aoa -o"$env:APPDATA\Godot\export_templates"
