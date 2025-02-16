@@ -3,7 +3,7 @@ name: Godot CI/CD
 on:
   push:
     branches:
-      - main
+      - ci-cd
   workflow_dispatch:
 
 jobs:
@@ -16,7 +16,7 @@ jobs:
       - name: Download and Install Godot
         run: |
           Invoke-WebRequest -Uri "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_win64.exe.zip" -OutFile "godot.exe.zip"
-          tar -xvf godot.exe.zip Godot_v4.3-stable_win64.exe/Godot_v4.3-stable_win64.exe
+          tar -xvf godot.exe.zip Godot_v4.3-stable_win64.exe
 
       - name: Download Godot Export Templates
         run: |
