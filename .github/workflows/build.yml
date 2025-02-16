@@ -16,7 +16,7 @@ jobs:
       - name: Download and Install Godot
         run: |
           Invoke-WebRequest -Uri "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_win64.exe.zip" -OutFile "godot.exe.zip"
-          Expand-Archive -Path godot.exe.zip -DestinationPath .
+          C:\Program Files\7-Zip\7z.exe" x godot.exe.zip -aoa
 
 
       - name: Download Godot Export Templates
