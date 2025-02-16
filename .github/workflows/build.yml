@@ -13,8 +13,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install Godot
-        run: winget install -e --id GodotEngine.Godot
+      - name: Download and Install Godot
+        run: |
+          Invoke-WebRequest -Uri "https://github.com/godotengine/godot/releases/latest/download/Godot_v4.1.3-stable_win64.exe" -OutFile "godot.exe"
 
       - name: Download Godot Export Templates
         run: |
@@ -25,7 +26,7 @@ jobs:
       - name: Build Game
         run: |
           mkdir -p build/windows
-          Godot -v --headless --export-release "Windows Desktop" build/windows/game.exe
+          .\godot.exe -v --headless --export-release "Windows Desktop" build/windows/game.exe
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
