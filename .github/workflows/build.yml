@@ -37,6 +37,10 @@ jobs:
           mkdir -p build/windows
           .\godot.exe -v --headless --export-release "Windows Desktop" build/windows/game.exe
 
+      - name: List build/windows Directory Contents
+        run: |
+          Get-ChildItem -Recurse .\build\windows\
+
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
         with:
