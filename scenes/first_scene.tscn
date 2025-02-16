@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://c7hgmmou0ia8o" path="res://scenes/player.tscn" id="1_tul1x"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="2_0uke8"]
 [ext_resource type="Script" path="res://scripts/background.gd" id="5_2rvh4"]
-[ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/enemy.tscn" id="6_a3ced"]
 [ext_resource type="Texture2D" uid="uid://bbsy2s18qoxb5" path="res://bgs/stars.png" id="6_p8r1f"]
 [ext_resource type="Script" path="res://scripts/enemy_container.gd" id="6_xrw71"]
 [ext_resource type="Texture2D" uid="uid://b0bkar6t4rp6d" path="res://black.png" id="7_2dc0e"]
+[ext_resource type="PackedScene" uid="uid://c6xnbsmu7oojo" path="res://scenes/enemies/space_invader_dude.tscn" id="7_aoj2d"]
 
 [node name="Game" type="Node"]
 
@@ -14,7 +14,6 @@
 unique_name_in_owner = true
 position_smoothing_enabled = true
 script = ExtResource("2_0uke8")
-scroll_speed = 100.0
 screen_padding = Vector2(50, 50)
 metadata/_edit_lock_ = true
 
@@ -46,7 +45,7 @@ speed = 600.0
 
 [node name="EnemyContainer" type="Node2D" parent="."]
 script = ExtResource("6_xrw71")
-enemy_scene = ExtResource("6_a3ced")
+enemy_scene = ExtResource("7_aoj2d")
 num_to_spawn = 50
 min_offset = Vector2(700, 50)
 max_offset = Vector2(2500, 50)
