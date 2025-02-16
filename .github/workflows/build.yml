@@ -17,6 +17,8 @@ jobs:
         run: |
           curl -L -o godot.exe.zip "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_win64.exe.zip"
           & "C:\Program Files\7-Zip\7z.exe" x godot.exe.zip -aoa
+          Rename-Item -Path "Godot_v4.3-stable_win64.exe" -NewName "godot.exe"
+
 
       - name: Download Godot Export Templates
         run: |
