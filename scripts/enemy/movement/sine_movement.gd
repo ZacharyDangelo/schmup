@@ -7,6 +7,7 @@ signal peak_reached
 @export var speed: float = 100  # Forward movement speed
 @export var max_distance = 150 # How far can the enemy travel before turning around
 @export var movement_delay = 2.5
+@export var debug: bool = false
 
 
 var time_elapsed: float = 0.0  # Keeps track of time
@@ -116,14 +117,16 @@ func process(delta):
 			signaled = true
 		
 	# Debug stuff
-	previous_positions.append(parent.global_position)
-	queue_redraw()
+	if debug:
+		previous_positions.append(parent.global_position)
+		queue_redraw()
 
 
 func _draw():
-	debug()  # Call the debug function
+	if debug: 
+		draw_debug()  # Call the debug function
 
-func debug():
+func draw_debug():
 	# Draw a path of past positions as a line
 	for i in range(previous_positions.size() - 1):
 		draw_line(previous_positions[i] - global_position, 

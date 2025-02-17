@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ga7gbovh7j5q"]
 
 [ext_resource type="Texture2D" uid="uid://8oqmlyfn2bqj" path="res://sprites/space_invaders_other_dude2.png" id="1_6ahtt"]
-[ext_resource type="Script" path="res://scripts/enemy/enemy.gd" id="1_ah7db"]
+[ext_resource type="Script" path="res://scripts/enemy/base_enemy.gd" id="1_ah7db"]
 
 [node name="Enemy" type="Node2D"]
 scale = Vector2(5, 5)

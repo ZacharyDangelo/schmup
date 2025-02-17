@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1bxhcq6ut76k"]
+[gd_scene load_steps=4 format=3 uid="uid://d1bxhcq6ut76k"]
 
 [ext_resource type="Script" path="res://scripts/weapons/cannon_projectile.gd" id="1_3gs6o"]
 [ext_resource type="Texture2D" uid="uid://cbsbhmkk6n1n5" path="res://sprites/doughnut.png" id="1_bdu2t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wm4pj"]
+radius = 5.5
 
 [node name="CannonProjectile" type="Node2D"]
 scale = Vector2(2, 2)
@@ -14,3 +17,9 @@ random_mod = Vector2(50, 100)
 texture = ExtResource("1_bdu2t")
 region_enabled = true
 region_rect = Rect2(0, 32, 16, 16)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_wm4pj")

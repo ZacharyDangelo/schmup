@@ -18,7 +18,6 @@ screen_padding = Vector2(50, 50)
 metadata/_edit_lock_ = true
 
 [node name="Background" type="ParallaxBackground" parent="."]
-visible = false
 script = ExtResource("5_2rvh4")
 
 [node name="BGLayer" type="ParallaxLayer" parent="Background"]
