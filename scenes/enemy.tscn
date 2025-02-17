@@ -15,3 +15,5 @@ collision_layer = 2
 collision_mask = 9
 
 [node name="Movement" type="Node2D" parent="."]
+
+[node name="Weapon" type="Node2D" parent="."]

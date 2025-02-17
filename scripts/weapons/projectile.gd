@@ -1,7 +1,6 @@
 extends Node2D
 
 @export var speed: float
-@export var speed_mod: float
 @export var ttl: float
 
 

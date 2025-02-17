@@ -10,7 +10,6 @@ size = Vector2(28, 12)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_284jt")
 speed = 900.0
-speed_mod = 10.0
 ttl = 2.5
 
 [node name="Sprite" type="Sprite2D" parent="."]

@@ -11,7 +11,6 @@ var camera
 func _ready():
 	screen_size = get_viewport_rect().size
 	camera = get_node('%Camera')
-	camera.get
 
 func _process(delta):
 	var input_vector = Vector2.ZERO
