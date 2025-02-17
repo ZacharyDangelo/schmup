@@ -28,19 +28,19 @@ var half_time = travel_time / 2
 var current_movement_timer = 0
 var signaled = false
 
+enum Direction {LEFT, RIGHT}
+var dir = Direction.LEFT
+
 func _ready():
 	parent = get_parent()
-	spawn_pos = parent.global_position
 	target_pos = Vector2(parent.global_position.x - max_distance, parent.global_position.y + amplitude)
-	start()
-
+	
 func start():
 	move_forward()  # Start the sine wave movement
 
-	
-
 func move_forward():
 	waiting = false
+	dir = -1
 	x_tween = create_tween()
 	# Connect signal so we know when this movement has finished
 	x_tween.finished.connect(set.bind('waiting',true))
@@ -103,9 +103,11 @@ func process(delta):
 	if waiting:
 		current_movement_delay += delta
 		if current_movement_delay >= movement_delay:
-			if global_position == spawn_pos:
+			if dir == Direction.RIGHT:
 				move_forward()
+				dir = Direction.LEFT
 			else: 
+				dir = Direction.RIGHT
 				move_back_to_spawn()
 			current_movement_delay = 0 
 			signaled = false

@@ -19,6 +19,7 @@ frequency = 1.0
 speed = 100.0
 max_distance = 150
 movement_delay = 2.5
+enabled = true
 sprite = ExtResource("2_ixa6d")
 health = 1
 points = 100
@@ -28,6 +29,7 @@ position = Vector2(0, 0.200001)
 shape = SubResource("RectangleShape2D_srr2v")
 
 [node name="Movement" parent="." index="2"]
+position = Vector2(-0.2, 0)
 script = ExtResource("3_oqpoc")
 
 [node name="Weapon" parent="." index="3"]

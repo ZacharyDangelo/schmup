@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcehqyrqtpn2s"]
+
+[ext_resource type="Script" path="res://scripts/formation.gd" id="1_psc7p"]
+
+[node name="Formation" type="Node2D"]
+script = ExtResource("1_psc7p")
+
+[node name="EnemyContainer" type="Node2D" parent="."]
+
+[node name="SpawnPositions" type="Node2D" parent="."]
+
+[node name="Marker1" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(0, -240)
+
+[node name="Marker2" type="Marker2D" parent="SpawnPositions"]
+
+[node name="Marker3" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(0, 240)

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyConfig" load_steps=3 format=3 uid="uid://d3ielmed12h3d"]
+
+[ext_resource type="Script" path="res://scripts/enemy/enemy_resource.gd" id="1_b5g3l"]
+[ext_resource type="PackedScene" uid="uid://c6xnbsmu7oojo" path="res://scenes/enemies/space_invader_dude.tscn" id="1_ek7aa"]
+
+[resource]
+script = ExtResource("1_b5g3l")
+enemy_scene = ExtResource("1_ek7aa")
+health = 3
+points = 10
+amplitude = -100.0
+frequency = 1.0
+speed = 100.0
+max_distance = 150
+movement_delay = 2.5

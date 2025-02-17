@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3vgec77riiqu"]
+[gd_scene load_steps=11 format=3 uid="uid://d3vgec77riiqu"]
 
 [ext_resource type="PackedScene" uid="uid://c7hgmmou0ia8o" path="res://scenes/player.tscn" id="1_tul1x"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="2_0uke8"]
 [ext_resource type="Script" path="res://scripts/background.gd" id="5_2rvh4"]
+[ext_resource type="PackedScene" uid="uid://bcehqyrqtpn2s" path="res://scenes/formations/formation.tscn" id="6_5kb83"]
 [ext_resource type="Texture2D" uid="uid://bbsy2s18qoxb5" path="res://bgs/stars.png" id="6_p8r1f"]
-[ext_resource type="Script" path="res://scripts/enemy_container.gd" id="6_xrw71"]
 [ext_resource type="Texture2D" uid="uid://b0bkar6t4rp6d" path="res://black.png" id="7_2dc0e"]
-[ext_resource type="PackedScene" uid="uid://c6xnbsmu7oojo" path="res://scenes/enemies/space_invader_dude.tscn" id="7_aoj2d"]
+[ext_resource type="Script" path="res://scripts/enemy/enemy_resource.gd" id="7_ku7bj"]
+[ext_resource type="Resource" uid="uid://b3f15ggx2j1w6" path="res://resources/enemy/space_invader_resource.tres" id="8_1de1h"]
+[ext_resource type="Resource" uid="uid://d3ielmed12h3d" path="res://resources/enemy/space_invader_resource_bottom.tres" id="9_0jkqa"]
+[ext_resource type="Resource" uid="uid://fhii6u6aowoq" path="res://resources/enemy/space_invader_resource_center.tres" id="9_d2xs3"]
 
 [node name="Game" type="Node"]
 
@@ -43,9 +46,7 @@ unique_name_in_owner = true
 position = Vector2(-549, 0)
 speed = 600.0
 
-[node name="EnemyContainer" type="Node2D" parent="."]
-script = ExtResource("6_xrw71")
-enemy_scene = ExtResource("7_aoj2d")
-num_to_spawn = 50
-min_offset = Vector2(700, 50)
-max_offset = Vector2(2500, 50)
+[node name="Formation" parent="." instance=ExtResource("6_5kb83")]
+position = Vector2(95, 0)
+enemy_configs = Array[ExtResource("7_ku7bj")]([ExtResource("8_1de1h"), ExtResource("9_d2xs3"), ExtResource("9_0jkqa")])
+spawn_delay = 0.0
