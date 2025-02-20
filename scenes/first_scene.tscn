@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c7hgmmou0ia8o" path="res://scenes/player.tscn" id="1_tul1x"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="2_0uke8"]
 [ext_resource type="Script" path="res://scripts/background.gd" id="5_2rvh4"]
-[ext_resource type="PackedScene" uid="uid://xe6wgem5ima5" path="res://scenes/enemies/eyeball_homie.tscn" id="6_76kig"]
+[ext_resource type="PackedScene" uid="uid://dxi4y6lndaks8" path="res://scenes/enemies/bullet_sponge.tscn" id="6_8rh1w"]
 [ext_resource type="Texture2D" uid="uid://bbsy2s18qoxb5" path="res://bgs/stars.png" id="6_p8r1f"]
 [ext_resource type="Texture2D" uid="uid://b0bkar6t4rp6d" path="res://black.png" id="7_2dc0e"]
 
@@ -42,10 +42,5 @@ unique_name_in_owner = true
 position = Vector2(-549, 0)
 speed = 600.0
 
-[node name="EyeballHomie" parent="." instance=ExtResource("6_76kig")]
-position = Vector2(760, -1.13687e-13)
-attack_delay = 1.2
-movement_speed = 750.0
-locked_on_movement_speed = 1000.0
-movement_offset_x = 200.0
-movement_offset_y = 50.0
+[node name="Enemy" parent="." instance=ExtResource("6_8rh1w")]
+position = Vector2(21, 2)
