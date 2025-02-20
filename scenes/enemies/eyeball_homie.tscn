@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://xe6wgem5ima5"]
+
+[ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/enemy.tscn" id="1_hg6gp"]
+[ext_resource type="Script" path="res://scripts/enemy/eyeball_homie.gd" id="2_5llcc"]
+[ext_resource type="Texture2D" uid="uid://cnypjtelk36g2" path="res://sprites/EyeballGuy.png" id="2_b8ekc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1fsuu"]
+radius = 15.0013
+
+[node name="EyeballHomie" instance=ExtResource("1_hg6gp")]
+script = ExtResource("2_5llcc")
+lock_on_time = 2.4
+attack_delay = 1.2
+movement_speed = 750.0
+locked_on_movement_speed = 1000.0
+movement_offset_x = 200.0
+movement_offset_y = 50.0
+sprite = ExtResource("2_b8ekc")
+health = 15
+points = 1000
+metadata/_edit_group_ = true
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("2_b8ekc")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource("CircleShape2D_1fsuu")

@@ -40,3 +40,8 @@ func _process(delta):
 	var min_bounds = (camera.position - camera.offset) - half_screen + camera.screen_padding
 	var max_bounds = (camera.position - camera.offset) + half_screen + - camera.screen_padding
 	position = position.clamp(min_bounds, max_bounds)
+
+
+
+func _on_hit_box_area_entered(area):
+	print("I'm hit!")

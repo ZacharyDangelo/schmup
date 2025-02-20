@@ -13,3 +13,4 @@ frequency = 1.0
 speed = 100.0
 max_distance = 150
 movement_delay = 2.5
+enabled = true

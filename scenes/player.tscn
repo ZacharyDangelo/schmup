@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://qd4i4sjjsbsm" path="res://scenes/projectile.tscn" id="4_syuc0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0blvs"]
-size = Vector2(41, 11)
+size = Vector2(34, 10)
 
 [node name="Player" type="Node2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_4vd5h")
@@ -23,15 +23,17 @@ region_rect = Rect2(0, 0, 64, 32)
 [node name="Weapon" type="Node2D" parent="."]
 script = ExtResource("3_6qpjo")
 auto_fire = true
-fire_delay = 0.4
+fire_delay = 0.3
 projectile = ExtResource("4_syuc0")
 
 [node name="FirePoint" type="Node2D" parent="Weapon"]
 position = Vector2(12, 2)
 
 [node name="HitBox" type="Area2D" parent="."]
-collision_mask = 6
+collision_mask = 22
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(-0.5, -0.5)
+position = Vector2(2, -1)
 shape = SubResource("RectangleShape2D_0blvs")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

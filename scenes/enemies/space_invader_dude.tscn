@@ -8,10 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://d1bxhcq6ut76k" path="res://scenes/enemies/projectiles/cannon_projectile.tscn" id="5_pgy6g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_srr2v"]
-size = Vector2(6, 7.6)
+size = Vector2(9.20001, 9.8)
 
 [node name="Enemy" instance=ExtResource("1_bya8h")]
-position = Vector2(663, 320)
 script = ExtResource("2_rjni5")
 debug = false
 amplitude = 100.0
@@ -25,7 +24,7 @@ health = 1
 points = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2(0, 0.200001)
+position = Vector2(0, 0.299999)
 shape = SubResource("RectangleShape2D_srr2v")
 
 [node name="Movement" parent="." index="2"]

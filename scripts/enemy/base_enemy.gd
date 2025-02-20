@@ -7,7 +7,7 @@ extends Node2D
 @export var points: int
 
 
-
+var player
 var camera
 var movement
 var hit_box
@@ -21,6 +21,16 @@ func _ready():
 	
 	if hit_box:
 		hit_box.area_entered.connect(_on_hit_box_area_entered)
+	var player_group = get_tree().get_nodes_in_group("Player")
+	if not player_group:
+		push_error('Cant find player in sine_cannon fire function')
+		return
+	player = player_group[0]
+	var camera_group = get_tree().get_nodes_in_group("Camera")
+	if not camera_group:
+		push_error('Cant find camera in sine_cannon fire function')
+		return
+	camera = camera_group[0]
 
 func _process(delta):
 	if movement: 
