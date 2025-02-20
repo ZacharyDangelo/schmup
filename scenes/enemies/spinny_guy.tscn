@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://cx522ov3tojij"]
+
+[ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/enemy.tscn" id="1_okp4h"]
+[ext_resource type="Script" path="res://scripts/enemy/spinny_guy.gd" id="2_ctivy"]
+[ext_resource type="Texture2D" uid="uid://baeoqldtioveu" path="res://sprites/spinny_guy.png" id="3_d6skj"]
+[ext_resource type="Script" path="res://scripts/weapons/basic_weapon.gd" id="4_bkyhn"]
+[ext_resource type="PackedScene" uid="uid://cv36bct3mgvb" path="res://scenes/spinny_projectile.tscn" id="5_7b7ct"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hl5d5"]
+radius = 8.60232
+
+[node name="SpinnyGuy" instance=ExtResource("1_okp4h")]
+script = ExtResource("2_ctivy")
+rotation_speed = 90.0
+sprite = ExtResource("3_d6skj")
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("3_d6skj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource("CircleShape2D_hl5d5")
+
+[node name="Weapon" parent="." index="3"]
+script = ExtResource("4_bkyhn")
+projectile = ExtResource("5_7b7ct")
+
+[node name="FirePoint" type="Node2D" parent="Weapon" index="0"]
+position = Vector2(0, -13.8)
+scale = Vector2(-0.0820326, 2.77504)

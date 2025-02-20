@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bsyen"]
 size = Vector2(22.6, 11.6)
 
-[node name="Enemy" instance=ExtResource("1_jcrnc")]
+[node name="BulletSponge" instance=ExtResource("1_jcrnc")]
 script = ExtResource("2_hlpcv")
 shake_intensity = 2.5
 sprite = ExtResource("2_i6tug")

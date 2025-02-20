@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3vgec77riiqu"]
+[gd_scene load_steps=8 format=3 uid="uid://d3vgec77riiqu"]
 
 [ext_resource type="PackedScene" uid="uid://c7hgmmou0ia8o" path="res://scenes/player.tscn" id="1_tul1x"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="2_0uke8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dxi4y6lndaks8" path="res://scenes/enemies/bullet_sponge.tscn" id="6_8rh1w"]
 [ext_resource type="Texture2D" uid="uid://bbsy2s18qoxb5" path="res://bgs/stars.png" id="6_p8r1f"]
 [ext_resource type="Texture2D" uid="uid://b0bkar6t4rp6d" path="res://black.png" id="7_2dc0e"]
+[ext_resource type="PackedScene" uid="uid://cx522ov3tojij" path="res://scenes/enemies/spinny_guy.tscn" id="7_tk7nx"]
 
 [node name="Game" type="Node"]
 
@@ -44,3 +45,9 @@ speed = 600.0
 
 [node name="Enemy" parent="." instance=ExtResource("6_8rh1w")]
 position = Vector2(21, 2)
+
+[node name="SpinnyGuy" parent="." instance=ExtResource("7_tk7nx")]
+position = Vector2(7, -226)
+
+[node name="SpinnyGuy2" parent="." instance=ExtResource("7_tk7nx")]
+position = Vector2(-13, 272)

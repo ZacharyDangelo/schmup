@@ -5,7 +5,7 @@ extends Node2D
 
 
 func _process(delta):
-	position += Vector2(speed * delta,0)
+	position += Vector2.RIGHT.rotated(rotation) * speed * delta
 	ttl -= delta
 	if ttl <= 0:
 		self.queue_free()
