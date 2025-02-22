@@ -19,5 +19,4 @@ texture = ExtResource("2_i6tug")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2(0, 5.68434e-14)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_bsyen")

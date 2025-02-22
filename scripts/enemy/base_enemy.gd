@@ -7,6 +7,7 @@ extends Node2D
 @export var points: int
 
 
+
 var player
 var camera
 var movement
@@ -35,7 +36,7 @@ func _ready():
 	camera = camera_group[0]
 
 func _process(delta):
-	if movement: 
+	if movement.has_method("process"): 
 		movement.process(delta)
 	handle_out_of_bounds()
 		

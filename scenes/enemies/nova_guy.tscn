@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgnh8brt4jfcp"]
+
+[ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/enemy.tscn" id="1_7ypv8"]
+[ext_resource type="Texture2D" uid="uid://bp1y734evu31y" path="res://icon.svg" id="2_618u6"]
+[ext_resource type="Script" path="res://scripts/weapons/nova_weapon.gd" id="3_lmlg6"]
+[ext_resource type="PackedScene" uid="uid://bv2wggf7fp5wt" path="res://scenes/nova_proj.tscn" id="4_bdhva"]
+
+[node name="NovaGuy" instance=ExtResource("1_7ypv8")]
+position = Vector2(642, 397)
+scale = Vector2(1, 1)
+sprite = ExtResource("2_618u6")
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_618u6")
+
+[node name="Weapon" parent="." index="3"]
+script = ExtResource("3_lmlg6")
+spawn_distance = 45.0
+num_projectiles = 8.0
+weapon_type = 1
+auto_fire = true
+fire_delay = 5.0
+projectile = ExtResource("4_bdhva")
+
+[node name="FirePoint" type="Node2D" parent="Weapon" index="0"]
