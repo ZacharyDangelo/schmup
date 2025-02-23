@@ -8,4 +8,4 @@ func _ready():
 
 func _process(delta):
 	rotation += (deg_to_rad(rotation_speed) * delta)
-	pass
+	super(delta)

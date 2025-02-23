@@ -2,6 +2,9 @@ extends "res://scripts/weapons/base_weapon.gd"
 
 @export var spawn_distance: float
 @export var num_projectiles: float
+@export var repeat_delay: float
+
+var active = false
 
 func _ready():
 	super()
@@ -11,7 +14,6 @@ func _process(delta):
 	
 
 func fire():
-	print('fire!')
 	var rotation_per_step = 360/num_projectiles
 	var curr_rotation = 0
 	for i in range(num_projectiles):
@@ -21,4 +23,4 @@ func fire():
 		proj.dir = Vector2.DOWN
 		get_tree().current_scene.add_child(proj)
 		curr_rotation += rotation_per_step
-	current_fire_timer = 0
+	current_fire_timer = -repeat_delay

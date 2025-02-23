@@ -27,5 +27,9 @@ func _process(delta):
 func fire():
 	var proj = projectile.instantiate()
 	proj.position = fire_point.global_position
+	if weapon_type == WeaponType.PLAYER:
+		proj.dir = Vector2.RIGHT
+	else:
+		proj.dir = Vector2.LEFT
 	get_tree().current_scene.add_child(proj)
 	current_fire_timer = 0

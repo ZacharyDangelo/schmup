@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://c7hgmmou0ia8o" path="res://scenes/player.tscn" id="1_tul1x"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="2_0uke8"]
 [ext_resource type="Script" path="res://scripts/background.gd" id="5_2rvh4"]
+[ext_resource type="PackedScene" uid="uid://cda87mfppoffb" path="res://scenes/levels/level_0.tscn" id="6_p5c2o"]
 [ext_resource type="Texture2D" uid="uid://bbsy2s18qoxb5" path="res://bgs/stars.png" id="6_p8r1f"]
-[ext_resource type="PackedScene" uid="uid://bgnh8brt4jfcp" path="res://scenes/enemies/nova_guy.tscn" id="6_tddjr"]
 [ext_resource type="Texture2D" uid="uid://b0bkar6t4rp6d" path="res://black.png" id="7_2dc0e"]
 
 [node name="Game" type="Node"]
@@ -13,10 +13,12 @@
 unique_name_in_owner = true
 position_smoothing_enabled = true
 script = ExtResource("2_0uke8")
+scroll_speed = 100.0
 screen_padding = Vector2(50, 50)
 metadata/_edit_lock_ = true
 
 [node name="Background" type="ParallaxBackground" parent="."]
+visible = false
 script = ExtResource("5_2rvh4")
 
 [node name="BGLayer" type="ParallaxLayer" parent="Background"]
@@ -38,9 +40,9 @@ centered = false
 offset = Vector2(0, -361.57)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_tul1x")]
-unique_name_in_owner = true
 position = Vector2(-549, 0)
-speed = 600.0
+speed = 500.0
 
-[node name="NovaGuy" parent="." instance=ExtResource("6_tddjr")]
-position = Vector2(2, 46)
+[node name="BaseLevel" parent="." instance=ExtResource("6_p5c2o")]
+
+[editable path="BaseLevel"]

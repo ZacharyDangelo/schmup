@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://cda87mfppoffb"]
+
+[ext_resource type="PackedScene" uid="uid://ccsdnov6q6ssd" path="res://scenes/levels/base_level.tscn" id="1_f1xfs"]
+[ext_resource type="PackedScene" uid="uid://c6xnbsmu7oojo" path="res://scenes/enemies/sine_wave_guy.tscn" id="2_okosj"]
+[ext_resource type="PackedScene" uid="uid://bsjv028m6nc23" path="res://scenes/enemies/slider_guy.tscn" id="3_kv27j"]
+[ext_resource type="PackedScene" uid="uid://csysyfpc4kupb" path="res://scenes/enemies/up_down_guy.tscn" id="4_4a2ux"]
+[ext_resource type="PackedScene" uid="uid://cx522ov3tojij" path="res://scenes/enemies/spinny_guy.tscn" id="5_py2p7"]
+[ext_resource type="PackedScene" uid="uid://bgnh8brt4jfcp" path="res://scenes/enemies/nova_guy.tscn" id="6_il8h2"]
+
+[node name="BaseLevel" instance=ExtResource("1_f1xfs")]
+
+[node name="Enemy" parent="Enemies" index="0" instance=ExtResource("2_okosj")]
+position = Vector2(367, -158)
+
+[node name="SliderGuy" parent="Enemies" index="1" instance=ExtResource("3_kv27j")]
+position = Vector2(372, 298)
+
+[node name="SliderGuy2" parent="Enemies" index="2" instance=ExtResource("3_kv27j")]
+position = Vector2(369, -270)
+
+[node name="Enemy2" parent="Enemies" index="3" instance=ExtResource("4_4a2ux")]
+position = Vector2(608, 233)
+
+[node name="Enemy3" parent="Enemies" index="4" instance=ExtResource("4_4a2ux")]
+position = Vector2(1247, -17)
+
+[node name="Enemy4" parent="Enemies" index="5" instance=ExtResource("4_4a2ux")]
+position = Vector2(969, -329)
+
+[node name="SpinnyGuy" parent="Enemies" index="6" instance=ExtResource("5_py2p7")]
+position = Vector2(1112, 245)
+
+[node name="SpinnyGuy2" parent="Enemies" index="7" instance=ExtResource("5_py2p7")]
+position = Vector2(1608, -293)
+
+[node name="SpinnyGuy3" parent="Enemies" index="8" instance=ExtResource("5_py2p7")]
+position = Vector2(2375, 263)
+
+[node name="NovaGuy" parent="Enemies" index="9" instance=ExtResource("6_il8h2")]
+position = Vector2(1598, -4)

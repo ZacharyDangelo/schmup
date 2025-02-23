@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://csysyfpc4kupb"]
+
+[ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/enemy.tscn" id="1_cx8ys"]
+[ext_resource type="Script" path="res://scripts/enemy/movement/up_down_movement.gd" id="2_1opuv"]
+[ext_resource type="Texture2D" uid="uid://8oqmlyfn2bqj" path="res://sprites/space_invaders_other_dude2.png" id="2_yiou7"]
+[ext_resource type="Script" path="res://scripts/weapons/base_weapon.gd" id="3_656q0"]
+[ext_resource type="PackedScene" uid="uid://cv36bct3mgvb" path="res://scenes/spinny_projectile.tscn" id="5_74vmf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t44vb"]
+size = Vector2(6, 8.6)
+
+[node name="Enemy" instance=ExtResource("1_cx8ys")]
+sprite = ExtResource("2_yiou7")
+health = 5
+points = 150
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(-2.84217e-14, 0.4)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_t44vb")
+
+[node name="Movement" parent="." index="2"]
+script = ExtResource("2_1opuv")
+speed = 125.0
+offset = 350.0
+
+[node name="Weapon" parent="." index="3"]
+script = ExtResource("3_656q0")
+weapon_type = 1
+auto_fire = true
+fire_delay = 2.0
+projectile = ExtResource("5_74vmf")
+
+[node name="FirePoint" type="Node2D" parent="Weapon" index="0"]

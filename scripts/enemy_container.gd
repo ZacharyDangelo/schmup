@@ -18,7 +18,6 @@ func _process(delta):
 		spawn_enemies()
 	
 func spawn_enemies():
-	print('Spawning enemies!')
 	
 	var camera_rect = camera.get_viewport_rect()  
 	var camera_position = camera.global_position  
@@ -40,5 +39,3 @@ func spawn_enemies():
 		enemy.position = Vector2(random_x, random_y)  
 		enemy.camera = camera  # Ensure enemy has a reference to the camera
 		self.add_child(enemy)  
-
-	print("Finished spawning enemies")
