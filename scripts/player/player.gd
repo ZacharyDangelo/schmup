@@ -1,5 +1,7 @@
 extends Node2D
 
+signal on_died()
+
 @export var sprite: Sprite2D
 @export var speed: float
 
@@ -7,12 +9,16 @@ var screen_size
 var screen_offset = 40
 var last_velocity = Vector2.ZERO
 var camera
+var dead
 
 func _ready():
 	screen_size = get_viewport_rect().size
 	camera = get_node('%Camera')
+	dead = false
 
 func _process(delta):
+	if dead:
+		return
 	var input_vector = Vector2.ZERO
 	# Get movement input
 	if Input.is_action_pressed("move_down"):
@@ -44,4 +50,5 @@ func _process(delta):
 
 
 func _on_hit_box_area_entered(area):
-	print("I'm hit!")
+	dead = true
+	on_died.emit()

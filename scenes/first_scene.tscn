@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3vgec77riiqu"]
+[gd_scene load_steps=8 format=3 uid="uid://d3vgec77riiqu"]
 
 [ext_resource type="PackedScene" uid="uid://c7hgmmou0ia8o" path="res://scenes/player.tscn" id="1_tul1x"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="2_0uke8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cda87mfppoffb" path="res://scenes/levels/level_0.tscn" id="6_p5c2o"]
 [ext_resource type="Texture2D" uid="uid://bbsy2s18qoxb5" path="res://bgs/stars.png" id="6_p8r1f"]
 [ext_resource type="Texture2D" uid="uid://b0bkar6t4rp6d" path="res://black.png" id="7_2dc0e"]
+[ext_resource type="PackedScene" uid="uid://kmbgcemcb7pq" path="res://scenes/menus/game_over_menu.tscn" id="7_aa218"]
 
 [node name="Game" type="Node"]
 
@@ -40,9 +41,16 @@ centered = false
 offset = Vector2(0, -361.57)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_tul1x")]
+unique_name_in_owner = true
 position = Vector2(-549, 0)
 speed = 500.0
 
 [node name="BaseLevel" parent="." instance=ExtResource("6_p5c2o")]
+
+[node name="GameOverMenu" parent="." instance=ExtResource("7_aa218")]
+visible = false
+offset_top = -325.0
+offset_right = -1280.0
+offset_bottom = -1045.0
 
 [editable path="BaseLevel"]

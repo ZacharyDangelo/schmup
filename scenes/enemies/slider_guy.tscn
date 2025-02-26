@@ -16,7 +16,6 @@ points = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2(0.0999996, 0.2)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_psss8")
 
 [node name="Movement" parent="." index="2"]

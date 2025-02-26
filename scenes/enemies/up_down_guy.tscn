@@ -16,7 +16,6 @@ points = 150
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2(-2.84217e-14, 0.4)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_t44vb")
 
 [node name="Movement" parent="." index="2"]

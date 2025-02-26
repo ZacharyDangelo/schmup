@@ -4,10 +4,18 @@ extends Camera2D
 @export var screen_padding: Vector2
 
 var player
+var current_scroll_speed
 
 func _ready():
 	player = get_node('%Player')
+	player.on_died.connect(stop_camera)
+	current_scroll_speed = scroll_speed
 
 func _process(delta):
-	position += Vector2(scroll_speed * delta,0)
+	position += Vector2(current_scroll_speed * delta,0)
 	
+func stop_camera():
+	current_scroll_speed = 0
+
+func start_camera():
+	current_scroll_speed = scroll_speed
