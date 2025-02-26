@@ -1,5 +1,7 @@
 extends Node2D
 
+signal on_killed(points: int)
+
 @export var sprite: Texture2D
 @export var awake_offset: float = 40
 @export_group("Stats")
@@ -32,6 +34,11 @@ func _ready():
 	if not player_group:
 		push_error('Cant find player in sine_cannon fire function')
 		return
+	var ui_group = get_tree().get_nodes_in_group("UI")
+	if not ui_group:
+		push_error('Cant find UI')
+		return
+	on_killed.connect(ui_group[0]._on_enemy_killed)
 	player = player_group[0]
 	camera = get_camera()
 
@@ -68,6 +75,7 @@ func take_damage():
 	current_health -= 1
 	shake()
 	if current_health <= 0:
+		on_killed.emit(points)
 		self.queue_free()
 
 func shake():
