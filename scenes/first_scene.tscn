@@ -47,10 +47,18 @@ speed = 500.0
 
 [node name="BaseLevel" parent="." instance=ExtResource("6_p5c2o")]
 
-[node name="GameOverMenu" parent="." instance=ExtResource("7_aa218")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameOverMenu" parent="CanvasLayer" instance=ExtResource("7_aa218")]
 visible = false
-offset_top = -325.0
-offset_right = -1280.0
-offset_bottom = -1045.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_top = 82.0
+offset_bottom = 82.0
+grow_vertical = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [editable path="BaseLevel"]
