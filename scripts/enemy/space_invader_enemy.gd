@@ -10,7 +10,7 @@ extends "res://scripts/enemy/base_enemy.gd"
 @export var movement_delay = 2.5
 @export var enabled: bool = true
 
-
+#
 var spawn_pos: Vector2
 
 

@@ -10,6 +10,7 @@
 size = Vector2(7, 7.6)
 
 [node name="SliderGuy" instance=ExtResource("1_ypc6x")]
+position = Vector2(-1, 0)
 sprite = ExtResource("2_3ear6")
 health = 2
 points = 100
@@ -24,10 +25,10 @@ speed = 250.0
 
 [node name="Weapon" parent="." index="3"]
 script = ExtResource("4_vp0mw")
-angle = 35.0
+angle = 15.0
 weapon_type = 1
 auto_fire = true
-fire_delay = 2.2
+fire_delay = 1.2
 projectile = ExtResource("5_gt4if")
 
 [node name="FirePoint" type="Node2D" parent="Weapon" index="0"]

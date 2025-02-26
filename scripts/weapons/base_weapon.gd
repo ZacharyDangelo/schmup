@@ -9,15 +9,22 @@ enum WeaponType { PLAYER, ENEMY}
 @export_group("Projectile")
 @export var projectile: PackedScene
 
+var active
 
 var current_fire_timer = 0
 var projectile_container
 var fire_point:Node2D
 
 func _ready():
+	if weapon_type == WeaponType.PLAYER:
+		active = true
+	else:
+		active = false
 	fire_point = get_node("FirePoint")
 	
 func _process(delta):
+	if not active:
+		return
 	if not auto_fire:
 		return
 	current_fire_timer += delta

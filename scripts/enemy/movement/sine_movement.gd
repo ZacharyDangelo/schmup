@@ -33,9 +33,10 @@ var dir = Direction.LEFT
 
 func _ready():
 	parent = get_parent()
-	target_pos = Vector2(parent.global_position.x - max_distance, parent.global_position.y + amplitude)
+	
 	
 func start():
+	target_pos = Vector2(parent.global_position.x - max_distance, parent.global_position.y + amplitude)
 	move_forward()  # Start the sine wave movement
 
 func move_forward():

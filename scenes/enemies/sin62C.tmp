@@ -12,16 +12,16 @@ size = Vector2(9.20001, 9.8)
 
 [node name="Enemy" instance=ExtResource("1_bya8h")]
 script = ExtResource("2_rjni5")
-debug = true
-amplitude = 40.0
-frequency = 5.0
-speed = 5.0
-max_distance = 0
-movement_delay = 2.5
-enabled = true
-sprite = ExtResource("2_ixa6d")
-health = 100
+health = 1
 points = 100
+debug = true
+amplitude = 0.0
+frequency = 25.0
+speed = 20.0
+max_distance = 25
+movement_delay = null
+enabled = null
+sprite = ExtResource("2_ixa6d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2(0, 0.299999)
@@ -32,7 +32,6 @@ position = Vector2(-0.2, 0)
 script = ExtResource("3_oqpoc")
 amplitude = 0.0
 frequency = 2.0
-max_distance = 0
 debug = true
 
 [node name="Weapon" parent="." index="3"]

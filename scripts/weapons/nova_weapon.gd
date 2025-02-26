@@ -4,7 +4,6 @@ extends "res://scripts/weapons/base_weapon.gd"
 @export var num_projectiles: float
 @export var repeat_delay: float
 
-var active = false
 
 func _ready():
 	super()

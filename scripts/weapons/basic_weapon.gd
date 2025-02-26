@@ -1,19 +1,13 @@
-extends Node2D
-
-@export var fire_delay:float = 1.2
-@export var projectile:PackedScene
+extends "res://scripts/weapons/base_weapon.gd"
 
 
 var fire_timer = 0
-var fire_point
 
 func _ready():
-	fire_point = get_node("FirePoint")
+	super()
 	
 func _process(delta):
-	fire_timer += delta
-	if fire_timer >= fire_delay:
-		fire()
+	super(delta)
 		
 func fire():
 	fire_timer = 0

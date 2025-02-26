@@ -16,7 +16,7 @@
 unique_name_in_owner = true
 position_smoothing_enabled = true
 script = ExtResource("2_0uke8")
-scroll_speed = 100.0
+scroll_speed = 125.0
 screen_padding = Vector2(50, 50)
 metadata/_edit_lock_ = true
 

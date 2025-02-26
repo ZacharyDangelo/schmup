@@ -3,7 +3,6 @@ extends Node2D
 signal on_killed(points: int)
 
 @export var sprite: Texture2D
-@export var awake_offset: float = 40
 @export_group("Stats")
 @export var health: int
 @export var points: int
@@ -27,7 +26,10 @@ func _ready():
 	movement = get_node("Movement")
 	hit_box = get_node("HitBox")
 	current_health = health
-	
+	setup()
+
+
+func setup():
 	if hit_box:
 		hit_box.area_entered.connect(_on_hit_box_area_entered)
 	var player_group = get_tree().get_nodes_in_group("Player")
@@ -44,12 +46,6 @@ func _ready():
 
 func _process(delta):
 	if not awake:
-		var camera_rect = camera.get_viewport_rect()  # Get camera's viewport rectangle
-		var camera_position = camera.global_position  # Get camera's position
-		var screen_right = camera_position.x + camera_rect.size.x / 2  # Right edge of the screen
-		if self.global_position.x < screen_right - awake_offset:
-			print('waking up:', self.name)
-			awake = true
 		return
 	if movement.has_method("process"): 
 		movement.process(delta)
@@ -101,3 +97,13 @@ func get_camera():
 		push_error('Cant find camera in sine_cannon fire function')
 		return
 	return camera_group[0]
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered():
+	print('waking up:', self.name)
+	awake = true
+	weapon.active = true
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	weapon.active = false
