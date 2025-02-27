@@ -1,37 +1,50 @@
 extends Node2D
 
-@export var enemy_configs: Array[EnemyConfig]  # Configs now include scene + stats
-@export var spawn_delay: float = 0.5  
+@export_group("Movement")
+@export var distance_before_turning: float = 60
+@export var backtrack_distance: float = 30
+@export var y_drop: float = 20
+@export var distance_grace: float = .25
+var enemies: Array
 
-var spawn_positions: Array
-var spawned_enemies: Array
-
+var awake
+var start_pos
+var initial_target_pos
+var backtrack_target_pos
 func _ready():
-	spawn_positions = get_node("SpawnPositions").get_children()
-	spawn_enemies()
+	awake = false
+	enemies = get_node("EnemyContainer").get_children()
+	start_pos = self.global_position
+	initial_target_pos = Vector2(self.global_position.x -distance_before_turning, self.global_position.y)
+	backtrack_target_pos = Vector2(self.global_position.x, self.global_position.y + y_drop)
+	for enemy in enemies:
+		enemy.target_pos = initial_target_pos
 
-func spawn_enemies():
-	for i in range(spawn_positions.size()):
-		await get_tree().create_timer(spawn_delay * i).timeout  
-		var enemy_config = get_enemy_config(i)  
-		if enemy_config:
-			spawn_enemy(spawn_positions[i].global_position, enemy_config)
+func check_enemy_awake(enemy):
+	return enemy.awake
 
-func get_enemy_config(index: int) -> EnemyConfig:
-	if enemy_configs.is_empty():
-		return null  
-	return enemy_configs[index % enemy_configs.size()]  
+func wake_all():
+	for enemy in enemies:
+		enemy.awake = true
+	awake = true
+
+func _process(delta):
+	if not awake and enemies.any(check_enemy_awake):
+		wake_all()
+	move_enemies(delta)
+
+func move_enemies(delta):
+	for enemy in enemies:
+		var dir = enemy.global_position.direction_to(enemy.target_pos)
+		enemy.position += dir * enemy.speed * delta
+		if enemy.global_position.distance_to(enemy.target_pos) <= distance_grace \
+		and enemy.global_position.distance_to(initial_target_pos) <= distance_grace:
+			enemy.target_pos = Vector2(backtrack_target_pos)
+		if enemy.global_position.distance_to(enemy.target_pos) <= distance_grace \
+		and enemy.global_position.distance_to(backtrack_target_pos) <= distance_grace:
+			enemy.target_pos = Vector2(-999,enemy.global_position.y)
+
+
 
 func spawn_enemy(position: Vector2, enemy_config: EnemyConfig):
-	if enemy_config.enemy_scene:
-		var enemy = enemy_config.enemy_scene.instantiate()
-		enemy.global_position = position
-		# Apply custom stats
-		enemy.health = enemy_config.health
-		enemy.speed = enemy_config.speed
-		enemy.amplitude = enemy_config.amplitude
-		enemy.points = enemy_config.points
-		enemy.spawn_pos = position
-		enemy.enabled = enemy_config.enabled
-		get_node("EnemyContainer").add_child(enemy)
-		spawned_enemies.append(enemy)
+	pass

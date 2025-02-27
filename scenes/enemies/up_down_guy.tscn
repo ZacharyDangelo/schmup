@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cv36bct3mgvb" path="res://scenes/spinny_projectile.tscn" id="5_74vmf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t44vb"]
-size = Vector2(6, 8.6)
+size = Vector2(12, 13)
 
 [node name="Enemy" instance=ExtResource("1_cx8ys")]
 sprite = ExtResource("2_yiou7")
@@ -15,19 +15,20 @@ health = 5
 points = 150
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2(-2.84217e-14, 0.4)
+position = Vector2(-2.86102e-07, 0.3)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_t44vb")
 
 [node name="Movement" parent="." index="2"]
 script = ExtResource("2_1opuv")
-speed = 125.0
-offset = 350.0
+speed = 100.0
+offset = 400.0
 
 [node name="Weapon" parent="." index="3"]
 script = ExtResource("3_656q0")
 weapon_type = 1
 auto_fire = true
-fire_delay = 2.0
+fire_delay = 1.8
 projectile = ExtResource("5_74vmf")
 
 [node name="FirePoint" type="Node2D" parent="Weapon" index="0"]

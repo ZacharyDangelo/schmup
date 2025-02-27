@@ -4,12 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://drgce5lu5oi1f" path="res://sprites/fish.png" id="2_ca58g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_117se"]
-size = Vector2(24, 16)
+size = Vector2(26, 20)
 
 [node name="Projectile" type="Node2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_284jt")
-speed = 1200.0
+speed = 2000.0
 ttl = 2.5
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -20,7 +20,7 @@ collision_layer = 8
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(2, 0)
+position = Vector2(3, 0)
 shape = SubResource("RectangleShape2D_117se")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

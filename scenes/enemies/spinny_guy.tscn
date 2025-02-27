@@ -14,7 +14,7 @@ scale = Vector2(2, 2)
 script = ExtResource("2_ctivy")
 rotation_speed = 90.0
 sprite = ExtResource("3_3uqxq")
-health = 10
+health = 5
 points = 500
 
 [node name="Sprite" parent="." index="0"]
@@ -27,6 +27,7 @@ shape = SubResource("CircleShape2D_hl5d5")
 
 [node name="Weapon" parent="." index="3"]
 script = ExtResource("4_bkyhn")
+weapon_type = 1
 projectile = ExtResource("5_7b7ct")
 
 [node name="FirePoint" type="Node2D" parent="Weapon" index="0"]

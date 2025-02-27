@@ -3,6 +3,7 @@ extends Node2D
 signal on_killed(points: int)
 
 @export var sprite: Texture2D
+@export var has_weapon: bool = true
 @export_group("Stats")
 @export var health: int
 @export var points: int
@@ -47,7 +48,7 @@ func setup():
 func _process(delta):
 	if not awake:
 		return
-	if movement.has_method("process"): 
+	if movement and movement.has_method("process"): 
 		movement.process(delta)
 	handle_out_of_bounds()
 
@@ -59,7 +60,7 @@ func handle_out_of_bounds():
 		var screen_right = camera_position.x + camera_rect.size.x / 2  # Right edge of the screen
 		
 		if self.global_position.x < screen_left - 100:
-			self.queue_free()
+			kill()
 
 
 func _on_hit_box_area_entered(area: Area2D):
@@ -71,8 +72,11 @@ func take_damage():
 	current_health -= 1
 	shake()
 	if current_health <= 0:
-		on_killed.emit(points)
-		self.queue_free()
+		kill()
+
+func kill():
+	on_killed.emit(points)
+	queue_free()
 
 func shake():
 	var tween = create_tween()
@@ -100,10 +104,11 @@ func get_camera():
 
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
-	print('waking up:', self.name)
 	awake = true
-	weapon.active = true
+	if has_weapon:
+		weapon.active = true
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
-	weapon.active = false
+	if has_weapon:
+		weapon.active = false

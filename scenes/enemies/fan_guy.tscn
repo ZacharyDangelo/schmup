@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://8ix5ux4krsc2"]
+
+[ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/enemy.tscn" id="1_s6ami"]
+[ext_resource type="Script" path="res://scripts/enemy/fan_guy.gd" id="2_hy01u"]
+[ext_resource type="Texture2D" uid="uid://8oqmlyfn2bqj" path="res://sprites/space_invaders_other_dude2.png" id="3_bfw5p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10q07"]
+size = Vector2(12.8, 12.6)
+
+[node name="FanGuy" instance=ExtResource("1_s6ami")]
+script = ExtResource("2_hy01u")
+speed = 200.0
+sprite = ExtResource("3_bfw5p")
+health = 1
+points = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(0, 0.3)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_10q07")

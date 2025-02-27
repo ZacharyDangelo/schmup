@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://bv2wggf7fp5wt" path="res://scenes/nova_proj.tscn" id="4_bdhva"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7uhnj"]
-size = Vector2(59, 60)
+size = Vector2(80, 88)
 
 [node name="NovaGuy" instance=ExtResource("1_7ypv8")]
 scale = Vector2(1, 1)
 sprite = ExtResource("2_618u6")
-health = 5
+health = 7
 points = 500
 
 [node name="Sprite" parent="." index="0"]
@@ -19,14 +19,14 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_618u6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2(-1, 0)
+position = Vector2(-1, 2)
 shape = SubResource("RectangleShape2D_7uhnj")
 
 [node name="Weapon" parent="." index="3"]
 script = ExtResource("3_lmlg6")
 spawn_distance = 45.0
-num_projectiles = 12.0
-repeat_delay = 1.2
+num_projectiles = 8.0
+repeat_delay = 2.0
 weapon_type = 1
 auto_fire = true
 fire_delay = 1.0

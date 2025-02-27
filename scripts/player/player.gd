@@ -38,7 +38,7 @@ func _process(delta):
 	position += speed * input_vector * delta
 	
 	# Move the player based on camera scroll speed
-	position += Vector2(camera.scroll_speed * delta,0)
+	position += Vector2(camera.current_scroll_speed * delta,0)
 	
 	
 	# Clamp the players position based on the camera

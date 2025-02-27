@@ -10,6 +10,7 @@ func _ready():
 	player = get_node('%Player')
 	player.on_died.connect(stop_camera)
 	current_scroll_speed = scroll_speed
+	Util.camera = self
 
 func _process(delta):
 	position += Vector2(current_scroll_speed * delta,0)

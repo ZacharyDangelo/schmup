@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cda87mfppoffb"]
+[gd_scene load_steps=7 format=3 uid="uid://cda87mfppoffb"]
 
 [ext_resource type="PackedScene" uid="uid://ccsdnov6q6ssd" path="res://scenes/levels/base_level.tscn" id="1_f1xfs"]
 [ext_resource type="PackedScene" uid="uid://bsjv028m6nc23" path="res://scenes/enemies/slider_guy.tscn" id="3_kv27j"]
 [ext_resource type="PackedScene" uid="uid://csysyfpc4kupb" path="res://scenes/enemies/up_down_guy.tscn" id="4_4a2ux"]
 [ext_resource type="PackedScene" uid="uid://cx522ov3tojij" path="res://scenes/enemies/spinny_guy.tscn" id="5_py2p7"]
 [ext_resource type="PackedScene" uid="uid://bgnh8brt4jfcp" path="res://scenes/enemies/nova_guy.tscn" id="6_il8h2"]
+[ext_resource type="PackedScene" uid="uid://b23myxyy81il5" path="res://scenes/levels/markers/level_stop.tscn" id="6_xwsdh"]
 
 [node name="BaseLevel" instance=ExtResource("1_f1xfs")]
 
@@ -33,10 +34,34 @@ position = Vector2(1112, 245)
 position = Vector2(1608, -293)
 
 [node name="SpinnyGuy3" parent="Enemies" index="8" instance=ExtResource("5_py2p7")]
-position = Vector2(2375, 263)
+position = Vector2(2375, -1)
 
 [node name="NovaGuy" parent="Enemies" index="9" instance=ExtResource("6_il8h2")]
 position = Vector2(1598, -4)
 
 [node name="SliderGuy4" parent="Enemies" index="10" instance=ExtResource("3_kv27j")]
 position = Vector2(972, -272)
+
+[node name="SliderGuy5" parent="Enemies" index="11" instance=ExtResource("3_kv27j")]
+position = Vector2(2285, 298)
+
+[node name="SliderGuy6" parent="Enemies" index="12" instance=ExtResource("3_kv27j")]
+position = Vector2(2282, -270)
+
+[node name="SliderGuy7" parent="Enemies" index="13" instance=ExtResource("3_kv27j")]
+position = Vector2(2674, 298)
+
+[node name="SliderGuy8" parent="Enemies" index="14" instance=ExtResource("3_kv27j")]
+position = Vector2(2671, -270)
+
+[node name="NovaGuy2" parent="Enemies" index="15" instance=ExtResource("6_il8h2")]
+position = Vector2(3223, -270)
+
+[node name="NovaGuy3" parent="Enemies" index="16" instance=ExtResource("6_il8h2")]
+position = Vector2(3223, 304)
+
+[node name="NovaGuy4" parent="Enemies" index="17" instance=ExtResource("6_il8h2")]
+position = Vector2(3550, 3)
+
+[node name="LevelStop" parent="." index="7" instance=ExtResource("6_xwsdh")]
+position = Vector2(4172, -273)
