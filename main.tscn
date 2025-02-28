@@ -1,29 +1,29 @@
 [gd_scene load_steps=11 format=3 uid="uid://d3vgec77riiqu"]
 
-[ext_resource type="Script" path="res://scripts/camera.gd" id="1_jh8g4"]
-[ext_resource type="Script" path="res://scripts/background.gd" id="2_g86mu"]
-[ext_resource type="Texture2D" uid="uid://b0bkar6t4rp6d" path="res://black.png" id="3_m2ea5"]
-[ext_resource type="Texture2D" uid="uid://bbsy2s18qoxb5" path="res://bgs/stars.png" id="4_vje4r"]
-[ext_resource type="PackedScene" uid="uid://c7hgmmou0ia8o" path="res://scenes/player.tscn" id="5_icxw3"]
-[ext_resource type="PackedScene" uid="uid://cda87mfppoffb" path="res://scenes/levels/level_0.tscn" id="6_jrft6"]
-[ext_resource type="Script" path="res://scripts/menus/ui.gd" id="7_0rmqy"]
-[ext_resource type="PackedScene" uid="uid://kmbgcemcb7pq" path="res://scenes/menus/game_over_menu.tscn" id="8_021po"]
-[ext_resource type="FontFile" uid="uid://t8h1shroylrt" path="res://fonts/monogram.ttf" id="9_mm8vw"]
-[ext_resource type="PackedScene" uid="uid://dyo0mpj1x00rm" path="res://scenes/menus/level_over_menu.tscn" id="10_3o3js"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="1_e7bqo"]
+[ext_resource type="Script" path="res://scripts/background.gd" id="2_i62o3"]
+[ext_resource type="Texture2D" uid="uid://b0bkar6t4rp6d" path="res://black.png" id="3_w0wx3"]
+[ext_resource type="Texture2D" uid="uid://bbsy2s18qoxb5" path="res://bgs/stars.png" id="4_1vxp6"]
+[ext_resource type="PackedScene" uid="uid://c7hgmmou0ia8o" path="res://scenes/player.tscn" id="5_utn1q"]
+[ext_resource type="PackedScene" uid="uid://cda87mfppoffb" path="res://scenes/levels/level_0.tscn" id="6_i2owa"]
+[ext_resource type="Script" path="res://scripts/menus/ui.gd" id="7_x3g82"]
+[ext_resource type="PackedScene" uid="uid://kmbgcemcb7pq" path="res://scenes/menus/game_over_menu.tscn" id="8_y2hx1"]
+[ext_resource type="FontFile" uid="uid://t8h1shroylrt" path="res://fonts/monogram.ttf" id="9_k3u0t"]
+[ext_resource type="PackedScene" uid="uid://dyo0mpj1x00rm" path="res://scenes/menus/level_over_menu.tscn" id="10_vqstw"]
 
 [node name="Game" type="Node"]
 
 [node name="Camera" type="Camera2D" parent="." groups=["Camera"]]
 unique_name_in_owner = true
 position_smoothing_enabled = true
-script = ExtResource("1_jh8g4")
+script = ExtResource("1_e7bqo")
 scroll_speed = 125.0
 screen_padding = Vector2(50, 50)
 metadata/_edit_lock_ = true
 
 [node name="Background" type="ParallaxBackground" parent="."]
 visible = false
-script = ExtResource("2_g86mu")
+script = ExtResource("2_i62o3")
 
 [node name="BGLayer" type="ParallaxLayer" parent="Background"]
 motion_scale = Vector2(0, 1)
@@ -31,7 +31,7 @@ motion_mirroring = Vector2(1280, 0)
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/BGLayer"]
-texture = ExtResource("3_m2ea5")
+texture = ExtResource("3_w0wx3")
 
 [node name="StarsLayer" type="ParallaxLayer" parent="Background"]
 motion_scale = Vector2(0.5, 1)
@@ -39,25 +39,22 @@ motion_mirroring = Vector2(1280, 0)
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/StarsLayer"]
-texture = ExtResource("4_vje4r")
+texture = ExtResource("4_1vxp6")
 centered = false
 offset = Vector2(0, -361.57)
 
-[node name="Player" parent="." groups=["Player"] instance=ExtResource("5_icxw3")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("5_utn1q")]
 unique_name_in_owner = true
 position = Vector2(-549, 0)
 speed = 300.0
 
-[node name="BaseLevel" parent="." instance=ExtResource("6_jrft6")]
-
-[node name="LevelStop" parent="BaseLevel" index="7"]
-position = Vector2(-267, -379)
+[node name="BaseLevel" parent="." instance=ExtResource("6_i2owa")]
 
 [node name="UI" type="CanvasLayer" parent="." groups=["UI"]]
 unique_name_in_owner = true
-script = ExtResource("7_0rmqy")
+script = ExtResource("7_x3g82")
 
-[node name="GameOverMenu" parent="UI" instance=ExtResource("8_021po")]
+[node name="GameOverMenu" parent="UI" instance=ExtResource("8_y2hx1")]
 visible = false
 anchors_preset = 5
 anchor_left = 0.5
@@ -77,11 +74,11 @@ offset_left = -84.0
 offset_right = 84.0
 offset_bottom = 51.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("9_mm8vw")
+theme_override_fonts/font = ExtResource("9_k3u0t")
 theme_override_font_sizes/font_size = 64
 text = "Score: 0"
 
-[node name="LevelOverMenu" parent="UI" instance=ExtResource("10_3o3js")]
+[node name="LevelOverMenu" parent="UI" instance=ExtResource("10_vqstw")]
 visible = false
 offset_top = 91.0
 offset_bottom = 91.0

@@ -59,6 +59,7 @@ scale = Vector2(0.375, 0.375)
 texture = ExtResource("3_ueog1")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 133.0
 offset_top = 173.0
 offset_right = 744.0
@@ -67,6 +68,7 @@ scale = Vector2(0.375, 0.375)
 texture = ExtResource("4_t52kc")
 
 [node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 873.0
 offset_right = 1545.0
 offset_bottom = 532.0
@@ -74,6 +76,7 @@ scale = Vector2(0.375, 0.375)
 texture = ExtResource("5_qob5d")
 
 [node name="TextureRect4" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 136.0
 offset_top = 1.0
 offset_right = 808.0
