@@ -25,3 +25,4 @@ position = Vector2(360, 0)
 
 [node name="FanGuy5" parent="EnemyContainer" instance=ExtResource("2_iukah")]
 position = Vector2(480, 0)
+speed = 225.0

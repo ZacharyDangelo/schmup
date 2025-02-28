@@ -19,6 +19,12 @@ func _ready():
 	backtrack_target_pos = Vector2(self.global_position.x, self.global_position.y + y_drop)
 	for enemy in enemies:
 		enemy.target_pos = initial_target_pos
+		enemy.killed_in_formation.connect(kill_enemy)
+
+func kill_enemy(node: Node2D):
+	if node in enemies:
+		enemies.erase(node)  # Removes the enemy from the array
+		node.queue_free()  # Safely removes it from the scene tree
 
 func check_enemy_awake(enemy):
 	return enemy.awake
@@ -29,12 +35,14 @@ func wake_all():
 	awake = true
 
 func _process(delta):
-	if not awake and enemies.any(check_enemy_awake):
-		wake_all()
+	#if not awake and enemies.any(check_enemy_awake):
+		#wake_all()
 	move_enemies(delta)
 
 func move_enemies(delta):
 	for enemy in enemies:
+		if not enemy.awake:
+			return
 		var dir = enemy.global_position.direction_to(enemy.target_pos)
 		enemy.position += dir * enemy.speed * delta
 		if enemy.global_position.distance_to(enemy.target_pos) <= distance_grace \
@@ -43,8 +51,3 @@ func move_enemies(delta):
 		if enemy.global_position.distance_to(enemy.target_pos) <= distance_grace \
 		and enemy.global_position.distance_to(backtrack_target_pos) <= distance_grace:
 			enemy.target_pos = Vector2(-999,enemy.global_position.y)
-
-
-
-func spawn_enemy(position: Vector2, enemy_config: EnemyConfig):
-	pass

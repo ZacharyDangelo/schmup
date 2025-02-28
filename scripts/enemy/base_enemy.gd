@@ -105,6 +105,7 @@ func get_camera():
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
 	awake = true
+	print('waking up:',self.name)
 	if has_weapon:
 		weapon.active = true
 
