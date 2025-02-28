@@ -46,7 +46,7 @@ offset = Vector2(0, -361.57)
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("5_utn1q")]
 unique_name_in_owner = true
 position = Vector2(-549, 0)
-speed = 300.0
+speed = 350.0
 
 [node name="BaseLevel" parent="." instance=ExtResource("6_i2owa")]
 

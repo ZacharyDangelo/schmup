@@ -1,10 +1,46 @@
-[gd_scene load_steps=4 format=3 uid="uid://qd4i4sjjsbsm"]
+[gd_scene load_steps=7 format=3 uid="uid://qd4i4sjjsbsm"]
 
 [ext_resource type="Script" path="res://scripts/weapons/projectile.gd" id="1_284jt"]
-[ext_resource type="Texture2D" uid="uid://drgce5lu5oi1f" path="res://sprites/fish.png" id="2_ca58g"]
+[ext_resource type="Texture2D" uid="uid://cqub73pa4a6g4" path="res://sprites/Laser.png" id="2_5wwnx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_117se"]
 size = Vector2(26, 20)
+
+[sub_resource type="Animation" id="Animation_ijnyf"]
+resource_name = "laser"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 11]
+}
+
+[sub_resource type="Animation" id="Animation_as17b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c1v3p"]
+_data = {
+"RESET": SubResource("Animation_as17b"),
+"laser": SubResource("Animation_ijnyf")
+}
 
 [node name="Projectile" type="Node2D"]
 scale = Vector2(0.5, 0.5)
@@ -13,7 +49,10 @@ speed = 2000.0
 ttl = 2.5
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_ca58g")
+position = Vector2(24, 0)
+texture = ExtResource("2_5wwnx")
+vframes = 12
+frame = 11
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 8
@@ -23,4 +62,13 @@ collision_mask = 6
 position = Vector2(3, 0)
 shape = SubResource("RectangleShape2D_117se")
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c1v3p")
+}
+speed_scale = 2.0
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
