@@ -25,9 +25,9 @@ func _ready():
 func _process(delta):
 	if not active:
 		return
+	current_fire_timer += delta
 	if not auto_fire:
 		return
-	current_fire_timer += delta
 	if(current_fire_timer >= fire_delay):
 		fire()
 

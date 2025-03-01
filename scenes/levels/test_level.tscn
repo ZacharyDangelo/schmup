@@ -1,10 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://6lmn3axmdtv8"]
 
 [ext_resource type="PackedScene" uid="uid://ccsdnov6q6ssd" path="res://scenes/levels/base_level.tscn" id="1_0jsg6"]
-[ext_resource type="PackedScene" uid="uid://bcehqyrqtpn2s" path="res://scenes/formations/formation.tscn" id="2_aq5ks"]
+[ext_resource type="PackedScene" uid="uid://cx522ov3tojij" path="res://scenes/enemies/spinny_guy.tscn" id="2_2wcjp"]
 
 [node name="BaseLevel" instance=ExtResource("1_0jsg6")]
 
-[node name="Formation" parent="Enemies" index="0" instance=ExtResource("2_aq5ks")]
-position = Vector2(23, 1)
-distance_grace = 1.2
+[node name="SpinnyGuy" parent="Enemies" index="0" instance=ExtResource("2_2wcjp")]
+position = Vector2(123.303, -198)
+
+[node name="SpinnyGuy2" parent="Enemies" index="1" instance=ExtResource("2_2wcjp")]
+position = Vector2(131, 190)

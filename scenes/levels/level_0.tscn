@@ -73,18 +73,12 @@ position = Vector2(4002, 179)
 position = Vector2(3999, -171)
 
 [node name="Formation" parent="Enemies" index="20" instance=ExtResource("4_mewj2")]
-position = Vector2(4975, -163)
-distance_before_turning = 200.0
-backtrack_distance = 80.0
-y_drop = -80.0
-distance_grace = 1.0
+position = Vector2(4975, -138)
+y_drop = 120.0
 
 [node name="Formation2" parent="Enemies" index="21" instance=ExtResource("4_mewj2")]
-position = Vector2(4977, 128)
-distance_before_turning = 200.0
-backtrack_distance = 80.0
-y_drop = 80.0
-distance_grace = 1.0
+position = Vector2(4977, 138)
+y_drop = -120.0
 
 [node name="Enemy" parent="Enemies" index="22" instance=ExtResource("4_4a2ux")]
 position = Vector2(1904, -15)

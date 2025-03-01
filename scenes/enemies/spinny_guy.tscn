@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/enemy.tscn" id="1_okp4h"]
 [ext_resource type="Script" path="res://scripts/enemy/spinny_guy.gd" id="2_ctivy"]
 [ext_resource type="Texture2D" uid="uid://b1ir47llypdkb" path="res://sprites/rotaterguy.png" id="3_3uqxq"]
-[ext_resource type="Script" path="res://scripts/weapons/basic_weapon.gd" id="4_bkyhn"]
+[ext_resource type="Script" path="res://scripts/enemy/weapon/spinny_weapon.gd" id="4_lt5np"]
 [ext_resource type="PackedScene" uid="uid://cv36bct3mgvb" path="res://scenes/spinny_projectile.tscn" id="5_7b7ct"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hl5d5"]
@@ -18,6 +18,7 @@ health = 5
 points = 500
 
 [node name="Sprite" parent="." index="0"]
+rotation = -1.5708
 texture = ExtResource("3_3uqxq")
 region_enabled = true
 region_rect = Rect2(0, 0, 64, 64)
@@ -26,10 +27,12 @@ region_rect = Rect2(0, 0, 64, 64)
 shape = SubResource("CircleShape2D_hl5d5")
 
 [node name="Weapon" parent="." index="3"]
-script = ExtResource("4_bkyhn")
+script = ExtResource("4_lt5np")
+burst_delay = 0.6
 weapon_type = 1
+fire_delay = 1.0
 projectile = ExtResource("5_7b7ct")
 
 [node name="FirePoint" type="Node2D" parent="Weapon" index="0"]
-position = Vector2(0, -13.8)
+position = Vector2(-11.5, 9.53674e-07)
 scale = Vector2(-0.0820326, 2.77504)
