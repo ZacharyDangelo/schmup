@@ -32,10 +32,10 @@ jobs:
 
       - name: Build Game
         run: |
-          # Create build/windows directory using PowerShell
-          New-Item -ItemType Directory -Force "build\windows"
-          # Build the game using Godot
-          .\godot.exe -v --headless --export-release "Web" "build\windows\game.exe"
+          # Create a directory for the web build
+          New-Item -ItemType Directory -Force "build\web"
+          # Build the game using Godot with the "Web" export preset
+          .\godot.exe -v --headless --export-release "Web" "build\web\index.html"
 
       - name: List build/windows Directory Contents
         run: |
