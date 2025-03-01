@@ -17,12 +17,11 @@ points = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2(0.2, -0.4)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_psss8")
 
 [node name="Movement" parent="." index="2"]
 script = ExtResource("2_acj72")
-speed = 200.0
+speed = 150.0
 
 [node name="Weapon" parent="." index="3"]
 script = ExtResource("4_vp0mw")

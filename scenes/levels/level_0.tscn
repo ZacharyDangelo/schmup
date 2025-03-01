@@ -89,6 +89,63 @@ position = Vector2(3723.14, 313)
 [node name="SliderGuy12" parent="Enemies" index="24" instance=ExtResource("3_kv27j")]
 position = Vector2(3723.14, -275)
 
+[node name="SliderGuy13" parent="Enemies" index="25" instance=ExtResource("3_kv27j")]
+position = Vector2(6587, 179)
+
+[node name="SliderGuy14" parent="Enemies" index="26" instance=ExtResource("3_kv27j")]
+position = Vector2(6584, -171)
+
+[node name="SpinnyGuy4" parent="Enemies" index="27" instance=ExtResource("5_py2p7")]
+position = Vector2(5546, -1)
+
+[node name="SpinnyGuy5" parent="Enemies" index="28" instance=ExtResource("5_py2p7")]
+position = Vector2(5758, -1)
+
+[node name="SpinnyGuy6" parent="Enemies" index="29" instance=ExtResource("5_py2p7")]
+position = Vector2(5931, -1)
+
+[node name="SliderGuy15" parent="Enemies" index="30" instance=ExtResource("3_kv27j")]
+position = Vector2(6393, 313)
+
+[node name="SliderGuy16" parent="Enemies" index="31" instance=ExtResource("3_kv27j")]
+position = Vector2(6393, -275)
+
+[node name="SliderGuy17" parent="Enemies" index="32" instance=ExtResource("3_kv27j")]
+position = Vector2(6977, 179)
+
+[node name="SliderGuy18" parent="Enemies" index="33" instance=ExtResource("3_kv27j")]
+position = Vector2(6974, -171)
+
+[node name="SliderGuy19" parent="Enemies" index="34" instance=ExtResource("3_kv27j")]
+position = Vector2(6783, 313)
+
+[node name="SliderGuy20" parent="Enemies" index="35" instance=ExtResource("3_kv27j")]
+position = Vector2(6783, -275)
+
+[node name="SliderGuy21" parent="Enemies" index="36" instance=ExtResource("3_kv27j")]
+position = Vector2(7399, 179)
+
+[node name="SliderGuy22" parent="Enemies" index="37" instance=ExtResource("3_kv27j")]
+position = Vector2(7396, -171)
+
+[node name="SliderGuy23" parent="Enemies" index="38" instance=ExtResource("3_kv27j")]
+position = Vector2(7205, 313)
+
+[node name="SliderGuy24" parent="Enemies" index="39" instance=ExtResource("3_kv27j")]
+position = Vector2(7205, -275)
+
+[node name="SpinnyGuy7" parent="Enemies" index="40" instance=ExtResource("5_py2p7")]
+position = Vector2(6751, -1)
+
+[node name="SpinnyGuy8" parent="Enemies" index="41" instance=ExtResource("5_py2p7")]
+position = Vector2(6963, -1)
+
+[node name="SpinnyGuy9" parent="Enemies" index="42" instance=ExtResource("5_py2p7")]
+position = Vector2(7136, -1)
+
+[node name="Enemy5" parent="Enemies" index="43" instance=ExtResource("4_4a2ux")]
+position = Vector2(6095, -3)
+
 [node name="StarsLayer" parent="Background" index="1"]
 motion_scale = Vector2(0.1, 1)
 
@@ -111,6 +168,6 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("7_g1mj5")
 
 [node name="LevelStop" parent="." index="7" instance=ExtResource("6_xwsdh")]
-position = Vector2(6301, -273)
+position = Vector2(8498, -273)
 
 [editable path="Enemies/Formation"]
