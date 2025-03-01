@@ -35,7 +35,7 @@ jobs:
           # Create build/windows directory using PowerShell
           New-Item -ItemType Directory -Force "build\windows"
           # Build the game using Godot
-          .\godot.exe -v --headless --export-release "Windows Desktop" "build\windows\game.exe"
+          .\godot.exe -v --headless --export-release "Web" "build\windows\game.exe"
 
       - name: List build/windows Directory Contents
         run: |
