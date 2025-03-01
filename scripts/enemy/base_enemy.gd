@@ -81,19 +81,24 @@ func kill(score: bool):
 
 func shake():
 	var tween = create_tween()
-	var original_position = position  # Store original position
-	var shake_intensity = 5.0  # How much the enemy shakes
-	var shake_duration = 0.1  # How long the shake lasts
-	var flash_duration = 0.1  # How long the red flash lasts
-	# Flash red
+	
+	var original_local_position = sprite_node.position
+	
+	# Settings for shake intensity and duration
+	var shake_intensity = 5.0  # Adjust as needed
+	var shake_duration = 0.1   # Total duration for the shake sequence
+	var flash_duration = 0.1   # Duration for the red flash
+	
 	tween.tween_property(sprite_node, "modulate", Color(1, 0, 0), flash_duration / 2)
-	for i in range(4):  # Do multiple small shakes
+	
+	# Create multxiple small shake movements on the sprite's local position
+	for i in range(4):
 		var random_offset = Vector2(
-			randf_range(-shake_intensity, shake_intensity), 
+			randf_range(-shake_intensity, shake_intensity),
 			randf_range(-shake_intensity, shake_intensity)
 		)
-		tween.tween_property(self, "position", original_position + random_offset, shake_duration / 4)
-	tween.tween_property(self, "position", original_position, shake_duration / 4)  # Return to original position
+		tween.tween_property(sprite_node, "position", original_local_position + random_offset, shake_duration / 4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(sprite_node, "position", original_local_position, shake_duration / 4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(sprite_node, "modulate", Color(1, 1, 1), flash_duration / 2).set_delay(flash_duration / 2)
 
 func get_camera():
