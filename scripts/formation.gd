@@ -16,7 +16,7 @@ func _ready():
 	enemies = get_node("EnemyContainer").get_children()
 	start_pos = self.global_position
 	initial_target_pos = Vector2(self.global_position.x -distance_before_turning, self.global_position.y)
-	backtrack_target_pos = Vector2(self.global_position.x, self.global_position.y + y_drop)
+	backtrack_target_pos = Vector2(initial_target_pos.x + backtrack_distance, self.global_position.y + y_drop)
 	for enemy in enemies:
 		enemy.target_pos = initial_target_pos
 		enemy.killed_in_formation.connect(kill_enemy)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3vgec77riiqu"]
+[gd_scene load_steps=10 format=3 uid="uid://d3vgec77riiqu"]
 
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_e7bqo"]
+[ext_resource type="PackedScene" uid="uid://6lmn3axmdtv8" path="res://scenes/levels/test_level.tscn" id="3_te1do"]
 [ext_resource type="PackedScene" uid="uid://c7hgmmou0ia8o" path="res://scenes/player.tscn" id="5_utn1q"]
 [ext_resource type="PackedScene" uid="uid://cda87mfppoffb" path="res://scenes/levels/level_0.tscn" id="6_i2owa"]
 [ext_resource type="Script" path="res://scripts/level_manager.gd" id="7_0y5fu"]
@@ -13,12 +14,14 @@
 
 [node name="LevelManager" type="Node2D" parent="."]
 script = ExtResource("7_0y5fu")
-levels = Array[PackedScene]([ExtResource("6_i2owa")])
+starting_level_index = 1
+levels = Array[PackedScene]([ExtResource("6_i2owa"), ExtResource("3_te1do")])
 
 [node name="Camera" type="Camera2D" parent="." groups=["Camera"]]
 unique_name_in_owner = true
 position_smoothing_enabled = true
 script = ExtResource("1_e7bqo")
+scroll_enabled = false
 scroll_speed = 125.0
 screen_padding = Vector2(50, 50)
 metadata/_edit_lock_ = true

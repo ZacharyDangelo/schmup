@@ -1,5 +1,6 @@
 extends Camera2D
 
+@export var scroll_enabled: bool = true
 @export var scroll_speed: float
 @export var screen_padding: Vector2
 
@@ -13,7 +14,8 @@ func _ready():
 	Util.camera = self
 
 func _process(delta):
-	position += Vector2(current_scroll_speed * delta,0)
+	if scroll_enabled:
+		position += Vector2(current_scroll_speed * delta,0)
 	
 func stop_camera():
 	current_scroll_speed = 0
