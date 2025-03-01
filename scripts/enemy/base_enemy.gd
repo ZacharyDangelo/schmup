@@ -60,7 +60,7 @@ func handle_out_of_bounds():
 		var screen_right = camera_position.x + camera_rect.size.x / 2  # Right edge of the screen
 		
 		if self.global_position.x < screen_left - 100:
-			kill()
+			kill(false)
 
 
 func _on_hit_box_area_entered(area: Area2D):
@@ -72,10 +72,11 @@ func take_damage():
 	current_health -= 1
 	shake()
 	if current_health <= 0:
-		kill()
+		kill(true)
 
-func kill():
-	on_killed.emit(points)
+func kill(score: bool):
+	if score:
+		on_killed.emit(points)
 	queue_free()
 
 func shake():

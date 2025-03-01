@@ -10,5 +10,7 @@ func _ready():
 	super()
 	start_pos = self.global_position
 
-func kill():
+func kill(score: bool):
+	if score:
+		on_killed.emit(points)
 	killed_in_formation.emit(self)
