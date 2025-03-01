@@ -39,8 +39,8 @@ jobs:
 
       - name: List build/windows Directory Contents
         run: |
-          Write-Host "Listing contents of build/windows:"
-          Get-ChildItem -Recurse .\build\windows\
+          Write-Host "Listing contents of build/web:"
+          Get-ChildItem -Recurse .\build\web\
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
