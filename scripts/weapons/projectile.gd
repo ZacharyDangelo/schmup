@@ -5,10 +5,10 @@ extends Node2D
 @export var dir: Vector2 = Vector2.RIGHT
 
 func _ready():
-	var animation_player = get_node("AnimationPlayer")
-	print('animation_player')
-	if animation_player:
-		animation_player.play("laser")
+	if has_node("AnimationPlayer"):
+		var animation_player = get_node("AnimationPlayer")
+		if animation_player:
+			animation_player.play("laser")
 
 func _process(delta):
 	position += dir.rotated(rotation) * speed * delta
