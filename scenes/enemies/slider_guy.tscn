@@ -12,7 +12,7 @@ size = Vector2(10, 11.2)
 [node name="SliderGuy" instance=ExtResource("1_ypc6x")]
 position = Vector2(-1, 0)
 sprite = ExtResource("2_3ear6")
-health = 2
+health = 10
 points = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]

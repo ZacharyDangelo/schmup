@@ -11,7 +11,7 @@ size = Vector2(12, 13)
 
 [node name="Enemy" instance=ExtResource("1_cx8ys")]
 sprite = ExtResource("2_yiou7")
-health = 5
+health = 25
 points = 150
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]

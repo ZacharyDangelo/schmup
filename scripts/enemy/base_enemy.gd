@@ -18,9 +18,11 @@ var movement
 var hit_box
 var current_health
 var sprite_node
+var is_shaking
 
 func _ready():
 	awake = false
+	is_shaking = false
 	sprite_node = get_node("Sprite")
 	weapon = get_node("Weapon")
 	sprite_node.texture = sprite
@@ -80,7 +82,11 @@ func kill(score: bool):
 	queue_free()
 
 func shake():
+	if is_shaking:
+		return
+	is_shaking = true
 	var tween = create_tween()
+	tween.finished.connect(func():is_shaking = false)
 	
 	var original_local_position = sprite_node.position
 	
@@ -91,7 +97,7 @@ func shake():
 	
 	tween.tween_property(sprite_node, "modulate", Color(1, 0, 0), flash_duration / 2)
 	
-	# Create multxiple small shake movements on the sprite's local position
+	# Create multiple small shake movements on the sprite's local position
 	for i in range(4):
 		var random_offset = Vector2(
 			randf_range(-shake_intensity, shake_intensity),

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://8ix5ux4krsc2"]
+[gd_scene load_steps=8 format=3 uid="uid://bgrmbkgps6rvi"]
 
 [ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/enemy.tscn" id="1_s6ami"]
 [ext_resource type="Script" path="res://scripts/enemy/fan_guy.gd" id="2_hy01u"]
@@ -51,7 +51,7 @@ script = ExtResource("2_hy01u")
 speed = 225.0
 sprite = ExtResource("3_cbat6")
 has_weapon = false
-health = 1
+health = 10
 points = 100
 
 [node name="Sprite" parent="." index="0"]

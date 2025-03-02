@@ -11,7 +11,7 @@ size = Vector2(80, 88)
 [node name="NovaGuy" instance=ExtResource("1_7ypv8")]
 scale = Vector2(1, 1)
 sprite = ExtResource("2_618u6")
-health = 7
+health = 25
 points = 500
 
 [node name="Sprite" parent="." index="0"]

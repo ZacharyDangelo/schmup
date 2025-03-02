@@ -7,8 +7,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_1fsuu"]
 radius = 15.0013
 
-[sub_resource type="Animation" id="Animation_rt2jc"]
-resource_name = "locking"
+[sub_resource type="Animation" id="Animation_kr7op"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -22,8 +22,24 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_kr7op"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_it1qs"]
+resource_name = "attacking"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_rt2jc"]
+resource_name = "locking"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -54,22 +70,6 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3]
 }
 
-[sub_resource type="Animation" id="Animation_it1qs"]
-resource_name = "attacking"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bb8xf"]
 _data = {
 "RESET": SubResource("Animation_kr7op"),
@@ -88,7 +88,7 @@ movement_offset_x = 200.0
 movement_offset_y = 50.0
 sprite = ExtResource("2_b8ekc")
 has_weapon = false
-health = 15
+health = 50
 points = 1000
 metadata/_edit_group_ = true
 
