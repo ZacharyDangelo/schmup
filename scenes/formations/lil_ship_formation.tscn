@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://lxrlrrkknvjd"]
+
+[ext_resource type="Script" path="res://scripts/formation.gd" id="1_8r5a3"]
+[ext_resource type="PackedScene" uid="uid://rrkn7oogmksg" path="res://scenes/enemies/lil_ship.tscn" id="2_ufg3m"]
+
+[node name="LilShipFormation" type="Node2D"]
+script = ExtResource("1_8r5a3")
+wake_all = true
+handle_movement = false
+distance_before_turning = 160.0
+backtrack_distance = 80.0
+y_drop = 80.0
+distance_grace = 1.2
+
+[node name="EnemyContainer" type="Node2D" parent="."]
+
+[node name="Enemy" parent="EnemyContainer" instance=ExtResource("2_ufg3m")]
+
+[node name="Enemy2" parent="EnemyContainer" instance=ExtResource("2_ufg3m")]
+position = Vector2(80, 60)
+
+[node name="Enemy3" parent="EnemyContainer" instance=ExtResource("2_ufg3m")]
+position = Vector2(160, 0)
+
+[node name="Enemy4" parent="EnemyContainer" instance=ExtResource("2_ufg3m")]
+position = Vector2(240, 60)

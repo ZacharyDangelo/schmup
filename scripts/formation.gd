@@ -1,5 +1,8 @@
 extends Node2D
 
+@export_group("Flags")
+@export var wake_all: bool = false
+@export var handle_movement: bool = true
 @export_group("Movement")
 @export var distance_before_turning: float = 60
 @export var backtrack_distance: float = 30
@@ -17,9 +20,10 @@ func _ready():
 	start_pos = self.global_position
 	initial_target_pos = Vector2(self.global_position.x -distance_before_turning, self.global_position.y)
 	backtrack_target_pos = Vector2(initial_target_pos.x + backtrack_distance, self.global_position.y + y_drop)
-	for enemy in enemies:
-		enemy.target_pos = initial_target_pos
-		enemy.killed_in_formation.connect(kill_enemy)
+	if handle_movement:
+		for enemy in enemies:
+			enemy.target_pos = initial_target_pos
+			enemy.killed_in_formation.connect(kill_enemy)
 
 func kill_enemy(node: Node2D):
 	if node in enemies:
@@ -29,15 +33,17 @@ func kill_enemy(node: Node2D):
 func check_enemy_awake(enemy):
 	return enemy.awake
 
-func wake_all():
+func wake_all_enemies():
+	print('waking all')
 	for enemy in enemies:
 		enemy.awake = true
 	awake = true
 
 func _process(delta):
-	#if not awake and enemies.any(check_enemy_awake):
-		#wake_all()
-	move_enemies(delta)
+	if not awake and wake_all and enemies.any(check_enemy_awake):
+		wake_all_enemies()
+	if handle_movement:
+		move_enemies(delta)
 
 func move_enemies(delta):
 	for enemy in enemies:

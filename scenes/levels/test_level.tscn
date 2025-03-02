@@ -1,18 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://6lmn3axmdtv8"]
+[gd_scene load_steps=2 format=3 uid="uid://6lmn3axmdtv8"]
 
 [ext_resource type="PackedScene" uid="uid://ccsdnov6q6ssd" path="res://scenes/levels/base_level.tscn" id="1_0jsg6"]
-[ext_resource type="PackedScene" uid="uid://rrkn7oogmksg" path="res://scenes/enemies/lil_ship.tscn" id="2_i6maf"]
 
 [node name="BaseLevel" instance=ExtResource("1_0jsg6")]
-
-[node name="Enemy" parent="Enemies" index="0" instance=ExtResource("2_i6maf")]
-position = Vector2(266, 211)
-
-[node name="Enemy2" parent="Enemies" index="1" instance=ExtResource("2_i6maf")]
-position = Vector2(390, 122)
-
-[node name="Enemy3" parent="Enemies" index="2" instance=ExtResource("2_i6maf")]
-position = Vector2(501, 208)
-
-[node name="Enemy4" parent="Enemies" index="3" instance=ExtResource("2_i6maf")]
-position = Vector2(612, 125)

@@ -14,7 +14,7 @@ scale = Vector2(2, 2)
 script = ExtResource("2_ctivy")
 rotation_speed = 90.0
 sprite = ExtResource("3_3uqxq")
-health = 50
+health = 20
 points = 500
 
 [node name="Sprite" parent="." index="0"]

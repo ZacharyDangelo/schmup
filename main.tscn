@@ -13,7 +13,6 @@
 [node name="Game" type="Node"]
 
 [node name="LevelManager" type="Node2D" parent="."]
-position = Vector2(-2, 0)
 script = ExtResource("7_0y5fu")
 levels = Array[PackedScene]([ExtResource("6_i2owa"), ExtResource("3_te1do")])
 
