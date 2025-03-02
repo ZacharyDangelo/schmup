@@ -6,6 +6,7 @@ extends Node2D
 
 func _ready():
 	var animation_player = get_node("AnimationPlayer")
+	print('animation_player')
 	if animation_player:
 		animation_player.play("laser")
 
