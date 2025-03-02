@@ -13,11 +13,13 @@ var state
 var movement_target_pos
 var current_timer = 0 
 var locked_on_pos
+var animation_player
 
 func _ready():
 	super()
 	state = State.MOVING
 	movement_target_pos = get_random_position()
+	animation_player = get_node("AnimationPlayer")
 	look_at(movement_target_pos)
 	rotation += 160
 	pass
@@ -36,6 +38,7 @@ func handle_moving_state(delta):
 		state = State.LOCKING_ON
 
 func handle_locking_on_state(delta):
+	animation_player.play('locking')
 	current_timer += delta
 	look_at(player.global_position)
 	rotation += 160
@@ -45,8 +48,10 @@ func handle_locking_on_state(delta):
 		current_timer = 0
 	
 func handle_attacking_state(delta):
+	animation_player.play("waiting")
 	current_timer += delta
 	if current_timer >= attack_delay:
+		animation_player.play("attacking")
 		var direction = Vector2(cos(rotation), sin(rotation))  # Get forward direction
 		position += direction * locked_on_movement_speed * delta * -1  # Move forward
 

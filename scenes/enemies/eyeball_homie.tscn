@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://xe6wgem5ima5"]
+[gd_scene load_steps=10 format=3 uid="uid://cbtgxv45hq0dt"]
 
 [ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/enemy.tscn" id="1_hg6gp"]
 [ext_resource type="Script" path="res://scripts/enemy/eyeball_homie.gd" id="2_5llcc"]
@@ -6,6 +6,77 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1fsuu"]
 radius = 15.0013
+
+[sub_resource type="Animation" id="Animation_rt2jc"]
+resource_name = "locking"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_kr7op"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ol2to"]
+resource_name = "waiting"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_it1qs"]
+resource_name = "attacking"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bb8xf"]
+_data = {
+"RESET": SubResource("Animation_kr7op"),
+"attacking": SubResource("Animation_it1qs"),
+"locking": SubResource("Animation_rt2jc"),
+"waiting": SubResource("Animation_ol2to")
+}
 
 [node name="EyeballHomie" instance=ExtResource("1_hg6gp")]
 script = ExtResource("2_5llcc")
@@ -16,14 +87,20 @@ locked_on_movement_speed = 1000.0
 movement_offset_x = 200.0
 movement_offset_y = 50.0
 sprite = ExtResource("2_b8ekc")
+has_weapon = false
 health = 15
 points = 1000
 metadata/_edit_group_ = true
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource("2_b8ekc")
-region_enabled = true
+hframes = 5
 region_rect = Rect2(0, 0, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
 shape = SubResource("CircleShape2D_1fsuu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+"": SubResource("AnimationLibrary_bb8xf")
+}

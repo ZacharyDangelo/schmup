@@ -22,3 +22,4 @@ func stop_camera():
 
 func start_camera():
 	current_scroll_speed = scroll_speed
+	

@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgnh8brt4jfcp"]
+[gd_scene load_steps=6 format=3 uid="uid://es0ok7ph4xae"]
 
 [ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/enemy.tscn" id="1_7ypv8"]
 [ext_resource type="Texture2D" uid="uid://bp1y734evu31y" path="res://icon.svg" id="2_618u6"]
 [ext_resource type="Script" path="res://scripts/weapons/nova_weapon.gd" id="3_lmlg6"]
-[ext_resource type="PackedScene" uid="uid://bv2wggf7fp5wt" path="res://scenes/nova_proj.tscn" id="4_bdhva"]
+[ext_resource type="PackedScene" uid="uid://d24sbvl77xyd6" path="res://scenes/nova_proj.tscn" id="4_bdhva"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7uhnj"]
 size = Vector2(80, 88)
