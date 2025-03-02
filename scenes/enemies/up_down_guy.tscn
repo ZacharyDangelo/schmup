@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://csysyfpc4kupb"]
+[gd_scene load_steps=7 format=3 uid="uid://djuo0w5p7pc4p"]
 
 [ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/enemy.tscn" id="1_cx8ys"]
 [ext_resource type="Script" path="res://scripts/enemy/movement/up_down_movement.gd" id="2_1opuv"]
 [ext_resource type="Texture2D" uid="uid://8oqmlyfn2bqj" path="res://sprites/space_invaders_other_dude2.png" id="2_yiou7"]
 [ext_resource type="Script" path="res://scripts/weapons/base_weapon.gd" id="3_656q0"]
-[ext_resource type="PackedScene" uid="uid://cv36bct3mgvb" path="res://scenes/spinny_projectile.tscn" id="5_74vmf"]
+[ext_resource type="PackedScene" uid="uid://dg4x1ryvv5njf" path="res://scenes/spinny_projectile.tscn" id="5_74vmf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t44vb"]
 size = Vector2(12, 13)
@@ -16,7 +16,6 @@ points = 150
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2(-2.86102e-07, 0.3)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_t44vb")
 
 [node name="Movement" parent="." index="2"]

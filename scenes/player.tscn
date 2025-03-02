@@ -1,29 +1,68 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7hgmmou0ia8o"]
+[gd_scene load_steps=9 format=3 uid="uid://c7hgmmou0ia8o"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_4vd5h"]
 [ext_resource type="Texture2D" uid="uid://cv1bja2088xja" path="res://sprites/Arwing.png" id="2_p5reh"]
-[ext_resource type="Script" path="res://scripts/player/weapon.gd" id="3_6qpjo"]
+[ext_resource type="Script" path="res://scripts/weapons/spread_weapon.gd" id="3_i7dnc"]
 [ext_resource type="PackedScene" uid="uid://qd4i4sjjsbsm" path="res://scenes/projectile.tscn" id="4_syuc0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0blvs"]
 size = Vector2(34, 10)
 
+[sub_resource type="Animation" id="Animation_j2kvs"]
+resource_name = "butt_fire"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_im1b3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eonfi"]
+_data = {
+"RESET": SubResource("Animation_im1b3"),
+"butt_fire": SubResource("Animation_j2kvs")
+}
+
 [node name="Player" type="Node2D" node_paths=PackedStringArray("sprite")]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_4vd5h")
-sprite = NodePath("Sprite/Sprite2D")
+sprite = NodePath("Sprite2D")
 metadata/_edit_group_ = true
 
-[node name="Sprite" type="Node2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="Sprite"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_p5reh")
-region_enabled = true
+vframes = 2
 region_rect = Rect2(0, 0, 64, 32)
 
 [node name="Weapon" type="Node2D" parent="."]
-script = ExtResource("3_6qpjo")
+script = ExtResource("3_i7dnc")
+spread_projectile_count = 3
+spread_amount_deg = 10.0
 auto_fire = true
-fire_delay = 0.3
+fire_delay = 0.125
 projectile = ExtResource("4_syuc0")
 
 [node name="FirePoint" type="Node2D" parent="Weapon"]
@@ -35,5 +74,10 @@ collision_mask = 22
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(2, -1)
 shape = SubResource("RectangleShape2D_0blvs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_eonfi")
+}
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

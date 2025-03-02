@@ -13,6 +13,7 @@ var dead
 
 func _ready():
 	screen_size = get_viewport_rect().size
+	get_node("AnimationPlayer").play("butt_fire")
 	camera = get_node('%Camera')
 	dead = false
 

@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://cda87mfppoffb"]
+[gd_scene load_steps=11 format=3 uid="uid://cda87mfppoffb"]
 
 [ext_resource type="PackedScene" uid="uid://ccsdnov6q6ssd" path="res://scenes/levels/base_level.tscn" id="1_f1xfs"]
-[ext_resource type="PackedScene" uid="uid://bsjv028m6nc23" path="res://scenes/enemies/slider_guy.tscn" id="3_kv27j"]
-[ext_resource type="PackedScene" uid="uid://csysyfpc4kupb" path="res://scenes/enemies/up_down_guy.tscn" id="4_4a2ux"]
+[ext_resource type="PackedScene" uid="uid://cbbcrfdk0hpg6" path="res://scenes/enemies/slider_guy.tscn" id="3_kv27j"]
+[ext_resource type="PackedScene" uid="uid://djuo0w5p7pc4p" path="res://scenes/enemies/up_down_guy.tscn" id="4_4a2ux"]
 [ext_resource type="PackedScene" uid="uid://bcehqyrqtpn2s" path="res://scenes/formations/formation.tscn" id="4_mewj2"]
-[ext_resource type="PackedScene" uid="uid://cx522ov3tojij" path="res://scenes/enemies/spinny_guy.tscn" id="5_py2p7"]
-[ext_resource type="PackedScene" uid="uid://bgnh8brt4jfcp" path="res://scenes/enemies/nova_guy.tscn" id="6_il8h2"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/spinny_guy.tscn" id="5_py2p7"]
+[ext_resource type="PackedScene" uid="uid://es0ok7ph4xae" path="res://scenes/enemies/nova_guy.tscn" id="6_il8h2"]
 [ext_resource type="Texture2D" uid="uid://dsa2db5pgjnwe" path="res://sprites/Planet2.png" id="6_ll2hp"]
 [ext_resource type="PackedScene" uid="uid://b23myxyy81il5" path="res://scenes/levels/markers/level_stop.tscn" id="6_xwsdh"]
 [ext_resource type="Texture2D" uid="uid://bl0lclmwl8i08" path="res://sprites/Planet1.png" id="7_g1mj5"]
+[ext_resource type="Texture2D" uid="uid://ct1xthys088cm" path="res://bgs/stars2.png" id="9_1cgac"]
 
 [node name="BaseLevel" instance=ExtResource("1_f1xfs")]
 
@@ -149,7 +150,15 @@ position = Vector2(6095, -3)
 [node name="StarsLayer" parent="Background" index="1"]
 motion_scale = Vector2(0.1, 1)
 
-[node name="PlanetLayer" type="ParallaxLayer" parent="Background" index="2"]
+[node name="Stars2Layer" type="ParallaxLayer" parent="Background" index="2"]
+motion_scale = Vector2(0.2, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Stars2Layer" index="0"]
+position = Vector2(338, -288)
+scale = Vector2(2, 2)
+texture = ExtResource("9_1cgac")
+
+[node name="PlanetLayer" type="ParallaxLayer" parent="Background" index="3"]
 motion_scale = Vector2(0.7, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/PlanetLayer" index="0"]
@@ -158,7 +167,7 @@ position = Vector2(637, -229)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("6_ll2hp")
 
-[node name="PlanetLayer2" type="ParallaxLayer" parent="Background" index="3"]
+[node name="PlanetLayer2" type="ParallaxLayer" parent="Background" index="4"]
 motion_scale = Vector2(0.4, 1)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Background/PlanetLayer2" index="0"]

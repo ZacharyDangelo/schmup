@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bsjv028m6nc23"]
+[gd_scene load_steps=7 format=3 uid="uid://cbbcrfdk0hpg6"]
 
 [ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/enemy.tscn" id="1_ypc6x"]
 [ext_resource type="Texture2D" uid="uid://8oqmlyfn2bqj" path="res://sprites/space_invaders_other_dude2.png" id="2_3ear6"]
 [ext_resource type="Script" path="res://scripts/enemy/movement/slider_movement.gd" id="2_acj72"]
 [ext_resource type="Script" path="res://scripts/weapons/up_down_shooter.gd" id="4_vp0mw"]
-[ext_resource type="PackedScene" uid="uid://cv36bct3mgvb" path="res://scenes/spinny_projectile.tscn" id="5_gt4if"]
+[ext_resource type="PackedScene" uid="uid://dg4x1ryvv5njf" path="res://scenes/spinny_projectile.tscn" id="5_gt4if"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_psss8"]
 size = Vector2(10, 11.2)
