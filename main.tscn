@@ -27,7 +27,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("5_utn1q")]
 unique_name_in_owner = true
-position = Vector2(-549, 0)
+position = Vector2(-547, -2)
 speed = 375.0
 
 [node name="UI" type="CanvasLayer" parent="." groups=["UI"]]

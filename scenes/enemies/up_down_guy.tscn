@@ -27,7 +27,7 @@ offset = 400.0
 script = ExtResource("3_656q0")
 weapon_type = 1
 auto_fire = true
-fire_delay = 1.8
+fire_delay = 1.4
 projectile = ExtResource("5_74vmf")
 
 [node name="FirePoint" type="Node2D" parent="Weapon" index="0"]

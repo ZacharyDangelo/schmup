@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://rrkn7oogmksg"]
+
+[ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/enemy.tscn" id="1_2syaj"]
+[ext_resource type="Script" path="res://scripts/enemy/lil_ship.gd" id="2_55lak"]
+[ext_resource type="Texture2D" uid="uid://8oqmlyfn2bqj" path="res://sprites/space_invaders_other_dude2.png" id="3_rs7sm"]
+[ext_resource type="Script" path="res://scripts/enemy/movement/lil_ship_movement.gd" id="4_5i2kh"]
+[ext_resource type="Script" path="res://scripts/weapons/lil_ship_gun.gd" id="4_nhtlh"]
+[ext_resource type="PackedScene" uid="uid://b46nsvqq01mx5" path="res://scenes/enemies/projectiles/base_enemy_projectile.tscn" id="6_2jhoc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5y6s"]
+size = Vector2(12.6, 10.8)
+
+[node name="Enemy" instance=ExtResource("1_2syaj")]
+script = ExtResource("2_55lak")
+speed_increase_after_fire = 100.0
+sprite = ExtResource("3_rs7sm")
+health = 999
+points = 150
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(-0.0999994, 0.600001)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_f5y6s")
+
+[node name="Movement" parent="." index="2"]
+script = ExtResource("4_5i2kh")
+speed = 100.0
+
+[node name="Weapon" parent="." index="3"]
+script = ExtResource("4_nhtlh")
+distance_to_fire = 500.0
+weapon_type = 1
+fire_delay = 1.2
+projectile = ExtResource("6_2jhoc")
+
+[node name="FirePoint" type="Node2D" parent="Weapon" index="0"]

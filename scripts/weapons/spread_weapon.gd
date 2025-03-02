@@ -3,6 +3,11 @@ extends "res://scripts/weapons/base_weapon.gd"
 @export var spread_projectile_count: int
 @export var spread_amount_deg: float
 
+func _process(delta):
+	if get_parent().dead:
+		return
+	super(delta)
+
 func fire():
 	var curr_rotation = -spread_amount_deg
 	for i in range(0,spread_projectile_count):

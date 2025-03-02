@@ -28,9 +28,9 @@ shape = SubResource("CircleShape2D_hl5d5")
 
 [node name="Weapon" parent="." index="3"]
 script = ExtResource("4_lt5np")
-burst_delay = 0.6
+burst_delay = 0.4
 weapon_type = 1
-fire_delay = 1.0
+fire_delay = 0.8
 projectile = ExtResource("5_7b7ct")
 
 [node name="FirePoint" type="Node2D" parent="Weapon" index="0"]
