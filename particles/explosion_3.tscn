@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://d14hctsvsawuv"]
+
+[ext_resource type="Texture2D" uid="uid://uwwema4683c5" path="res://sprites/Explosion_Sheet.png" id="1_nraqa"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6ur42"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_loup8"]
+offsets = PackedFloat32Array(0.0245902, 0.233607, 0.241803, 0.45082, 0.471311, 0.696721, 0.709016, 1)
+colors = PackedColorArray(0.996078, 0.905882, 0.380392, 1, 0.996078, 0.905882, 0.380392, 1, 0.968627, 0.462745, 0.133333, 1, 0.968627, 0.462745, 0.133333, 1, 0.894118, 0.231373, 0.266667, 1, 0.894118, 0.231373, 0.266667, 1, 1, 0, 0.266667, 1, 0.635294, 0.14902, 0.2, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jlfj3"]
+gradient = SubResource("Gradient_loup8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iwfor"]
+lifetime_randomness = 0.6
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 128.0
+angle_min = -720.0
+angle_max = 720.0
+gravity = Vector3(0, -100, 0)
+scale_min = 2.5
+scale_max = 5.0
+color_ramp = SubResource("GradientTexture1D_jlfj3")
+anim_speed_min = 0.75
+anim_speed_max = 1.0
+
+[node name="Node2D" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_6ur42")
+emitting = false
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_iwfor")
+texture = ExtResource("1_nraqa")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.5
+randomness = 0.3
