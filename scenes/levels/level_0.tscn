@@ -11,7 +11,7 @@
 [node name="BaseLevel" instance=ExtResource("1_f1xfs")]
 
 [node name="LevelStop" parent="." index="0" instance=ExtResource("6_xwsdh")]
-position = Vector2(6960, -266)
+position = Vector2(5899, -266)
 
 [node name="Formation" parent="Enemies" index="0" instance=ExtResource("4_mewj2")]
 position = Vector2(610, -311)

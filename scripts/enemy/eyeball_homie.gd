@@ -18,10 +18,8 @@ var animation_player
 func _ready():
 	super()
 	state = State.MOVING
-	movement_target_pos = get_random_position()
+	movement_target_pos = null
 	animation_player = get_node("AnimationPlayer")
-	look_at(movement_target_pos)
-	rotation += 160
 	pass
 	
 func _process(delta):
@@ -35,6 +33,10 @@ func _process(delta):
 		handle_attacking_state(delta)
 		
 func handle_moving_state(delta):
+	if movement_target_pos == null:
+		movement_target_pos = get_random_position()
+		look_at(movement_target_pos)
+		rotation += 160
 	global_position = global_position.move_toward(movement_target_pos,movement_speed * delta)
 	if global_position == movement_target_pos:
 		state = State.LOCKING_ON
