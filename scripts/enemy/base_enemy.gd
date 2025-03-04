@@ -7,7 +7,8 @@ signal on_killed(points: int)
 @export_group("Stats")
 @export var health: int
 @export var points: int
-
+@export_group("FX")
+@export var explosion_particles: PackedScene
 
 
 var player
@@ -79,7 +80,17 @@ func take_damage():
 func kill(score: bool):
 	if score:
 		on_killed.emit(points)
+		spawn_explosion()
 	queue_free()
+	
+func spawn_explosion():
+	if not explosion_particles: 
+		return
+	var explosion = explosion_particles.instantiate()
+	explosion.scale = Vector2(.5,.5)
+	explosion.global_position = global_position
+	explosion.emitting = true
+	get_tree().current_scene.add_child(explosion)
 
 func shake():
 	if is_shaking:

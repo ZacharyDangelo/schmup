@@ -1,14 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://ga7gbovh7j5q"]
+[gd_scene load_steps=4 format=3 uid="uid://ga7gbovh7j5q"]
 
-[ext_resource type="Texture2D" uid="uid://8oqmlyfn2bqj" path="res://sprites/space_invaders_other_dude2.png" id="1_6ahtt"]
-[ext_resource type="Script" path="res://scripts/enemy/base_enemy.gd" id="1_ah7db"]
+[ext_resource type="Script" uid="uid://cflsvhfhat1he" path="res://scripts/enemy/base_enemy.gd" id="1_mdp6t"]
+[ext_resource type="Texture2D" uid="uid://8oqmlyfn2bqj" path="res://sprites/space_invaders_other_dude2.png" id="2_8uqef"]
+[ext_resource type="PackedScene" uid="uid://d14hctsvsawuv" path="res://particles/explosion_3.tscn" id="2_gwsvf"]
 
-[node name="Enemy" type="Node2D"]
+[node name="Enemy" type="Node2D" groups=["Enemies"]]
 scale = Vector2(5, 5)
-script = ExtResource("1_ah7db")
+script = ExtResource("1_mdp6t")
+explosion_particles = ExtResource("2_gwsvf")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_6ahtt")
+texture = ExtResource("2_8uqef")
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 2

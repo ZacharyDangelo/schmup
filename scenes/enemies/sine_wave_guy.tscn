@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6xnbsmu7oojo"]
+[gd_scene load_steps=8 format=3 uid="uid://br63cv11p1w71"]
 
-[ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/enemy.tscn" id="1_bya8h"]
+[ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/base_enemy.tscn" id="1_bya8h"]
 [ext_resource type="Texture2D" uid="uid://8oqmlyfn2bqj" path="res://sprites/space_invaders_other_dude2.png" id="2_ixa6d"]
-[ext_resource type="Script" path="res://scripts/enemy/space_invader_enemy.gd" id="2_rjni5"]
-[ext_resource type="Script" path="res://scripts/enemy/movement/sine_movement.gd" id="3_oqpoc"]
-[ext_resource type="Script" path="res://scripts/enemy/weapon/sine_cannon.gd" id="4_ddtgv"]
+[ext_resource type="Script" uid="uid://dg7g3uxej0wfp" path="res://scripts/enemy/space_invader_enemy.gd" id="2_rjni5"]
+[ext_resource type="Script" uid="uid://b1d6vp0pqpouo" path="res://scripts/enemy/movement/sine_movement.gd" id="3_oqpoc"]
+[ext_resource type="Script" uid="uid://ce4e722kudh5i" path="res://scripts/enemy/weapon/sine_cannon.gd" id="4_ddtgv"]
 [ext_resource type="PackedScene" uid="uid://d1bxhcq6ut76k" path="res://scenes/enemies/projectiles/cannon_projectile.tscn" id="5_pgy6g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_srr2v"]
@@ -20,7 +20,7 @@ max_distance = 0
 movement_delay = 2.5
 enabled = true
 sprite = ExtResource("2_ixa6d")
-health = 100
+health = 999
 points = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://qd4i4sjjsbsm"]
 
-[ext_resource type="Script" path="res://scripts/weapons/projectile.gd" id="1_284jt"]
+[ext_resource type="Script" uid="uid://bbi1dhcwr6lse" path="res://scripts/weapons/projectile.gd" id="1_284jt"]
 [ext_resource type="Texture2D" uid="uid://cqub73pa4a6g4" path="res://sprites/Laser.png" id="2_5wwnx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_117se"]
@@ -38,8 +38,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c1v3p"]
 _data = {
-"RESET": SubResource("Animation_as17b"),
-"laser": SubResource("Animation_ijnyf")
+&"RESET": SubResource("Animation_as17b"),
+&"laser": SubResource("Animation_ijnyf")
 }
 
 [node name="Projectile" type="Node2D" groups=["Projectiles"]]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bcehqyrqtpn2s"]
 
-[ext_resource type="Script" path="res://scripts/formation.gd" id="1_psc7p"]
-[ext_resource type="PackedScene" uid="uid://8ix5ux4krsc2" path="res://scenes/enemies/fan_guy.tscn" id="2_iukah"]
+[ext_resource type="Script" uid="uid://denmqnnhkp7ol" path="res://scripts/formation.gd" id="1_psc7p"]
+[ext_resource type="PackedScene" uid="uid://bgrmbkgps6rvi" path="res://scenes/enemies/fan_guy.tscn" id="2_iukah"]
 
 [node name="Formation" type="Node2D"]
 script = ExtResource("1_psc7p")

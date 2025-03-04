@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://lxrlrrkknvjd"]
 
-[ext_resource type="Script" path="res://scripts/formation.gd" id="1_8r5a3"]
+[ext_resource type="Script" uid="uid://denmqnnhkp7ol" path="res://scripts/formation.gd" id="1_8r5a3"]
 [ext_resource type="PackedScene" uid="uid://rrkn7oogmksg" path="res://scenes/enemies/lil_ship.tscn" id="2_ufg3m"]
 
 [node name="LilShipFormation" type="Node2D"]

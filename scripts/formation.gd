@@ -28,6 +28,7 @@ func _ready():
 func kill_enemy(node: Node2D):
 	if node in enemies:
 		enemies.erase(node)  # Removes the enemy from the array
+		node.spawn_explosion()
 		node.queue_free()  # Safely removes it from the scene tree
 
 func check_enemy_awake(enemy):

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dxogv416tnuca"]
 
-[ext_resource type="Script" path="res://scripts/debug_ui.gd" id="1_fpvob"]
+[ext_resource type="Script" uid="uid://eanlr4qc7uub" path="res://scripts/debug_ui.gd" id="1_fpvob"]
 [ext_resource type="FontFile" uid="uid://t8h1shroylrt" path="res://fonts/monogram.ttf" id="1_oyxfi"]
 
 [node name="DEBUG_UI" type="CanvasLayer" node_paths=PackedStringArray("toggle_button", "tools_container", "max_speed_y_input", "acceleration_y_input", "deceleration_y_input", "friction_input", "turn_speed_y_input", "max_speed_x_input", "acceleration_x_input", "deceleration_x_input", "turn_speed_x_input", "force_turn_input", "velocity_label", "export_button", "import_button")]

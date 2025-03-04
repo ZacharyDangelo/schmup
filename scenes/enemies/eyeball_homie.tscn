@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://cbtgxv45hq0dt"]
 
-[ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/enemy.tscn" id="1_hg6gp"]
-[ext_resource type="Script" path="res://scripts/enemy/eyeball_homie.gd" id="2_5llcc"]
+[ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/base_enemy.tscn" id="1_hg6gp"]
+[ext_resource type="Script" uid="uid://cdehhx7hs28uv" path="res://scripts/enemy/eyeball_homie.gd" id="2_5llcc"]
 [ext_resource type="Texture2D" uid="uid://cnypjtelk36g2" path="res://sprites/EyeballGuy.png" id="2_b8ekc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1fsuu"]
-radius = 15.0013
+radius = 17.6011
 
 [sub_resource type="Animation" id="Animation_kr7op"]
 length = 0.001
@@ -72,10 +72,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bb8xf"]
 _data = {
-"RESET": SubResource("Animation_kr7op"),
-"attacking": SubResource("Animation_it1qs"),
-"locking": SubResource("Animation_rt2jc"),
-"waiting": SubResource("Animation_ol2to")
+&"RESET": SubResource("Animation_kr7op"),
+&"attacking": SubResource("Animation_it1qs"),
+&"locking": SubResource("Animation_rt2jc"),
+&"waiting": SubResource("Animation_ol2to")
 }
 
 [node name="EyeballHomie" instance=ExtResource("1_hg6gp")]
@@ -88,7 +88,7 @@ movement_offset_x = 200.0
 movement_offset_y = 50.0
 sprite = ExtResource("2_b8ekc")
 has_weapon = false
-health = 25
+health = 10
 points = 1000
 metadata/_edit_group_ = true
 
@@ -102,5 +102,5 @@ shape = SubResource("CircleShape2D_1fsuu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
 libraries = {
-"": SubResource("AnimationLibrary_bb8xf")
+&"": SubResource("AnimationLibrary_bb8xf")
 }

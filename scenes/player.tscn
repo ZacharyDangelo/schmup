@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://c7hgmmou0ia8o"]
 
-[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_4vd5h"]
+[ext_resource type="Script" uid="uid://dpgi5jhhlypvx" path="res://scripts/player/player.gd" id="1_4vd5h"]
 [ext_resource type="Texture2D" uid="uid://cv1bja2088xja" path="res://sprites/Arwing.png" id="2_p5reh"]
-[ext_resource type="Script" path="res://scripts/weapons/spread_weapon.gd" id="3_i7dnc"]
+[ext_resource type="Script" uid="uid://ihbo2yls6gth" path="res://scripts/weapons/spread_weapon.gd" id="3_i7dnc"]
 [ext_resource type="PackedScene" uid="uid://qd4i4sjjsbsm" path="res://scenes/projectile.tscn" id="4_syuc0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0blvs"]
@@ -42,8 +42,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eonfi"]
 _data = {
-"RESET": SubResource("Animation_im1b3"),
-"butt_fire": SubResource("Animation_j2kvs")
+&"RESET": SubResource("Animation_im1b3"),
+&"butt_fire": SubResource("Animation_j2kvs")
 }
 
 [node name="Player" type="Node2D" node_paths=PackedStringArray("sprite")]
@@ -60,9 +60,9 @@ region_rect = Rect2(0, 0, 64, 32)
 [node name="Weapon" type="Node2D" parent="."]
 script = ExtResource("3_i7dnc")
 spread_projectile_count = 3
-spread_amount_deg = 2.0
+spread_amount_deg = 13.0
 auto_fire = true
-fire_delay = 0.125
+fire_delay = 0.11
 projectile = ExtResource("4_syuc0")
 
 [node name="FirePoint" type="Node2D" parent="Weapon"]
@@ -77,7 +77,7 @@ shape = SubResource("RectangleShape2D_0blvs")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_eonfi")
+&"": SubResource("AnimationLibrary_eonfi")
 }
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyConfig" load_steps=3 format=3 uid="uid://fhii6u6aowoq"]
 
-[ext_resource type="PackedScene" uid="uid://c6xnbsmu7oojo" path="res://scenes/enemies/sine_wave_guy.tscn" id="1_i5ue8"]
-[ext_resource type="Script" path="res://scripts/enemy/enemy_resource.gd" id="2_0bpac"]
+[ext_resource type="PackedScene" uid="uid://br63cv11p1w71" path="res://scenes/enemies/sine_wave_guy.tscn" id="1_i5ue8"]
+[ext_resource type="Script" uid="uid://cwyhi41vireqx" path="res://scripts/enemy/enemy_resource.gd" id="2_0bpac"]
 
 [resource]
 script = ExtResource("2_0bpac")
