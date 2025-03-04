@@ -25,6 +25,8 @@ func _ready():
 	pass
 	
 func _process(delta):
+	if not awake:
+		return
 	if state == State.MOVING:
 		handle_moving_state(delta)
 	if state == State.LOCKING_ON:

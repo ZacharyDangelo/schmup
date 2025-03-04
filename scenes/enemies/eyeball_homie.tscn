@@ -80,15 +80,15 @@ _data = {
 
 [node name="EyeballHomie" instance=ExtResource("1_hg6gp")]
 script = ExtResource("2_5llcc")
-lock_on_time = 2.0
+lock_on_time = 0.2
 attack_delay = 1.0
-movement_speed = 750.0
-locked_on_movement_speed = 1000.0
-movement_offset_x = 200.0
+movement_speed = 500.0
+locked_on_movement_speed = 350.0
+movement_offset_x = 5.0
 movement_offset_y = 50.0
 sprite = ExtResource("2_b8ekc")
 has_weapon = false
-health = 10
+health = 20
 points = 1000
 metadata/_edit_group_ = true
 
@@ -99,6 +99,10 @@ region_rect = Rect2(0, 0, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
 shape = SubResource("CircleShape2D_1fsuu")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="4"]
+position = Vector2(-8.9, 0.804082)
+scale = Vector2(1.89, 1.02041)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
 libraries = {

@@ -1,5 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://6lmn3axmdtv8"]
+[gd_scene load_steps=3 format=3 uid="uid://6lmn3axmdtv8"]
 
 [ext_resource type="PackedScene" uid="uid://ccsdnov6q6ssd" path="res://scenes/levels/base_level.tscn" id="1_0jsg6"]
+[ext_resource type="PackedScene" uid="uid://cbtgxv45hq0dt" path="res://scenes/enemies/eyeball_homie.tscn" id="2_yautc"]
 
 [node name="BaseLevel" instance=ExtResource("1_0jsg6")]
+
+[node name="EyeballHomie" parent="." index="7" instance=ExtResource("2_yautc")]
+position = Vector2(910.569, -175)
+
+[node name="EyeballHomie2" parent="." index="8" instance=ExtResource("2_yautc")]
+position = Vector2(910.569, 103)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://d14hctsvsawuv"]
+[gd_scene load_steps=7 format=3 uid="uid://d14hctsvsawuv"]
 
 [ext_resource type="Texture2D" uid="uid://uwwema4683c5" path="res://sprites/Explosion_Sheet.png" id="1_nraqa"]
+[ext_resource type="Script" uid="uid://cndgp55eyks1u" path="res://scripts/particles/explosion.gd" id="2_6i4yj"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6ur42"]
 particles_animation = true
@@ -29,13 +30,16 @@ color_ramp = SubResource("GradientTexture1D_jlfj3")
 anim_speed_min = 0.75
 anim_speed_max = 1.0
 
-[node name="Node2D" type="GPUParticles2D"]
+[node name="Explosion" type="GPUParticles2D"]
 material = SubResource("CanvasItemMaterial_6ur42")
 emitting = false
 amount = 32
-process_material = SubResource("ParticleProcessMaterial_iwfor")
 texture = ExtResource("1_nraqa")
 lifetime = 0.5
 one_shot = true
 explosiveness = 0.5
 randomness = 0.3
+process_material = SubResource("ParticleProcessMaterial_iwfor")
+script = ExtResource("2_6i4yj")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

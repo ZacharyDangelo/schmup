@@ -2,7 +2,6 @@ extends Control
 
 
 func show_menu():
-	print('showign')
 	self.visible = true
 	get_node("../ScoreLabel").visible = false
 	

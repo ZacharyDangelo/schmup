@@ -89,7 +89,6 @@ func spawn_explosion():
 	var explosion = explosion_particles.instantiate()
 	explosion.scale = Vector2(.5,.5)
 	explosion.global_position = global_position
-	explosion.emitting = true
 	get_tree().current_scene.add_child(explosion)
 
 func shake():

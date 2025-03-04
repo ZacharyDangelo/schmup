@@ -5,6 +5,7 @@ signal on_died()
 @export var sprite: Sprite2D
 @export var speed: float
 
+var start_pos
 var screen_size
 var screen_offset = 40
 var last_velocity = Vector2.ZERO
@@ -16,6 +17,7 @@ func _ready():
 	get_node("AnimationPlayer").play("butt_fire")
 	camera = get_node('%Camera')
 	dead = false
+	start_pos = position
 
 func _process(delta):
 	if dead:
@@ -49,6 +51,8 @@ func _process(delta):
 	position = position.clamp(min_bounds, max_bounds)
 
 
+func reset_position():
+	position = start_pos
 
 func _on_hit_box_area_entered(area):
 	dead = true

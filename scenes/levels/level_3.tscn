@@ -1,0 +1,216 @@
+[gd_scene load_steps=11 format=3 uid="uid://cda87mfppoffb"]
+
+[ext_resource type="PackedScene" uid="uid://ccsdnov6q6ssd" path="res://scenes/levels/base_level.tscn" id="1_f1xfs"]
+[ext_resource type="PackedScene" uid="uid://cbbcrfdk0hpg6" path="res://scenes/enemies/slider_guy.tscn" id="3_kv27j"]
+[ext_resource type="PackedScene" uid="uid://djuo0w5p7pc4p" path="res://scenes/enemies/up_down_guy.tscn" id="4_4a2ux"]
+[ext_resource type="PackedScene" uid="uid://bcehqyrqtpn2s" path="res://scenes/formations/fan_formation.tscn" id="4_mewj2"]
+[ext_resource type="PackedScene" uid="uid://bqrf22eoo27mn" path="res://scenes/enemies/spinny_guy.tscn" id="5_py2p7"]
+[ext_resource type="PackedScene" uid="uid://es0ok7ph4xae" path="res://scenes/enemies/nova_guy.tscn" id="6_il8h2"]
+[ext_resource type="Texture2D" uid="uid://dsa2db5pgjnwe" path="res://sprites/Planet2.png" id="6_ll2hp"]
+[ext_resource type="PackedScene" uid="uid://b23myxyy81il5" path="res://scenes/levels/markers/level_stop.tscn" id="6_xwsdh"]
+[ext_resource type="Texture2D" uid="uid://bl0lclmwl8i08" path="res://sprites/Planet1.png" id="7_g1mj5"]
+[ext_resource type="PackedScene" uid="uid://lxrlrrkknvjd" path="res://scenes/formations/lil_ship_formation.tscn" id="7_pefny"]
+
+[node name="BaseLevel" instance=ExtResource("1_f1xfs")]
+
+[node name="SliderGuy3" parent="Enemies" index="0" instance=ExtResource("3_kv27j")]
+position = Vector2(972, 298)
+
+[node name="SliderGuy" parent="Enemies" index="1" instance=ExtResource("3_kv27j")]
+position = Vector2(330, 298)
+
+[node name="SliderGuy2" parent="Enemies" index="2" instance=ExtResource("3_kv27j")]
+position = Vector2(369, -270)
+
+[node name="Enemy2" parent="Enemies" index="3" instance=ExtResource("4_4a2ux")]
+position = Vector2(608, 233)
+
+[node name="Enemy3" parent="Enemies" index="4" instance=ExtResource("4_4a2ux")]
+position = Vector2(1247, -17)
+
+[node name="SpinnyGuy" parent="Enemies" index="5" instance=ExtResource("5_py2p7")]
+position = Vector2(1112, 245)
+
+[node name="SpinnyGuy2" parent="Enemies" index="6" instance=ExtResource("5_py2p7")]
+position = Vector2(1608, -293)
+
+[node name="SpinnyGuy3" parent="Enemies" index="7" instance=ExtResource("5_py2p7")]
+position = Vector2(2375, -1)
+
+[node name="NovaGuy" parent="Enemies" index="8" instance=ExtResource("6_il8h2")]
+position = Vector2(1598, -4)
+
+[node name="SliderGuy4" parent="Enemies" index="9" instance=ExtResource("3_kv27j")]
+position = Vector2(972, -272)
+
+[node name="SliderGuy5" parent="Enemies" index="10" instance=ExtResource("3_kv27j")]
+position = Vector2(2285, 298)
+
+[node name="SliderGuy6" parent="Enemies" index="11" instance=ExtResource("3_kv27j")]
+position = Vector2(2282, -270)
+
+[node name="SliderGuy7" parent="Enemies" index="12" instance=ExtResource("3_kv27j")]
+position = Vector2(2674, 298)
+
+[node name="SliderGuy8" parent="Enemies" index="13" instance=ExtResource("3_kv27j")]
+position = Vector2(2671, -270)
+
+[node name="NovaGuy2" parent="Enemies" index="14" instance=ExtResource("6_il8h2")]
+position = Vector2(3223, -270)
+
+[node name="NovaGuy3" parent="Enemies" index="15" instance=ExtResource("6_il8h2")]
+position = Vector2(3223, 304)
+
+[node name="NovaGuy4" parent="Enemies" index="16" instance=ExtResource("6_il8h2")]
+position = Vector2(3550, 3)
+
+[node name="SliderGuy9" parent="Enemies" index="17" instance=ExtResource("3_kv27j")]
+position = Vector2(4002, 179)
+
+[node name="SliderGuy10" parent="Enemies" index="18" instance=ExtResource("3_kv27j")]
+position = Vector2(3999, -171)
+
+[node name="Formation" parent="Enemies" index="19" instance=ExtResource("4_mewj2")]
+position = Vector2(4975, -138)
+y_drop = 120.0
+
+[node name="FanGuy" parent="Enemies/Formation/EnemyContainer" index="0"]
+explosion_particles = null
+
+[node name="FanGuy2" parent="Enemies/Formation/EnemyContainer" index="1"]
+explosion_particles = null
+
+[node name="FanGuy3" parent="Enemies/Formation/EnemyContainer" index="2"]
+explosion_particles = null
+
+[node name="FanGuy4" parent="Enemies/Formation/EnemyContainer" index="3"]
+explosion_particles = null
+
+[node name="FanGuy5" parent="Enemies/Formation/EnemyContainer" index="4"]
+explosion_particles = null
+
+[node name="Formation2" parent="Enemies" index="20" instance=ExtResource("4_mewj2")]
+position = Vector2(4977, 138)
+y_drop = -120.0
+
+[node name="Enemy" parent="Enemies" index="21" instance=ExtResource("4_4a2ux")]
+position = Vector2(1904, -15)
+
+[node name="SliderGuy11" parent="Enemies" index="22" instance=ExtResource("3_kv27j")]
+position = Vector2(3723.14, 313)
+
+[node name="SliderGuy12" parent="Enemies" index="23" instance=ExtResource("3_kv27j")]
+position = Vector2(3723.14, -275)
+
+[node name="SliderGuy13" parent="Enemies" index="24" instance=ExtResource("3_kv27j")]
+position = Vector2(6587, 179)
+
+[node name="SliderGuy14" parent="Enemies" index="25" instance=ExtResource("3_kv27j")]
+position = Vector2(6584, -171)
+
+[node name="SpinnyGuy4" parent="Enemies" index="26" instance=ExtResource("5_py2p7")]
+position = Vector2(5546, -1)
+
+[node name="SpinnyGuy5" parent="Enemies" index="27" instance=ExtResource("5_py2p7")]
+position = Vector2(5758, -1)
+
+[node name="SpinnyGuy6" parent="Enemies" index="28" instance=ExtResource("5_py2p7")]
+position = Vector2(5931, -1)
+
+[node name="SliderGuy15" parent="Enemies" index="29" instance=ExtResource("3_kv27j")]
+position = Vector2(6393, 313)
+
+[node name="SliderGuy16" parent="Enemies" index="30" instance=ExtResource("3_kv27j")]
+position = Vector2(6393, -275)
+
+[node name="SliderGuy17" parent="Enemies" index="31" instance=ExtResource("3_kv27j")]
+position = Vector2(6977, 179)
+
+[node name="SliderGuy18" parent="Enemies" index="32" instance=ExtResource("3_kv27j")]
+position = Vector2(6974, -171)
+
+[node name="SliderGuy19" parent="Enemies" index="33" instance=ExtResource("3_kv27j")]
+position = Vector2(6783, 313)
+
+[node name="SliderGuy20" parent="Enemies" index="34" instance=ExtResource("3_kv27j")]
+position = Vector2(6783, -275)
+
+[node name="SliderGuy21" parent="Enemies" index="35" instance=ExtResource("3_kv27j")]
+position = Vector2(7399, 179)
+
+[node name="SliderGuy22" parent="Enemies" index="36" instance=ExtResource("3_kv27j")]
+position = Vector2(7396, -171)
+
+[node name="SliderGuy23" parent="Enemies" index="37" instance=ExtResource("3_kv27j")]
+position = Vector2(7205, 313)
+
+[node name="SliderGuy24" parent="Enemies" index="38" instance=ExtResource("3_kv27j")]
+position = Vector2(7205, -275)
+
+[node name="SpinnyGuy7" parent="Enemies" index="39" instance=ExtResource("5_py2p7")]
+position = Vector2(6751, -1)
+
+[node name="SpinnyGuy8" parent="Enemies" index="40" instance=ExtResource("5_py2p7")]
+position = Vector2(6963, -1)
+explosion_particles = null
+
+[node name="SpinnyGuy9" parent="Enemies" index="41" instance=ExtResource("5_py2p7")]
+position = Vector2(7136, -1)
+
+[node name="Enemy5" parent="Enemies" index="42" instance=ExtResource("4_4a2ux")]
+position = Vector2(6095, -3)
+
+[node name="Formation3" parent="Enemies" index="43" instance=ExtResource("4_mewj2")]
+position = Vector2(262.993, 3.5954)
+
+[node name="Formation4" parent="Enemies" index="44" instance=ExtResource("4_mewj2")]
+position = Vector2(263, -70)
+y_drop = -80.0
+
+[node name="Enemy6" parent="Enemies" index="45" instance=ExtResource("4_4a2ux")]
+position = Vector2(827, 215)
+
+[node name="Enemy7" parent="Enemies" index="46" instance=ExtResource("4_4a2ux")]
+position = Vector2(718, -204)
+
+[node name="Formation5" parent="Enemies" index="47" instance=ExtResource("4_mewj2")]
+position = Vector2(1145, 77)
+
+[node name="Formation6" parent="Enemies" index="48" instance=ExtResource("4_mewj2")]
+position = Vector2(1145.01, -129)
+y_drop = -80.0
+
+[node name="LilShipFormation" parent="Enemies" index="49" instance=ExtResource("7_pefny")]
+position = Vector2(1900, -144)
+
+[node name="LilShipFormation2" parent="Enemies" index="50" instance=ExtResource("7_pefny")]
+position = Vector2(4407, 120)
+
+[node name="LilShipFormation3" parent="Enemies" index="51" instance=ExtResource("7_pefny")]
+position = Vector2(4407, -203)
+
+[node name="PlanetLayer" type="ParallaxLayer" parent="Background" index="2"]
+motion_scale = Vector2(0.7, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/PlanetLayer" index="0"]
+modulate = Color(0.29, 0.29, 0.29, 1)
+position = Vector2(637, -229)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("6_ll2hp")
+
+[node name="PlanetLayer2" type="ParallaxLayer" parent="Background" index="3"]
+motion_scale = Vector2(0.4, 1)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/PlanetLayer2" index="0"]
+modulate = Color(0.43, 0.43, 0.43, 1)
+position = Vector2(1360, 237)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_g1mj5")
+
+[node name="Stars2Layer" parent="Background" index="4"]
+motion_mirroring = Vector2(2560, 0)
+
+[node name="LevelStop" parent="." index="7" instance=ExtResource("6_xwsdh")]
+position = Vector2(8498, -273)
+
+[editable path="Enemies/Formation"]

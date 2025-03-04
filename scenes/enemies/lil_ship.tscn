@@ -15,7 +15,7 @@ scale = Vector2(2, 2)
 script = ExtResource("2_55lak")
 speed_increase_after_fire = 100.0
 sprite = ExtResource("3_nihyu")
-health = 3
+health = 5
 points = 150
 
 [node name="Sprite" parent="." index="0"]
@@ -28,7 +28,7 @@ shape = SubResource("RectangleShape2D_f5y6s")
 
 [node name="Movement" parent="." index="2"]
 script = ExtResource("4_5i2kh")
-speed = 100.0
+speed = 170.0
 
 [node name="Weapon" parent="." index="3"]
 script = ExtResource("4_nhtlh")
