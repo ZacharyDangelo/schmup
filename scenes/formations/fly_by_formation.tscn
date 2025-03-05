@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cibnt3xdibt2l"]
+
+[ext_resource type="PackedScene" uid="uid://bhory2k1p8ytj" path="res://scenes/formations/base_formation.tscn" id="1_gkeuc"]
+[ext_resource type="PackedScene" uid="uid://bkhexedgh372k" path="res://scenes/enemies/fly_by.tscn" id="2_n65tb"]
+
+[node name="BaseFormation" instance=ExtResource("1_gkeuc")]
+
+[node name="Enemy" parent="EnemyContainer" index="0" instance=ExtResource("2_n65tb")]
+
+[node name="Enemy2" parent="EnemyContainer" index="1" instance=ExtResource("2_n65tb")]
+position = Vector2(80, -45)
+
+[node name="Enemy3" parent="EnemyContainer" index="2" instance=ExtResource("2_n65tb")]
+position = Vector2(160, -78)

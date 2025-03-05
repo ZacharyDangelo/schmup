@@ -4,6 +4,7 @@ signal on_died()
 
 @export var sprite: Sprite2D
 @export var speed: float
+@onready var weapon = $Weapon
 
 var start_pos
 var screen_size
@@ -11,6 +12,7 @@ var screen_offset = 40
 var last_velocity = Vector2.ZERO
 var camera
 var dead
+var current_speed
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -18,6 +20,7 @@ func _ready():
 	camera = get_node('%Camera')
 	dead = false
 	start_pos = position
+	current_speed = speed
 
 func _process(delta):
 	if dead:
@@ -38,7 +41,7 @@ func _process(delta):
 		input_vector = input_vector.normalized()
 
 	# Move the player based on input
-	position += speed * input_vector * delta
+	position += current_speed * input_vector * delta
 	
 	# Move the player based on camera scroll speed
 	position += Vector2(camera.current_scroll_speed * delta,0)
@@ -50,9 +53,14 @@ func _process(delta):
 	var max_bounds = (camera.position - camera.offset) + half_screen + - camera.screen_padding
 	position = position.clamp(min_bounds, max_bounds)
 
+func stop():
+	current_speed = 0
+	weapon.auto_fire = false
 
-func reset_position():
+func reset():
 	position = start_pos
+	current_speed = speed
+	weapon.auto_fire = true
 
 func _on_hit_box_area_entered(area):
 	dead = true

@@ -1,50 +1,24 @@
-extends Node2D
+extends "res://scripts/formations/base_formation.gd"
 
-@export_group("Flags")
-@export var wake_all: bool = false
-@export var handle_movement: bool = true
+# Move to fan formation script
 @export_group("Movement")
 @export var distance_before_turning: float = 60
 @export var backtrack_distance: float = 30
 @export var y_drop: float = 20
 @export var distance_grace: float = .25
-var enemies: Array
 
-var awake
-var start_pos
 var initial_target_pos
 var backtrack_target_pos
 func _ready():
-	awake = false
-	enemies = get_node("EnemyContainer").get_children()
-	start_pos = self.global_position
+	super()
 	initial_target_pos = Vector2(self.global_position.x -distance_before_turning, self.global_position.y)
 	backtrack_target_pos = Vector2(initial_target_pos.x + backtrack_distance, self.global_position.y + y_drop)
+	handle_movement = true
 	if handle_movement:
 		for enemy in enemies:
 			enemy.target_pos = initial_target_pos
 			enemy.killed_in_formation.connect(kill_enemy)
 
-func kill_enemy(node: Node2D):
-	if node in enemies:
-		enemies.erase(node)  # Removes the enemy from the array
-		node.spawn_explosion()
-		node.queue_free()  # Safely removes it from the scene tree
-
-func check_enemy_awake(enemy):
-	return enemy.awake
-
-func wake_all_enemies():
-	print('waking all')
-	for enemy in enemies:
-		enemy.awake = true
-	awake = true
-
-func _process(delta):
-	if not awake and wake_all and enemies.any(check_enemy_awake):
-		wake_all_enemies()
-	if handle_movement:
-		move_enemies(delta)
 
 func move_enemies(delta):
 	for enemy in enemies:

@@ -9,7 +9,7 @@ var current_scroll_speed
 
 func _ready():
 	player = get_node('%Player')
-	player.on_died.connect(stop_camera)
+	player.on_died.connect(stop)
 	current_scroll_speed = scroll_speed
 	Util.camera = self
 
@@ -17,7 +17,13 @@ func _process(delta):
 	if scroll_enabled:
 		position += Vector2(current_scroll_speed * delta,0)
 	
-func stop_camera():
+func reset():
+	position_smoothing_enabled = false
+	position = Vector2.ZERO
+	current_scroll_speed = scroll_speed
+	position_smoothing_enabled = true
+	
+func stop():
 	current_scroll_speed = 0
 
 func start_camera():

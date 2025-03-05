@@ -7,13 +7,18 @@ extends "res://scripts/weapons/base_weapon.gd"
 
 func _ready():
 	super()
+	var animation_player = get_node("../AnimationPlayer")
+	animation_player.play("fire")
 
 func _process(delta):
-	super(delta)
+	#super(delta)
+	pass
 	
 
 func fire():
-	var rotation_per_step = 360/num_projectiles
+	if not get_parent().awake:
+		return
+	var rotation_per_step = 45
 	var curr_rotation = 0
 	for i in range(num_projectiles):
 		var proj = projectile.instantiate()

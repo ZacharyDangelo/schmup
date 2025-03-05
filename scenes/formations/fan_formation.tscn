@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bcehqyrqtpn2s"]
 
-[ext_resource type="Script" uid="uid://denmqnnhkp7ol" path="res://scripts/formation.gd" id="1_psc7p"]
+[ext_resource type="Script" uid="uid://denmqnnhkp7ol" path="res://scripts/formations/fan_formation.gd" id="1_psc7p"]
 [ext_resource type="PackedScene" uid="uid://bgrmbkgps6rvi" path="res://scenes/enemies/fan_guy.tscn" id="2_iukah"]
 
 [node name="Formation" type="Node2D"]
@@ -9,6 +9,7 @@ distance_before_turning = 160.0
 backtrack_distance = 80.0
 y_drop = 80.0
 distance_grace = 1.2
+handle_movement = true
 
 [node name="EnemyContainer" type="Node2D" parent="."]
 

@@ -10,6 +10,7 @@ signal on_killed(points: int)
 @export_group("FX")
 @export var explosion_particles: PackedScene
 
+@onready var audio_stream = $AudioStreamPlayer2D
 
 var player
 var weapon
@@ -47,6 +48,7 @@ func setup():
 	on_killed.connect(ui_group[0]._on_enemy_killed)
 	player = player_group[0]
 	camera = get_camera()
+	
 
 func _process(delta):
 	if not awake:
@@ -74,6 +76,7 @@ func _on_hit_box_area_entered(area: Area2D):
 func take_damage():
 	current_health -= 1
 	shake()
+	audio_stream.play()
 	if current_health <= 0:
 		kill(true)
 
@@ -127,7 +130,6 @@ func get_camera():
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
 	awake = true
-	print('waking up:',self.name)
 	if has_weapon and "active" in weapon:
 		weapon.active = true
 

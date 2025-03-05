@@ -1,10 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dyo0mpj1x00rm"]
+[gd_scene load_steps=3 format=3 uid="uid://dyo0mpj1x00rm"]
 
 [ext_resource type="Script" uid="uid://bvqaqbmkfkn48" path="res://scripts/menus/level_over_menu.gd" id="1_lu5dq"]
 [ext_resource type="FontFile" uid="uid://t8h1shroylrt" path="res://fonts/monogram.ttf" id="2_ouot3"]
-[ext_resource type="Texture2D" uid="uid://dhw812gad1uxq" path="res://img/nice.png" id="3_ueog1"]
-[ext_resource type="Texture2D" uid="uid://bwegwuvsuscf4" path="res://img/nice2.png" id="4_t52kc"]
-[ext_resource type="Texture2D" uid="uid://cn4myld4ei6wk" path="res://img/nice3.png" id="5_qob5d"]
 
 [node name="LevelOverMenu" type="Control"]
 layout_mode = 3
@@ -32,7 +29,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("2_ouot3")
 theme_override_font_sizes/font_size = 64
-text = "YOU WIN!"
+text = "YOU BEAT THIS LEVEL"
 
 [node name="ScoreLabel" type="Label" parent="PanelContainer"]
 layout_mode = 2
@@ -47,41 +44,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("2_ouot3")
 theme_override_font_sizes/font_size = 64
-text = "  TRY AGAIN  "
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 890.0
-offset_top = 176.0
-offset_right = 1501.0
-offset_bottom = 890.0
-scale = Vector2(0.375, 0.375)
-texture = ExtResource("3_ueog1")
-
-[node name="TextureRect2" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 133.0
-offset_top = 173.0
-offset_right = 744.0
-offset_bottom = 887.0
-scale = Vector2(0.375, 0.375)
-texture = ExtResource("4_t52kc")
-
-[node name="TextureRect3" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 873.0
-offset_right = 1545.0
-offset_bottom = 532.0
-scale = Vector2(0.375, 0.375)
-texture = ExtResource("5_qob5d")
-
-[node name="TextureRect4" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 136.0
-offset_top = 1.0
-offset_right = 808.0
-offset_bottom = 533.0
-scale = Vector2(0.375, 0.375)
-texture = ExtResource("5_qob5d")
+text = "CONTINUE"
 
 [connection signal="pressed" from="PanelContainer/Button" to="." method="_on_button_pressed"]

@@ -32,7 +32,7 @@ speed = 170.0
 
 [node name="Weapon" parent="." index="3"]
 script = ExtResource("4_nhtlh")
-distance_to_fire = 500.0
+distance_to_fire = 600.0
 weapon_type = 1
 fire_delay = 1.2
 projectile = ExtResource("6_2jhoc")

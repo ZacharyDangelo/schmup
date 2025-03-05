@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhory2k1p8ytj"]
+
+[ext_resource type="Script" uid="uid://cfo2ivccq8ti1" path="res://scripts/formations/base_formation.gd" id="1_v2j4d"]
+
+[node name="BaseFormation" type="Node2D"]
+script = ExtResource("1_v2j4d")
+
+[node name="EnemyContainer" type="Node2D" parent="."]

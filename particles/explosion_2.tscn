@@ -51,7 +51,7 @@ color_ramp = SubResource("GradientTexture1D_hj313")
 [node name="Node2D" type="GPUParticles2D"]
 material = SubResource("CanvasItemMaterial_rxa33")
 amount = 32
-process_material = SubResource("ParticleProcessMaterial_udu5c")
 texture = ExtResource("1_sh4if")
 explosiveness = 0.75
 randomness = 0.3
+process_material = SubResource("ParticleProcessMaterial_udu5c")

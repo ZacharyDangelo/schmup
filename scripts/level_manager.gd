@@ -1,12 +1,12 @@
 extends Node2D
 
 
-@export var starting_level_index: int = 0
+@export var starting_level_index: int = 1
 @export var levels: Array[PackedScene]
 
 @onready var player = %Player
 @onready var camera = %Camera
-@onready var ui = %UI
+@onready var level_over_menu = $"../UI/LevelOverMenu"
 
 var current_level_index
 func _ready():
@@ -18,18 +18,21 @@ func spawn_next_level(level_index: int):
 		get_child(0).queue_free()
 	var new_level = levels[level_index].instantiate()
 	new_level.position = Vector2.ZERO
-	new_level.get_node("LevelStop").level_stopped.connect(handle_level_finished)
+	new_level.get_node("LevelStop").level_stopped.connect(_on_level_over)
 	add_child(new_level)
 
-func handle_level_finished():
+func _on_level_over():
+	level_over_menu.show_menu()
+	player.stop()
+	camera.stop()
+
+func _on_level_over_menu_on_continue_button_pressed():
 	current_level_index += 1
 	if current_level_index < len(levels):
-		player.reset_position()
-		camera.position = Vector2(0,0)
+		player.reset()
+		camera.reset()
 		spawn_next_level(current_level_index)
 	else:
-		player.speed = 0
-		player.weapon.auto_fire = false
-		camera.current_scroll_speed = 0
-		ui.get_node("LevelOverMenu").show_menu()
-		
+		player.stop()
+		camera.stop()
+		level_over_menu.show_menu()

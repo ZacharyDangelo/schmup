@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://uwwema4683c5" path="res://sprites/Explosion_Sheet.png" id="1_nraqa"]
 [ext_resource type="Script" uid="uid://cndgp55eyks1u" path="res://scripts/particles/explosion.gd" id="2_6i4yj"]
-[ext_resource type="AudioStream" uid="uid://burg30uotr0r8" path="res://audio/sfx/explosion.wav" id="3_vb83q"]
+[ext_resource type="PackedScene" uid="uid://bhjyjt8qf85td" path="res://particles/explosion_2.tscn" id="3_vb83q"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6ur42"]
 particles_animation = true
@@ -31,7 +31,13 @@ color_ramp = SubResource("GradientTexture1D_jlfj3")
 anim_speed_min = 0.75
 anim_speed_max = 1.0
 
-[node name="Explosion" type="GPUParticles2D"]
+[node name="Node2D" type="Node2D"]
+
+[node name="Cloud" parent="." instance=ExtResource("3_vb83q")]
+emitting = false
+lifetime = 0.8
+
+[node name="Explosion" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_6ur42")
 emitting = false
 amount = 32
@@ -43,9 +49,4 @@ randomness = 0.3
 process_material = SubResource("ParticleProcessMaterial_iwfor")
 script = ExtResource("2_6i4yj")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_vb83q")
-volume_db = -10.0
-bus = &"SFX"
-
-[connection signal="finished" from="." to="." method="_on_finished"]
+[connection signal="finished" from="Explosion" to="Explosion" method="_on_finished"]

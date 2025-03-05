@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://cc6kmyavd64y"]
 
 [ext_resource type="Script" uid="uid://dmteefmvn0akr" path="res://scripts/camera.gd" id="1_e7bqo"]
-[ext_resource type="PackedScene" uid="uid://6lmn3axmdtv8" path="res://scenes/levels/test_level.tscn" id="3_te1do"]
+[ext_resource type="PackedScene" uid="uid://6lmn3axmdtv8" path="res://scenes/levels/test_level.tscn" id="3_efxa6"]
 [ext_resource type="PackedScene" uid="uid://cda87mfppoffb" path="res://scenes/levels/level_3.tscn" id="4_efxa6"]
 [ext_resource type="PackedScene" uid="uid://c7hgmmou0ia8o" path="res://scenes/player.tscn" id="5_utn1q"]
 [ext_resource type="PackedScene" uid="uid://ddrq8dwlmc3ry" path="res://scenes/levels/level_0.tscn" id="6_i2owa"]
@@ -19,7 +19,7 @@ position = Vector2(915, -3)
 
 [node name="LevelManager" type="Node2D" parent="."]
 script = ExtResource("7_0y5fu")
-levels = Array[PackedScene]([ExtResource("6_i2owa"), ExtResource("4_efxa6"), ExtResource("3_te1do")])
+levels = Array[PackedScene]([ExtResource("3_efxa6"), ExtResource("6_i2owa"), ExtResource("4_efxa6")])
 
 [node name="Camera" type="Camera2D" parent="." groups=["Camera"]]
 unique_name_in_owner = true
@@ -50,6 +50,30 @@ grow_vertical = 1
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
+[node name="TextureRect" parent="UI/GameOverMenu/VictoryGraphics" index="0"]
+offset_left = 282.0
+offset_top = 203.0
+offset_right = 893.0
+offset_bottom = 917.0
+
+[node name="TextureRect2" parent="UI/GameOverMenu/VictoryGraphics" index="1"]
+offset_left = -493.0
+offset_top = 279.0
+offset_right = -51.0
+offset_bottom = 752.0
+
+[node name="TextureRect3" parent="UI/GameOverMenu/VictoryGraphics" index="2"]
+offset_left = -517.0
+offset_top = 19.0
+offset_right = 52.0
+offset_bottom = 551.0
+
+[node name="TextureRect4" parent="UI/GameOverMenu/VictoryGraphics" index="3"]
+offset_left = 274.0
+offset_top = 39.0
+offset_right = 843.0
+offset_bottom = 571.0
+
 [node name="ScoreLabel" type="Label" parent="UI"]
 anchors_preset = 5
 anchor_left = 0.5
@@ -68,5 +92,7 @@ offset_top = 91.0
 offset_bottom = 91.0
 
 [connection signal="on_died" from="Player" to="UI" method="_on_player_on_died"]
+[connection signal="on_continue_button_pressed" from="UI/LevelOverMenu" to="LevelManager" method="_on_level_over_menu_on_continue_button_pressed"]
 
 [editable path="Player"]
+[editable path="UI/GameOverMenu"]

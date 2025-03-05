@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkhexedgh372k"]
+
+[ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/base_enemy.tscn" id="1_eovui"]
+[ext_resource type="Texture2D" uid="uid://bp1y734evu31y" path="res://icon.svg" id="2_ry30x"]
+[ext_resource type="Script" uid="uid://dr34fetmmkk5p" path="res://scripts/enemy/movement/fly_by.gd" id="3_hi4qd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eovui"]
+size = Vector2(134, 135)
+
+[node name="Enemy" instance=ExtResource("1_eovui")]
+scale = Vector2(0.5, 0.5)
+sprite = ExtResource("2_ry30x")
+has_weapon = false
+health = 3
+points = 250
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("2_ry30x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(-2, -1.5)
+shape = SubResource("RectangleShape2D_eovui")
+
+[node name="Movement" parent="." index="2"]
+script = ExtResource("3_hi4qd")
+speed = 400.0
+dir = Vector2(-1, 1)
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="4"]
+position = Vector2(-1.49999, -50.5)
+scale = Vector2(6.65, 58.85)
