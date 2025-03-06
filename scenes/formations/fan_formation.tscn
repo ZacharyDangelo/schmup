@@ -8,7 +8,7 @@ script = ExtResource("1_psc7p")
 distance_before_turning = 160.0
 backtrack_distance = 80.0
 y_drop = 80.0
-distance_grace = 1.2
+distance_grace = 1.6
 handle_movement = true
 
 [node name="EnemyContainer" type="Node2D" parent="."]

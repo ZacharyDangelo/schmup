@@ -6,6 +6,7 @@ threshold = -10.0
 gain = -6.0
 
 [resource]
+bus/0/volume_db = 0.0694828
 bus/1/name = &"SFX"
 bus/1/solo = false
 bus/1/mute = false

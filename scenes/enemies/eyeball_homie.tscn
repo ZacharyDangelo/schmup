@@ -79,6 +79,7 @@ _data = {
 }
 
 [node name="EyeballHomie" instance=ExtResource("1_hg6gp")]
+scale = Vector2(4, 4)
 script = ExtResource("2_5llcc")
 lock_on_time = 0.2
 attack_delay = 1.6
@@ -88,7 +89,7 @@ movement_offset_x = 7.5
 movement_offset_y = 50.0
 sprite = ExtResource("2_b8ekc")
 has_weapon = false
-health = 20
+health = 25
 points = 1000
 metadata/_edit_group_ = true
 

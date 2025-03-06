@@ -1,10 +1,11 @@
 extends GPUParticles2D
+@export var play_audio: bool = true
 @onready var audio_stream = $AudioStreamPlayer2D
 
 func _ready():
 	emitting = true
-	audio_stream.playing = true
-	
+	if play_audio:
+		audio_stream.playing = true
 
 
 func _on_finished():

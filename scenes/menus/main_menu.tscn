@@ -1,0 +1,105 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctvcpsgtj7ey1"]
+
+[ext_resource type="Script" uid="uid://c1515u0x6siac" path="res://scripts/menus/main_menu.gd" id="1_ovrgc"]
+[ext_resource type="FontFile" uid="uid://t8h1shroylrt" path="res://fonts/monogram.ttf" id="1_xqga4"]
+[ext_resource type="PackedScene" uid="uid://cc6kmyavd64y" path="res://main.tscn" id="2_2o76q"]
+[ext_resource type="PackedScene" uid="uid://d14hctsvsawuv" path="res://particles/explosion_3.tscn" id="4_6bivr"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ovrgc")
+main_scene = ExtResource("2_2o76q")
+
+[node name="Explosion" parent="." instance=ExtResource("4_6bivr")]
+position = Vector2(915, -3)
+play_audio = false
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Main" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 128
+
+[node name="Title" type="Label" parent="Main"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xqga4")
+theme_override_font_sizes/font_size = 128
+text = "UNTITLED SCHMUP"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="Main"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/h_separation = 48
+theme_override_fonts/font = ExtResource("1_xqga4")
+theme_override_font_sizes/font_size = 128
+text = "PLAY"
+
+[node name="OptionsButton" type="Button" parent="Main"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/h_separation = 48
+theme_override_fonts/font = ExtResource("1_xqga4")
+theme_override_font_sizes/font_size = 128
+text = "OPTIONS"
+
+[node name="Options" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 143.0
+offset_right = -137.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 64
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Options"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="MasterLabel" type="Label" parent="Options/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xqga4")
+theme_override_font_sizes/font_size = 128
+text = "Volume:"
+
+[node name="MasterSlider" type="HSlider" parent="Options/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+tick_count = 1
+
+[node name="Button" type="Button" parent="Options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xqga4")
+theme_override_font_sizes/font_size = 128
+text = "BACK"
+
+[connection signal="pressed" from="Main/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Main/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="value_changed" from="Options/HBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="pressed" from="Options/Button" to="." method="_on_button_pressed"]
