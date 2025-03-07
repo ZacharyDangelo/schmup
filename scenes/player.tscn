@@ -59,8 +59,8 @@ region_rect = Rect2(0, 0, 64, 32)
 
 [node name="Weapon" type="Node2D" parent="."]
 script = ExtResource("3_i7dnc")
-spread_projectile_count = 3
-spread_amount_deg = 13.0
+spread_projectile_count = 5
+spread_amount_deg = 2.0
 auto_fire = true
 fire_delay = 0.11
 projectile = ExtResource("4_syuc0")

@@ -12,10 +12,10 @@ radius = 20.0062
 [node name="SpinnyGuy" instance=ExtResource("1_okp4h")]
 scale = Vector2(2, 2)
 script = ExtResource("2_ctivy")
-rotation_speed = 90.0
+rotation_speed = 120.0
 sprite = ExtResource("3_3uqxq")
-health = 10
-points = 500
+health = 20
+points = 1000
 
 [node name="Sprite" parent="." index="0"]
 rotation = -1.5708

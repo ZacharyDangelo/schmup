@@ -8,8 +8,8 @@ radius = 6.0
 
 [node name="Projectile" type="Node2D" groups=["Projectiles"]]
 script = ExtResource("1_okrl7")
-speed = 70.0
-ttl = 25.0
+speed = 125.0
+ttl = 10.0
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_e6dtq")

@@ -13,10 +13,10 @@ size = Vector2(27.5, 31.5)
 [node name="Enemy" instance=ExtResource("1_2syaj")]
 scale = Vector2(2, 2)
 script = ExtResource("2_55lak")
-speed_increase_after_fire = 100.0
+speed_increase_after_fire = 160.0
 sprite = ExtResource("3_nihyu")
-health = 5
-points = 150
+health = 8
+points = 200
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource("3_nihyu")
@@ -28,11 +28,11 @@ shape = SubResource("RectangleShape2D_f5y6s")
 
 [node name="Movement" parent="." index="2"]
 script = ExtResource("4_5i2kh")
-speed = 170.0
+speed = 210.0
 
 [node name="Weapon" parent="." index="3"]
 script = ExtResource("4_nhtlh")
-distance_to_fire = 600.0
+distance_to_fire = 750.0
 weapon_type = 1
 fire_delay = 1.2
 projectile = ExtResource("6_2jhoc")

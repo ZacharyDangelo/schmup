@@ -7,6 +7,7 @@ extends Node2D
 @onready var player = %Player
 @onready var camera = %Camera
 @onready var level_over_menu = $"../UI/LevelOverMenu"
+@onready var game_over_menu = $"../UI/GameOverMenu"
 
 var current_level_index
 func _ready():
@@ -14,7 +15,7 @@ func _ready():
 	spawn_next_level(starting_level_index)
 
 func spawn_next_level(level_index: int):
-	if get_child(0):
+	if get_child_count() != 0:
 		get_child(0).queue_free()
 	var new_level = levels[level_index].instantiate()
 	new_level.position = Vector2.ZERO
@@ -22,7 +23,11 @@ func spawn_next_level(level_index: int):
 	add_child(new_level)
 
 func _on_level_over():
-	level_over_menu.show_menu()
+	if current_level_index != len(levels) - 1:
+		level_over_menu.show_menu()
+	else:
+		game_over_menu.show_menu()
+		game_over_menu.victory()
 	player.stop()
 	camera.stop()
 
