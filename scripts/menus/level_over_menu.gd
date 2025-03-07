@@ -7,6 +7,4 @@ func show_menu():
 	get_node("../ScoreLabel").visible = false
 	
 func _on_button_pressed():
-	self.visible = false
-	on_continue_button_pressed.emit()
-	
+	GameData.set_level(GameData.current_level + 1)

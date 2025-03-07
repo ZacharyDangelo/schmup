@@ -137,3 +137,6 @@ y_drop = 160.0
 [node name="Formation14" parent="Enemies" index="36" instance=ExtResource("4_mewj2")]
 position = Vector2(5524, 300)
 y_drop = 160.0
+
+[node name="StarsLayer" parent="Background" index="1"]
+motion_mirroring = Vector2(2560, 0)

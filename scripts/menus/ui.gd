@@ -20,7 +20,8 @@ func _ready():
 
 func update_score_label(value: int):
 	score_label.text = "Score: " + str(GameData.score)
-	game_over_menu_score_label = "Score: " + str(GameData.score)
+	level_over_menu_score_label.text =  "Score: " + str(GameData.score)
+	game_over_menu_score_label.text = "Score: " + str(GameData.score)
 
 func _on_player_on_died():
 	is_player_dead = true
