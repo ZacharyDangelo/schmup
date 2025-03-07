@@ -41,11 +41,7 @@ func setup():
 	if not player_group:
 		push_error('Cant find player in sine_cannon fire function')
 		return
-	var ui_group = get_tree().get_nodes_in_group("UI")
-	if not ui_group:
-		push_error('Cant find UI')
-		return
-	on_killed.connect(ui_group[0]._on_enemy_killed)
+	on_killed.connect(GameData.add_score)
 	player = player_group[0]
 	camera = get_camera()
 	
