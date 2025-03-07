@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 @onready var main = $Main
 @onready var options = $Options
 @export var main_scene: PackedScene

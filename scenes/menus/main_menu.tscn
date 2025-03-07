@@ -1,26 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctvcpsgtj7ey1"]
+[gd_scene load_steps=10 format=3 uid="uid://ctvcpsgtj7ey1"]
 
 [ext_resource type="Script" uid="uid://c1515u0x6siac" path="res://scripts/menus/main_menu.gd" id="1_ovrgc"]
 [ext_resource type="FontFile" uid="uid://t8h1shroylrt" path="res://fonts/monogram.ttf" id="1_xqga4"]
 [ext_resource type="PackedScene" uid="uid://cc6kmyavd64y" path="res://main.tscn" id="2_2o76q"]
 [ext_resource type="PackedScene" uid="uid://d14hctsvsawuv" path="res://particles/explosion_3.tscn" id="4_6bivr"]
+[ext_resource type="Script" uid="uid://b8rlcg032brtn" path="res://scripts/background.gd" id="5_1hnlc"]
+[ext_resource type="Texture2D" uid="uid://b0bkar6t4rp6d" path="res://black.png" id="6_50h1w"]
+[ext_resource type="Texture2D" uid="uid://bbsy2s18qoxb5" path="res://bgs/stars.png" id="7_euy4r"]
+[ext_resource type="Texture2D" uid="uid://ct1xthys088cm" path="res://bgs/stars2.png" id="8_bre17"]
+[ext_resource type="Script" uid="uid://dmteefmvn0akr" path="res://scripts/camera.gd" id="9_50h1w"]
 
-[node name="MainMenu" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_ovrgc")
 main_scene = ExtResource("2_2o76q")
 
-[node name="Explosion" parent="." instance=ExtResource("4_6bivr")]
-position = Vector2(915, -3)
-play_audio = false
-
 [node name="BG" type="ColorRect" parent="."]
-layout_mode = 1
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -29,7 +24,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Main" type="VBoxContainer" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -66,7 +60,6 @@ text = "OPTIONS"
 
 [node name="Options" type="VBoxContainer" parent="."]
 visible = false
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -98,6 +91,45 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_xqga4")
 theme_override_font_sizes/font_size = 128
 text = "BACK"
+
+[node name="Background" type="ParallaxBackground" parent="."]
+script = ExtResource("5_1hnlc")
+
+[node name="BGLayer" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0, 1)
+motion_mirroring = Vector2(1280, 0)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/BGLayer"]
+texture = ExtResource("6_50h1w")
+
+[node name="StarsLayer" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.1, 1)
+motion_mirroring = Vector2(1280, 0)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/StarsLayer"]
+texture = ExtResource("7_euy4r")
+centered = false
+offset = Vector2(0, -361.57)
+
+[node name="Stars2Layer" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.2, 1)
+motion_mirroring = Vector2(2560, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Stars2Layer"]
+position = Vector2(338, -288)
+scale = Vector2(2, 2)
+texture = ExtResource("8_bre17")
+
+[node name="Explosion" parent="." instance=ExtResource("4_6bivr")]
+visible = false
+position = Vector2(915, -3)
+script = null
+
+[node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
+script = ExtResource("9_50h1w")
+scroll_speed = 125.0
 
 [connection signal="pressed" from="Main/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Main/OptionsButton" to="." method="_on_options_button_pressed"]

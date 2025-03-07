@@ -8,8 +8,9 @@ var player
 var current_scroll_speed
 
 func _ready():
-	player = get_node('%Player')
-	player.on_died.connect(stop)
+	if player: 
+		player = get_node('%Player')
+		player.on_died.connect(stop)
 	current_scroll_speed = scroll_speed
 	Util.camera = self
 
