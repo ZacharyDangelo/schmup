@@ -30,3 +30,15 @@ func stop():
 func start_camera():
 	current_scroll_speed = scroll_speed
 	
+	
+func get_left_position_bounds():
+	return global_position.x - (get_viewport_rect().size.x/2) + screen_padding.x
+
+func get_right_position_bounds():
+	return global_position.x + (get_viewport_rect().size.x/2) - screen_padding.x
+
+func get_upper_position_bounds():
+	return global_position.y - (get_viewport_rect().size.y/2) + screen_padding.y
+
+func get_lower_position_bounds():
+	return global_position.y + (get_viewport_rect().size.y/2) - screen_padding.y
