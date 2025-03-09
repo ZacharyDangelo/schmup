@@ -1,12 +1,13 @@
 extends Control
 @onready var victory_graphics = $VictoryGraphics
+@onready var score_label = $"../HUD/HBoxContainer/ScoreLabel"
 
 func _ready():
 	get_node("%Player").on_died.connect(show_menu)
 
 func show_menu():
 	self.visible = true
-	get_node("../ScoreLabel").visible = false
+	score_label.visible = false
 
 func victory():
 	victory_graphics.show()

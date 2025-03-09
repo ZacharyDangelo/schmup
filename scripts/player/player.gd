@@ -1,6 +1,7 @@
 extends Node2D
 
 signal on_died()
+signal on_life_lost(lives_remaining: int)
 
 @export var sprite: Sprite2D
 @export var speed: float
@@ -102,4 +103,5 @@ func _on_hit_box_area_entered(area):
 		on_died.emit()
 		camera.stop()
 	else:
+		on_life_lost.emit(current_lives)
 		respawn()
