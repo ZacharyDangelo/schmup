@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://cw0uphl50yr7l"]
+
+[ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/base_enemy.tscn" id="1_ykieq"]
+[ext_resource type="Texture2D" uid="uid://bp1y734evu31y" path="res://icon.svg" id="2_emg3k"]
+[ext_resource type="Script" uid="uid://dbgh516ovhpve" path="res://scripts/enemy/big_follow_guy.gd" id="2_jw8b7"]
+[ext_resource type="Script" uid="uid://dhabbeq0wtphb" path="res://scripts/enemy/movement/follow_movement.gd" id="3_emg3k"]
+[ext_resource type="Script" uid="uid://b0en7400gissc" path="res://scripts/weapons/big_follow_guyweapon.gd" id="5_hwoc6"]
+[ext_resource type="PackedScene" uid="uid://b46nsvqq01mx5" path="res://scenes/enemies/projectiles/base_enemy_projectile.tscn" id="5_jw8b7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ykieq"]
+size = Vector2(128.6, 129.6)
+
+[node name="BigFollowGuy" instance=ExtResource("1_ykieq")]
+scale = Vector2(2, 2)
+script = ExtResource("2_jw8b7")
+weapon_delay = 1.2
+sprite = ExtResource("2_emg3k")
+health = 50
+points = 5000
+explosion_particles = null
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("2_emg3k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(0.1, -1.2)
+shape = SubResource("RectangleShape2D_ykieq")
+
+[node name="Movement" parent="." index="2"]
+script = ExtResource("3_emg3k")
+speed = 250.0
+y_speed = 125.0
+distance_from_edge = 250.0
+min_target_distance = 5.0
+
+[node name="Weapon" parent="." index="3"]
+script = ExtResource("5_hwoc6")
+num_projectiles = 4
+repeat_delay = 1.2
+spawn_distance = 6.0
+max_shots = 3
+weapon_type = 1
+projectile = ExtResource("5_jw8b7")
+
+[node name="FirePoint" type="Node2D" parent="Weapon" index="0"]
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="4"]
+position = Vector2(-4.4, -1.7)
+scale = Vector2(6.86, 7.05)

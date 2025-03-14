@@ -8,7 +8,8 @@ extends "res://scripts/weapons/base_weapon.gd"
 func _ready():
 	super()
 	var animation_player = get_node("../AnimationPlayer")
-	animation_player.play("fire")
+	if animation_player:
+		animation_player.play("fire")
 
 func _process(delta):
 	#super(delta)

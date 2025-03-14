@@ -6,7 +6,7 @@ signal on_life_lost(lives_remaining: int)
 @export var sprite: Sprite2D
 @export var speed: float
 @export var max_lives: int = 3
-@export var respawn_time: float = 2.4
+@export var respawn_time: float = 1.6
 @onready var weapon = $Weapon
 
 var start_pos
@@ -97,6 +97,8 @@ func _on_respawn_finished():
 	sprite.material.set("shader_material/width",0)
 
 func _on_hit_box_area_entered(area):
+	if respawning:
+		return
 	current_lives -= 1
 	if current_lives == 0:
 		dead = true
