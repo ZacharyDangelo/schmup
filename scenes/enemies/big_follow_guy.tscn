@@ -1,21 +1,167 @@
-[gd_scene load_steps=8 format=3 uid="uid://cw0uphl50yr7l"]
+[gd_scene load_steps=11 format=3 uid="uid://cw0uphl50yr7l"]
 
 [ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/base_enemy.tscn" id="1_ykieq"]
 [ext_resource type="Texture2D" uid="uid://bp1y734evu31y" path="res://icon.svg" id="2_emg3k"]
 [ext_resource type="Script" uid="uid://dbgh516ovhpve" path="res://scripts/enemy/big_follow_guy.gd" id="2_jw8b7"]
 [ext_resource type="Script" uid="uid://dhabbeq0wtphb" path="res://scripts/enemy/movement/follow_movement.gd" id="3_emg3k"]
 [ext_resource type="Script" uid="uid://b0en7400gissc" path="res://scripts/weapons/big_follow_guyweapon.gd" id="5_hwoc6"]
-[ext_resource type="PackedScene" uid="uid://b46nsvqq01mx5" path="res://scenes/enemies/projectiles/base_enemy_projectile.tscn" id="5_jw8b7"]
+[ext_resource type="PackedScene" uid="uid://b71a0mj2s5kgy" path="res://scenes/enemies/projectiles/big_enemy_projectile.tscn" id="6_jw8b7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykieq"]
 size = Vector2(128.6, 129.6)
 
+[sub_resource type="Animation" id="Animation_jw8b7"]
+resource_name = "Death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0472]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(200, 69)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitBox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_rndne"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitBox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0h6eb"]
+_data = {
+&"Death": SubResource("Animation_jw8b7"),
+&"RESET": SubResource("Animation_rndne")
+}
+
 [node name="BigFollowGuy" instance=ExtResource("1_ykieq")]
 scale = Vector2(2, 2)
 script = ExtResource("2_jw8b7")
-weapon_delay = 1.2
+weapon_delay = 1.6
 sprite = ExtResource("2_emg3k")
-health = 50
+health = 275
 points = 5000
 explosion_particles = null
 
@@ -29,21 +175,28 @@ shape = SubResource("RectangleShape2D_ykieq")
 [node name="Movement" parent="." index="2"]
 script = ExtResource("3_emg3k")
 speed = 250.0
-y_speed = 125.0
-distance_from_edge = 250.0
-min_target_distance = 5.0
+y_speed = 75.0
+distance_from_edge = 10.0
+vertical_move_amount = 75.0
+min_target_distance = 9.0
+leaving_timer = 3.2
 
 [node name="Weapon" parent="." index="3"]
 script = ExtResource("5_hwoc6")
 num_projectiles = 4
-repeat_delay = 1.2
-spawn_distance = 6.0
+repeat_delay = 12.0
+spawn_distance = 4.0
 max_shots = 3
 weapon_type = 1
-projectile = ExtResource("5_jw8b7")
+projectile = ExtResource("6_jw8b7")
 
 [node name="FirePoint" type="Node2D" parent="Weapon" index="0"]
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="4"]
 position = Vector2(-4.4, -1.7)
 scale = Vector2(6.86, 7.05)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+libraries = {
+&"": SubResource("AnimationLibrary_0h6eb")
+}

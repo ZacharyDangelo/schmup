@@ -189,6 +189,26 @@ position = Vector2(4407, 120)
 [node name="LilShipFormation3" parent="Enemies" index="51" instance=ExtResource("7_pefny")]
 position = Vector2(4407, -203)
 
+[node name="LilShipFormation4" parent="Enemies" index="52" instance=ExtResource("7_pefny")]
+position = Vector2(6589, -203)
+
+[node name="LilShipFormation5" parent="Enemies" index="53" instance=ExtResource("7_pefny")]
+position = Vector2(6589, 166)
+
+[node name="LilShipFormation6" parent="Enemies" index="54" instance=ExtResource("7_pefny")]
+position = Vector2(7507, 166)
+
+[node name="NovaGuy5" parent="Enemies" index="55" instance=ExtResource("6_il8h2")]
+position = Vector2(7568, 47)
+rotation = 0.40539
+
+[node name="LilShipFormation7" parent="Enemies" index="56" instance=ExtResource("7_pefny")]
+position = Vector2(7504, -214)
+
+[node name="NovaGuy6" parent="Enemies" index="57" instance=ExtResource("6_il8h2")]
+position = Vector2(7568, -80.9995)
+rotation = -0.760541
+
 [node name="PlanetLayer" type="ParallaxLayer" parent="Background" index="2"]
 motion_scale = Vector2(0.7, 1)
 

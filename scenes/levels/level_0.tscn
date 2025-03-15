@@ -12,130 +12,130 @@
 [node name="BaseLevel" instance=ExtResource("1_f1xfs")]
 
 [node name="LevelStop" parent="." index="0" instance=ExtResource("6_xwsdh")]
-position = Vector2(5810, -266)
+position = Vector2(7443, -266)
 
 [node name="Formation" parent="Enemies" index="0" instance=ExtResource("4_mewj2")]
-position = Vector2(610, -311)
+position = Vector2(1044, -311)
 distance_before_turning = 120.0
 y_drop = 160.0
 
 [node name="Formation2" parent="Enemies" index="1" instance=ExtResource("4_mewj2")]
-position = Vector2(610, 303)
+position = Vector2(1044, 303)
 distance_before_turning = 120.0
 y_drop = -160.0
 
 [node name="SliderGuy" parent="Enemies" index="2" instance=ExtResource("3_kv27j")]
-position = Vector2(1230, 298)
+position = Vector2(1664, 298)
 
 [node name="Formation4" parent="Enemies" index="3" instance=ExtResource("4_mewj2")]
-position = Vector2(1212, -311)
+position = Vector2(1646, -311)
 y_drop = 160.0
 
 [node name="Formation5" parent="Enemies" index="4" instance=ExtResource("4_mewj2")]
-position = Vector2(958, 19)
+position = Vector2(1392, 19)
 
 [node name="Formation6" parent="Enemies" index="5" instance=ExtResource("4_mewj2")]
-position = Vector2(1951, -311)
+position = Vector2(2385, -311)
 y_drop = 160.0
 
 [node name="Formation8" parent="Enemies" index="6" instance=ExtResource("4_mewj2")]
-position = Vector2(1951, 303)
+position = Vector2(2385, 303)
 y_drop = -160.0
 
 [node name="SpinnyGuy" parent="Enemies" index="7" instance=ExtResource("5_py2p7")]
-position = Vector2(1516, 88)
+position = Vector2(1950, 88)
 
 [node name="LilShipFormation" parent="Enemies" index="8" instance=ExtResource("7_pefny")]
-position = Vector2(2592.35, -146)
+position = Vector2(3026.35, -146)
 
 [node name="LilShipFormation3" parent="Enemies" index="9" instance=ExtResource("7_pefny")]
-position = Vector2(2764, 88)
+position = Vector2(3198, 88)
 
 [node name="SpinnyGuy2" parent="Enemies" index="10" instance=ExtResource("5_py2p7")]
-position = Vector2(3053, -305)
+position = Vector2(3487, -305)
 
 [node name="SliderGuy2" parent="Enemies" index="11" instance=ExtResource("3_kv27j")]
-position = Vector2(3514, 298)
+position = Vector2(3948, 298)
 
 [node name="SpinnyGuy3" parent="Enemies" index="12" instance=ExtResource("5_py2p7")]
-position = Vector2(3217, -213)
+position = Vector2(3651, -213)
 
 [node name="LilShipFormation4" parent="Enemies" index="13" instance=ExtResource("7_pefny")]
-position = Vector2(3751.35, -146)
+position = Vector2(4185.35, -146)
 
 [node name="LilShipFormation5" parent="Enemies" index="14" instance=ExtResource("7_pefny")]
-position = Vector2(3141, -4.0415)
+position = Vector2(3575, -4.0415)
 
 [node name="LilShipFormation6" parent="Enemies" index="15" instance=ExtResource("7_pefny")]
-position = Vector2(3923, 88)
+position = Vector2(4357, 88)
 
 [node name="Formation7" parent="Enemies" index="16" instance=ExtResource("4_mewj2")]
-position = Vector2(4672, -311)
+position = Vector2(5106, -311)
 y_drop = 160.0
 
 [node name="Formation9" parent="Enemies" index="17" instance=ExtResource("4_mewj2")]
-position = Vector2(4668, 21)
+position = Vector2(5102, 21)
 
 [node name="Formation10" parent="Enemies" index="18" instance=ExtResource("4_mewj2")]
-position = Vector2(4672, 303)
+position = Vector2(5106, 303)
 y_drop = -160.0
 
 [node name="SpinnyGuy4" parent="Enemies" index="19" instance=ExtResource("5_py2p7")]
-position = Vector2(4651, -174)
+position = Vector2(5085, -174)
 
 [node name="SpinnyGuy5" parent="Enemies" index="20" instance=ExtResource("5_py2p7")]
-position = Vector2(4842, 160)
+position = Vector2(5276, 160)
 
 [node name="SpinnyGuy6" parent="Enemies" index="21" instance=ExtResource("5_py2p7")]
-position = Vector2(843, -174)
+position = Vector2(1277, -174)
 
 [node name="SpinnyGuy7" parent="Enemies" index="22" instance=ExtResource("5_py2p7")]
-position = Vector2(718, 160)
+position = Vector2(1152, 160)
 
 [node name="EyeballHomie" parent="Enemies" index="23" instance=ExtResource("6_jjvta")]
-position = Vector2(5519, -129)
+position = Vector2(5953, -129)
 
 [node name="EyeballHomie2" parent="Enemies" index="24" instance=ExtResource("6_jjvta")]
-position = Vector2(5528, 163)
+position = Vector2(5962, 163)
 
 [node name="SliderGuy3" parent="Enemies" index="25" instance=ExtResource("3_kv27j")]
-position = Vector2(1676, -320)
+position = Vector2(2110, -320)
 
 [node name="Enemy" parent="Enemies" index="26" instance=ExtResource("8_6ayib")]
-position = Vector2(1796, 290)
+position = Vector2(2230, 290)
 
 [node name="SpinnyGuy8" parent="Enemies" index="27" instance=ExtResource("5_py2p7")]
-position = Vector2(1663, -20)
+position = Vector2(2097, -20)
 
 [node name="Formation11" parent="Enemies" index="28" instance=ExtResource("4_mewj2")]
-position = Vector2(5108, -311)
+position = Vector2(5542, -311)
 y_drop = 160.0
 
 [node name="Formation12" parent="Enemies" index="29" instance=ExtResource("4_mewj2")]
-position = Vector2(5115, 301)
+position = Vector2(5549, 301)
 y_drop = -160.0
 
 [node name="SpinnyGuy9" parent="Enemies" index="30" instance=ExtResource("5_py2p7")]
-position = Vector2(4957, -172)
+position = Vector2(5391, -172)
 
 [node name="SpinnyGuy10" parent="Enemies" index="31" instance=ExtResource("5_py2p7")]
-position = Vector2(5086, 161)
+position = Vector2(5520, 161)
 
 [node name="SpinnyGuy11" parent="Enemies" index="32" instance=ExtResource("5_py2p7")]
-position = Vector2(5218, -162)
+position = Vector2(5652, -162)
 
 [node name="UpDownEnemy" parent="Enemies" index="33" instance=ExtResource("8_6ayib")]
-position = Vector2(4104, -239)
+position = Vector2(4538, -239)
 
 [node name="UpDownEnemy2" parent="Enemies" index="34" instance=ExtResource("8_6ayib")]
-position = Vector2(4021, 266)
+position = Vector2(4455, 266)
 
 [node name="Formation13" parent="Enemies" index="35" instance=ExtResource("4_mewj2")]
-position = Vector2(5533, -305)
+position = Vector2(5967, -305)
 y_drop = 160.0
 
 [node name="Formation14" parent="Enemies" index="36" instance=ExtResource("4_mewj2")]
-position = Vector2(5524, 300)
+position = Vector2(5958, 300)
 y_drop = 160.0
 
 [node name="StarsLayer" parent="Background" index="1"]

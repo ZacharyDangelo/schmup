@@ -63,6 +63,9 @@ func handle_out_of_bounds():
 		if self.global_position.x < screen_left - 100:
 			kill(false)
 
+func offset_camera_movement(delta):
+	global_position += Vector2(camera.current_scroll_speed * delta, 0)
+
 
 func _on_hit_box_area_entered(area: Area2D):
 	if not awake:

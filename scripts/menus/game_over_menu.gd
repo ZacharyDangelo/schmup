@@ -15,3 +15,4 @@ func victory():
 func _on_button_pressed():
 	GameData.score = 0
 	GameData.set_level(0)
+	get_tree().reload_current_scene()

@@ -7,6 +7,7 @@ signal on_life_lost(lives_remaining: int)
 @export var speed: float
 @export var max_lives: int = 3
 @export var respawn_time: float = 1.6
+@export var grace_period_time: float = .5
 @onready var weapon = $Weapon
 
 var start_pos
@@ -18,6 +19,7 @@ var respawning
 var dead
 var current_speed
 var current_lives
+var current_grace_period_timer
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -28,8 +30,10 @@ func _ready():
 	start_pos = position
 	current_speed = speed
 	current_lives = max_lives
+	current_grace_period_timer = 999
 
 func _process(delta):
+	current_grace_period_timer += delta
 	# Move the player based on camera scroll speed
 	position += Vector2(camera.current_scroll_speed * delta,0)
 	if not dead and not respawning:
@@ -72,9 +76,6 @@ func reset():
 	weapon.auto_fire = true
 	
 func respawn():
-	var x_spawn_pos = camera.get_left_position_bounds()
-	var y_spawn_pos = camera.global_position.y
-	global_position = Vector2(x_spawn_pos, y_spawn_pos)
 	weapon.auto_fire = false
 	sprite.material.set("shader_parameter/width",10)
 	
@@ -95,9 +96,10 @@ func _on_respawn_finished():
 	respawning = false
 	weapon.auto_fire = true
 	sprite.material.set("shader_material/width",0)
+	current_grace_period_timer = 0
 
 func _on_hit_box_area_entered(area):
-	if respawning:
+	if respawning or current_grace_period_timer <= grace_period_time:
 		return
 	current_lives -= 1
 	if current_lives == 0:

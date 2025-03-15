@@ -16,11 +16,10 @@ func _process(delta):
 	
 	
 func fire():
-	print('fire!')
 	if not get_parent().awake:
 		return
 	current_shots += 1
-	var rotation_per_step = 15
+	var rotation_per_step = 25
 	var start_rotation = -rotation_per_step * (num_projectiles - 1) / 2  # Center the arc
 	var curr_rotation = start_rotation
 	

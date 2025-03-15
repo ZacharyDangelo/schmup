@@ -43,5 +43,4 @@ func _on_player_on_died():
 
 
 func _on_player_on_life_lost(lives_remaining):
-	print('hiding life')
 	lives_container.get_child(lives_remaining).set_indexed("modulate:a",0)

@@ -16,6 +16,7 @@
 [node name="Game" type="Node"]
 
 [node name="Explosion" parent="." instance=ExtResource("10_4c57u")]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(0, -439)
 play_audio = false
 

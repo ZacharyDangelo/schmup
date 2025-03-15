@@ -52,7 +52,7 @@ script = ExtResource("2_hy01u")
 speed = 425.0
 sprite = ExtResource("3_ijkvd")
 has_weapon = false
-health = 1
+health = 3
 points = 100
 explosion_particles = ExtResource("4_fi4ok")
 

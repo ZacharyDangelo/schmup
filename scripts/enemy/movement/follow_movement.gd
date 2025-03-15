@@ -9,6 +9,9 @@ extends Node2D
 @export var min_target_distance: float = 20.0  # Minimum vertical difference for a new target
 @export var leaving_timer: float = 2.4
 
+@export var x_sway_amount: float = 10
+
+
 
 var enemy_node 
 var camera
@@ -18,6 +21,8 @@ var max_y: float
 var min_y: float
 @export var threshold: float = 5.0             # Distance threshold to trigger a new target
 var current_leaving_timer
+var sway_starting_position: Vector2
+
 func _ready():
 	enemy_node = get_parent()  
 	camera = enemy_node.get_camera() 
@@ -28,8 +33,9 @@ func _ready():
 	target_y = randf_range(min_y, max_y)
 	current_leaving_timer = 0 
 
-	
+
 func handle_entering_state(delta):
+		handle_y_movement(delta)
 		# Move left until the enemy's x position reaches or is less than the target.
 		if enemy_node.global_position.x > target_x:
 			enemy_node.global_position.x -= speed * delta
@@ -37,9 +43,14 @@ func handle_entering_state(delta):
 			# When reaching the target, switch to FIGHTING state.
 			enemy_node.current_state = enemy_node.State.FIGHTING
 
+func handle_fighting_state(delta):
+	handle_y_movement(delta)
+	handle_x_sway(delta)
+
 func handle_leaving_state(delta):
 	if current_leaving_timer <= leaving_timer:
 		handle_y_movement(delta)
+		handle_x_sway(delta)
 	else:
 		leave(delta)
 	current_leaving_timer += delta
@@ -47,6 +58,9 @@ func handle_leaving_state(delta):
 
 func leave(delta):
 	enemy_node.global_position += (Vector2(0,1 * speed * delta))
+
+func handle_x_sway(delta):
+	pass
 
 func handle_y_movement(delta):
 	var current_y = enemy_node.global_position.y
