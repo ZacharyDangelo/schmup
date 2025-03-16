@@ -13,6 +13,6 @@ func victory():
 	victory_graphics.show()
 
 func _on_button_pressed():
+	print(get_tree()) # Should not be null
 	GameData.score = 0
 	GameData.set_level(0)
-	get_tree().reload_current_scene()

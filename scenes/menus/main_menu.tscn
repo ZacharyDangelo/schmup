@@ -1,18 +1,25 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctvcpsgtj7ey1"]
+[gd_scene load_steps=13 format=3 uid="uid://ctvcpsgtj7ey1"]
 
 [ext_resource type="Script" uid="uid://c1515u0x6siac" path="res://scripts/menus/main_menu.gd" id="1_ovrgc"]
 [ext_resource type="FontFile" uid="uid://t8h1shroylrt" path="res://fonts/monogram.ttf" id="1_xqga4"]
 [ext_resource type="PackedScene" uid="uid://cc6kmyavd64y" path="res://main.tscn" id="2_2o76q"]
 [ext_resource type="PackedScene" uid="uid://d14hctsvsawuv" path="res://particles/explosion_3.tscn" id="4_6bivr"]
 [ext_resource type="Script" uid="uid://b8rlcg032brtn" path="res://scripts/background.gd" id="5_1hnlc"]
+[ext_resource type="Script" uid="uid://cxp8vy6fig0k1" path="res://scripts/particle_loader.gd" id="5_88kup"]
 [ext_resource type="Texture2D" uid="uid://b0bkar6t4rp6d" path="res://black.png" id="6_50h1w"]
 [ext_resource type="Texture2D" uid="uid://bbsy2s18qoxb5" path="res://bgs/stars.png" id="7_euy4r"]
+[ext_resource type="PackedScene" uid="uid://gl4sxl6rjjr8" path="res://particles/sparks_particle.tscn" id="8_88kup"]
 [ext_resource type="Texture2D" uid="uid://ct1xthys088cm" path="res://bgs/stars2.png" id="8_bre17"]
+[ext_resource type="PackedScene" uid="uid://csn63u5sq0lc" path="res://particles/explosion_new.tscn" id="8_euy4r"]
 [ext_resource type="Script" uid="uid://dmteefmvn0akr" path="res://scripts/camera.gd" id="9_50h1w"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_ovrgc")
 main_scene = ExtResource("2_2o76q")
+
+[node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
+script = ExtResource("9_50h1w")
+scroll_speed = 125.0
 
 [node name="BG" type="ColorRect" parent="."]
 visible = false
@@ -95,6 +102,20 @@ text = "BACK"
 [node name="Background" type="ParallaxBackground" parent="."]
 script = ExtResource("5_1hnlc")
 
+[node name="ParticleLoader" type="Node2D" parent="Background"]
+script = ExtResource("5_88kup")
+
+[node name="Explosion2" parent="Background/ParticleLoader" instance=ExtResource("8_euy4r")]
+position = Vector2(956, 696.042)
+play_audio = false
+
+[node name="Explosion" parent="Background/ParticleLoader" instance=ExtResource("4_6bivr")]
+position = Vector2(1185, 352)
+script = null
+
+[node name="SparksParticles" parent="Background/ParticleLoader" instance=ExtResource("8_88kup")]
+position = Vector2(270, 355)
+
 [node name="BGLayer" type="ParallaxLayer" parent="Background"]
 motion_scale = Vector2(0, 1)
 motion_mirroring = Vector2(1280, 0)
@@ -121,15 +142,6 @@ motion_mirroring = Vector2(2560, 0)
 position = Vector2(338, -288)
 scale = Vector2(2, 2)
 texture = ExtResource("8_bre17")
-
-[node name="Explosion" parent="." instance=ExtResource("4_6bivr")]
-visible = false
-position = Vector2(915, -3)
-script = null
-
-[node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
-script = ExtResource("9_50h1w")
-scroll_speed = 125.0
 
 [connection signal="pressed" from="Main/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Main/OptionsButton" to="." method="_on_options_button_pressed"]

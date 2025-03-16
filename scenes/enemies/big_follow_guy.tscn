@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cw0uphl50yr7l"]
+[gd_scene load_steps=12 format=3 uid="uid://cw0uphl50yr7l"]
 
 [ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/base_enemy.tscn" id="1_ykieq"]
 [ext_resource type="Texture2D" uid="uid://bp1y734evu31y" path="res://icon.svg" id="2_emg3k"]
 [ext_resource type="Script" uid="uid://dbgh516ovhpve" path="res://scripts/enemy/big_follow_guy.gd" id="2_jw8b7"]
 [ext_resource type="Script" uid="uid://dhabbeq0wtphb" path="res://scripts/enemy/movement/follow_movement.gd" id="3_emg3k"]
+[ext_resource type="PackedScene" uid="uid://csn63u5sq0lc" path="res://particles/explosion_new.tscn" id="4_rndne"]
 [ext_resource type="Script" uid="uid://b0en7400gissc" path="res://scripts/weapons/big_follow_guyweapon.gd" id="5_hwoc6"]
 [ext_resource type="PackedScene" uid="uid://b71a0mj2s5kgy" path="res://scenes/enemies/projectiles/big_enemy_projectile.tscn" id="6_jw8b7"]
 
@@ -163,7 +164,7 @@ weapon_delay = 1.6
 sprite = ExtResource("2_emg3k")
 health = 275
 points = 5000
-explosion_particles = null
+explosion_particles = ExtResource("4_rndne")
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource("2_emg3k")

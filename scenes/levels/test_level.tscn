@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://ccsdnov6q6ssd" path="res://scenes/levels/base_level.tscn" id="1_0jsg6"]
 [ext_resource type="PackedScene" uid="uid://b23myxyy81il5" path="res://scenes/levels/markers/level_stop.tscn" id="3_fr1um"]
-[ext_resource type="PackedScene" uid="uid://cbtgxv45hq0dt" path="res://scenes/enemies/eyeball_homie.tscn" id="3_v45ci"]
+[ext_resource type="PackedScene" uid="uid://bqrf22eoo27mn" path="res://scenes/enemies/spinny_guy.tscn" id="3_v45ci"]
 
 [node name="BaseLevel" instance=ExtResource("1_0jsg6")]
 
 [node name="LevelStop" parent="." index="7" instance=ExtResource("3_fr1um")]
 position = Vector2(3042, -248)
 
-[node name="EyeballHomie" parent="." index="8" instance=ExtResource("3_v45ci")]
-position = Vector2(660.589, -13.1617)
+[node name="SpinnyGuy" parent="." index="8" instance=ExtResource("3_v45ci")]
+position = Vector2(274.562, -3.74658)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cda87mfppoffb"]
+[gd_scene load_steps=13 format=3 uid="uid://cda87mfppoffb"]
 
 [ext_resource type="PackedScene" uid="uid://ccsdnov6q6ssd" path="res://scenes/levels/base_level.tscn" id="1_f1xfs"]
 [ext_resource type="PackedScene" uid="uid://cbbcrfdk0hpg6" path="res://scenes/enemies/slider_guy.tscn" id="3_kv27j"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://b23myxyy81il5" path="res://scenes/levels/markers/level_stop.tscn" id="6_xwsdh"]
 [ext_resource type="Texture2D" uid="uid://bl0lclmwl8i08" path="res://sprites/Planet1.png" id="7_g1mj5"]
 [ext_resource type="PackedScene" uid="uid://lxrlrrkknvjd" path="res://scenes/formations/lil_ship_formation.tscn" id="7_pefny"]
+[ext_resource type="AudioStream" uid="uid://casooktaut3mm" path="res://audio/sfx/click.wav" id="7_qi5uv"]
+[ext_resource type="PackedScene" uid="uid://csn63u5sq0lc" path="res://particles/explosion_new.tscn" id="8_f6egh"]
 
 [node name="BaseLevel" instance=ExtResource("1_f1xfs")]
 
@@ -75,19 +77,19 @@ position = Vector2(4975, -138)
 y_drop = 120.0
 
 [node name="FanGuy" parent="Enemies/Formation/EnemyContainer" index="0"]
-explosion_particles = null
+on_hit_sound = ExtResource("7_qi5uv")
 
 [node name="FanGuy2" parent="Enemies/Formation/EnemyContainer" index="1"]
-explosion_particles = null
+on_hit_sound = ExtResource("7_qi5uv")
 
 [node name="FanGuy3" parent="Enemies/Formation/EnemyContainer" index="2"]
-explosion_particles = null
+on_hit_sound = ExtResource("7_qi5uv")
 
 [node name="FanGuy4" parent="Enemies/Formation/EnemyContainer" index="3"]
-explosion_particles = null
+on_hit_sound = ExtResource("7_qi5uv")
 
 [node name="FanGuy5" parent="Enemies/Formation/EnemyContainer" index="4"]
-explosion_particles = null
+on_hit_sound = ExtResource("7_qi5uv")
 
 [node name="Formation2" parent="Enemies" index="20" instance=ExtResource("4_mewj2")]
 position = Vector2(4977, 138)
@@ -152,7 +154,7 @@ position = Vector2(6751, -1)
 
 [node name="SpinnyGuy8" parent="Enemies" index="40" instance=ExtResource("5_py2p7")]
 position = Vector2(6963, -1)
-explosion_particles = null
+explosion_particles = ExtResource("8_f6egh")
 
 [node name="SpinnyGuy9" parent="Enemies" index="41" instance=ExtResource("5_py2p7")]
 position = Vector2(7136, -1)

@@ -13,4 +13,5 @@ func _ready():
 func kill(score: bool):
 	if score:
 		on_killed.emit(points)
+		spawn_explosion()
 	killed_in_formation.emit(self)

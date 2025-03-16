@@ -8,9 +8,10 @@ signal on_killed(points: int)
 @export var health: int
 @export var points: int
 @export_group("FX")
-@export var explosion_particles: PackedScene
+@export var explosion_particles: PackedScene = preload("res://particles/explosion_new.tscn")
+@export_group("SFX")
+@export var on_hit_sound: AudioStream = preload("res://audio/sfx/click.wav")
 
-@onready var audio_stream = $AudioStreamPlayer2D
 
 var player
 var weapon
@@ -75,7 +76,7 @@ func _on_hit_box_area_entered(area: Area2D):
 func take_damage():
 	current_health -= 1
 	shake()
-	audio_stream.play()
+	SFXManager.play(on_hit_sound)
 	if current_health <= 0:
 		kill(true)
 

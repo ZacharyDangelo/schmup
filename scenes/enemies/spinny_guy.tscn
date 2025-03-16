@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqrf22eoo27mn"]
+[gd_scene load_steps=8 format=3 uid="uid://bqrf22eoo27mn"]
 
 [ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/base_enemy.tscn" id="1_okp4h"]
 [ext_resource type="Script" uid="uid://blmxvgtgmfyik" path="res://scripts/enemy/spinny_guy.gd" id="2_ctivy"]
+[ext_resource type="PackedScene" uid="uid://gl4sxl6rjjr8" path="res://particles/sparks_particle.tscn" id="3_1jbif"]
 [ext_resource type="Texture2D" uid="uid://b1ir47llypdkb" path="res://sprites/rotaterguy.png" id="3_3uqxq"]
 [ext_resource type="Script" uid="uid://cs78sq85h8ist" path="res://scripts/enemy/weapon/spinny_weapon.gd" id="4_lt5np"]
 [ext_resource type="PackedScene" uid="uid://dg4x1ryvv5njf" path="res://scenes/spinny_projectile.tscn" id="5_7b7ct"]
@@ -13,6 +14,7 @@ radius = 20.0062
 scale = Vector2(2, 2)
 script = ExtResource("2_ctivy")
 rotation_speed = 120.0
+spark_particles = ExtResource("3_1jbif")
 sprite = ExtResource("3_3uqxq")
 health = 20
 points = 1000

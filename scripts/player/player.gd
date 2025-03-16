@@ -10,6 +10,7 @@ signal on_life_lost(lives_remaining: int)
 @export var grace_period_time: float = .5
 @onready var weapon = $Weapon
 
+
 var start_pos
 var screen_size
 var screen_offset = 40
@@ -20,6 +21,7 @@ var dead
 var current_speed
 var current_lives
 var current_grace_period_timer
+var last_trail_point: Vector2
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -109,3 +111,5 @@ func _on_hit_box_area_entered(area):
 	else:
 		on_life_lost.emit(current_lives)
 		respawn()
+		
+		

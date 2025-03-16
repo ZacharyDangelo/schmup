@@ -1,6 +1,6 @@
 extends "res://scripts/formations/base_formation.gd"
 
-# Move to fan formation script
+
 @export_group("Movement")
 @export var distance_before_turning: float = 60
 @export var time_before_turning: float = 1.4

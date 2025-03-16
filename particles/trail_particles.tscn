@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbq6cxdk1jloc"]
+
+[sub_resource type="Gradient" id="Gradient_1cu1u"]
+offsets = PackedFloat32Array(0.00478469, 1)
+colors = PackedColorArray(0.172549, 0.909804, 0.960784, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0uev6"]
+gradient = SubResource("Gradient_1cu1u")
+
+[sub_resource type="Curve" id="Curve_kx858"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_rmqj0"]
+curve = SubResource("Curve_kx858")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mcdkr"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 0, 1)
+direction = Vector3(-1, 0, 0)
+spread = 10.909
+flatness = 1.0
+initial_velocity_min = 20.0
+initial_velocity_max = 28.72
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_rmqj0")
+color_ramp = SubResource("GradientTexture1D_0uev6")
+
+[node name="TrailParticles" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 256
+lifetime = 0.15
+preprocess = 1.0
+trail_enabled = true
+trail_sections = 2
+process_material = SubResource("ParticleProcessMaterial_mcdkr")
