@@ -4,6 +4,8 @@ extends GPUParticles2D
 
 func _ready():
 	emitting = true
+	if not audio_stream:
+		return
 	if play_audio:
 		audio_stream.playing = true
 

@@ -1,0 +1,8 @@
+[gd_resource type="GradientTexture1D" load_steps=2 format=3 uid="uid://celit8marbecx"]
+
+[sub_resource type="Gradient" id="Gradient_loup8"]
+offsets = PackedFloat32Array(0.0245902, 0.233607, 0.241803, 0.45082, 0.471311, 0.696721, 0.709016, 1)
+colors = PackedColorArray(0.996078, 0.905882, 0.380392, 1, 0.996078, 0.905882, 0.380392, 1, 0.968627, 0.462745, 0.133333, 1, 0.968627, 0.462745, 0.133333, 1, 0.894118, 0.231373, 0.266667, 1, 0.894118, 0.231373, 0.266667, 1, 1, 0, 0.266667, 1, 0.635294, 0.14902, 0.2, 1)
+
+[resource]
+gradient = SubResource("Gradient_loup8")

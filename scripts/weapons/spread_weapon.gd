@@ -7,6 +7,8 @@ func _process(delta):
 	if get_parent().dead:
 		return
 	super(delta)
+	if Input.is_action_pressed("shoot") and (current_fire_timer >= fire_delay):
+		fire()
 
 func fire():
 	var curr_rotation = -spread_amount_deg

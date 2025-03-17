@@ -3,8 +3,10 @@ extends "res://scripts/enemy/base_enemy.gd"
 @export var rotation_speed: float = 400
 @export var spark_particles: PackedScene = preload("res://particles/sparks_particle.tscn")
 
+
 func _ready():
 	super()
+	explosion_particles = preload("res://particles/explosion_z.tscn")
 
 func _process(delta):
 	rotation += (deg_to_rad(rotation_speed) * delta)

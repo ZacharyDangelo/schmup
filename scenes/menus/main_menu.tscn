@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ctvcpsgtj7ey1"]
+[gd_scene load_steps=14 format=3 uid="uid://ctvcpsgtj7ey1"]
 
 [ext_resource type="Script" uid="uid://c1515u0x6siac" path="res://scripts/menus/main_menu.gd" id="1_ovrgc"]
 [ext_resource type="FontFile" uid="uid://t8h1shroylrt" path="res://fonts/monogram.ttf" id="1_xqga4"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ct1xthys088cm" path="res://bgs/stars2.png" id="8_bre17"]
 [ext_resource type="PackedScene" uid="uid://csn63u5sq0lc" path="res://particles/explosion_new.tscn" id="8_euy4r"]
 [ext_resource type="Script" uid="uid://dmteefmvn0akr" path="res://scripts/camera.gd" id="9_50h1w"]
+[ext_resource type="PackedScene" uid="uid://dpvv84ha3ohgk" path="res://particles/explosion_z.tscn" id="10_bh4e2"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_ovrgc")
@@ -115,6 +116,8 @@ script = null
 
 [node name="SparksParticles" parent="Background/ParticleLoader" instance=ExtResource("8_88kup")]
 position = Vector2(270, 355)
+
+[node name="Node2D" parent="Background/ParticleLoader" instance=ExtResource("10_bh4e2")]
 
 [node name="BGLayer" type="ParallaxLayer" parent="Background"]
 motion_scale = Vector2(0, 1)

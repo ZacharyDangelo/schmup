@@ -2,20 +2,25 @@
 
 [ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/base_enemy.tscn" id="1_cx8ys"]
 [ext_resource type="Script" uid="uid://cil0gygyhak3f" path="res://scripts/enemy/movement/up_down_movement.gd" id="2_1opuv"]
-[ext_resource type="Texture2D" uid="uid://8oqmlyfn2bqj" path="res://sprites/space_invaders_other_dude2.png" id="2_yiou7"]
+[ext_resource type="Texture2D" uid="uid://drca58vguy6ky" path="res://sprites/EyeballguyJr.png" id="2_y2mdc"]
 [ext_resource type="Script" uid="uid://beb5xk88ou1yr" path="res://scripts/weapons/base_weapon.gd" id="3_656q0"]
 [ext_resource type="PackedScene" uid="uid://dg4x1ryvv5njf" path="res://scenes/spinny_projectile.tscn" id="5_74vmf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t44vb"]
-size = Vector2(12, 13)
+size = Vector2(33, 31)
 
 [node name="UpDownEnemy" instance=ExtResource("1_cx8ys")]
-sprite = ExtResource("2_yiou7")
+scale = Vector2(2, 2)
+sprite = ExtResource("2_y2mdc")
 health = 5
 points = 150
 
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("2_y2mdc")
+hframes = 13
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2(-2.86102e-07, 0.3)
+position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_t44vb")
 
 [node name="Movement" parent="." index="2"]

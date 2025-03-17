@@ -1,21 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://dg4x1ryvv5njf"]
 
 [ext_resource type="Script" uid="uid://bbi1dhcwr6lse" path="res://scripts/weapons/projectile.gd" id="1_4l7a5"]
-[ext_resource type="Texture2D" uid="uid://cbsbhmkk6n1n5" path="res://sprites/doughnut.png" id="2_ymn73"]
+[ext_resource type="Texture2D" uid="uid://coir0esgv0gj4" path="res://sprites/EnemyBullet.png" id="2_y8max"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_117se"]
-size = Vector2(10, 8)
+size = Vector2(16, 14)
 
 [node name="Projectile" type="Node2D" groups=["Projectiles"]]
-scale = Vector2(0.5, 0.5)
 script = ExtResource("1_4l7a5")
 speed = 260.0
 ttl = 8.0
 
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(5, 5)
-texture = ExtResource("2_ymn73")
-region_enabled = true
+texture = ExtResource("2_y8max")
 region_rect = Rect2(16, 32, 16, 16)
 
 [node name="Area2D" type="Area2D" parent="."]

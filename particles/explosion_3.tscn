@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://d14hctsvsawuv"]
+[gd_scene load_steps=7 format=3 uid="uid://d14hctsvsawuv"]
 
 [ext_resource type="Texture2D" uid="uid://uwwema4683c5" path="res://sprites/Explosion_Sheet.png" id="1_nraqa"]
 [ext_resource type="Script" uid="uid://cndgp55eyks1u" path="res://scripts/particles/explosion.gd" id="2_6i4yj"]
+[ext_resource type="Texture2D" uid="uid://celit8marbecx" path="res://particles/resources/color_ramp.tres" id="2_mtpcx"]
 [ext_resource type="AudioStream" uid="uid://burg30uotr0r8" path="res://audio/sfx/explosion.wav" id="3_vb83q"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6ur42"]
@@ -9,13 +10,6 @@ particles_animation = true
 particles_anim_h_frames = 5
 particles_anim_v_frames = 1
 particles_anim_loop = false
-
-[sub_resource type="Gradient" id="Gradient_loup8"]
-offsets = PackedFloat32Array(0.0245902, 0.233607, 0.241803, 0.45082, 0.471311, 0.696721, 0.709016, 1)
-colors = PackedColorArray(0.996078, 0.905882, 0.380392, 1, 0.996078, 0.905882, 0.380392, 1, 0.968627, 0.462745, 0.133333, 1, 0.968627, 0.462745, 0.133333, 1, 0.894118, 0.231373, 0.266667, 1, 0.894118, 0.231373, 0.266667, 1, 1, 0, 0.266667, 1, 0.635294, 0.14902, 0.2, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_jlfj3"]
-gradient = SubResource("Gradient_loup8")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iwfor"]
 lifetime_randomness = 0.6
@@ -27,7 +21,7 @@ angle_max = 720.0
 gravity = Vector3(0, -100, 0)
 scale_min = 2.5
 scale_max = 5.0
-color_ramp = SubResource("GradientTexture1D_jlfj3")
+color_ramp = ExtResource("2_mtpcx")
 anim_speed_min = 0.75
 anim_speed_max = 1.0
 
