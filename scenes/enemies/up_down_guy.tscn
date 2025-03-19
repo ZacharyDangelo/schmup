@@ -12,7 +12,7 @@ size = Vector2(33, 31)
 [node name="UpDownEnemy" instance=ExtResource("1_cx8ys")]
 scale = Vector2(2, 2)
 sprite = ExtResource("2_y2mdc")
-health = 5
+health = 10
 points = 150
 
 [node name="Sprite" parent="." index="0"]

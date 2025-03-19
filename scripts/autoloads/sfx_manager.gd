@@ -25,4 +25,3 @@ func play(stream: AudioStream):
 			player.stream = stream
 			player.play()
 			return  # Play once and stop
-	print("All SFX players are busy!")

@@ -35,6 +35,7 @@ Camera=""
 UI=""
 Projectiles=""
 Enemies=""
+Formations=""
 
 [input]
 

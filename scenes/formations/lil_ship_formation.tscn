@@ -3,10 +3,8 @@
 [ext_resource type="Script" uid="uid://cfo2ivccq8ti1" path="res://scripts/formations/base_formation.gd" id="1_nr05o"]
 [ext_resource type="PackedScene" uid="uid://rrkn7oogmksg" path="res://scenes/enemies/lil_ship.tscn" id="2_ufg3m"]
 
-[node name="LilShipFormation" type="Node2D"]
+[node name="LilShipFormation" type="Node2D" groups=["Formations"]]
 script = ExtResource("1_nr05o")
-wake_all = true
-handle_movement = false
 
 [node name="EnemyContainer" type="Node2D" parent="."]
 

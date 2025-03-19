@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://6lmn3axmdtv8"]
 
 [ext_resource type="PackedScene" uid="uid://ccsdnov6q6ssd" path="res://scenes/levels/base_level.tscn" id="1_0jsg6"]
+[ext_resource type="PackedScene" uid="uid://gw6xis1se4ie" path="res://scenes/enemies/lil_ship_spawner.tscn" id="2_fr1um"]
 [ext_resource type="PackedScene" uid="uid://b23myxyy81il5" path="res://scenes/levels/markers/level_stop.tscn" id="3_fr1um"]
-[ext_resource type="PackedScene" uid="uid://bqrf22eoo27mn" path="res://scenes/enemies/spinny_guy.tscn" id="3_v45ci"]
 
 [node name="BaseLevel" instance=ExtResource("1_0jsg6")]
 
+[node name="EnemySpawner" parent="Enemies" index="0" instance=ExtResource("2_fr1um")]
+position = Vector2(591.899, -12.6138)
+
 [node name="LevelStop" parent="." index="7" instance=ExtResource("3_fr1um")]
 position = Vector2(3042, -248)
-
-[node name="SpinnyGuy" parent="." index="8" instance=ExtResource("3_v45ci")]
-position = Vector2(274.562, -3.74658)

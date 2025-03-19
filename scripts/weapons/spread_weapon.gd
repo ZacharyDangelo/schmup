@@ -3,8 +3,10 @@ extends "res://scripts/weapons/base_weapon.gd"
 @export var spread_projectile_count: int
 @export var spread_amount_deg: float
 
+
+
 func _process(delta):
-	if get_parent().dead:
+	if get_parent().dead || get_parent().respawning:
 		return
 	super(delta)
 	if Input.is_action_pressed("shoot") and (current_fire_timer >= fire_delay):

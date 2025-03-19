@@ -33,6 +33,7 @@ func _ready():
 	current_speed = speed
 	current_lives = max_lives
 	current_grace_period_timer = 999
+	sprite.material.set("shader_material/width",0)
 
 func _process(delta):
 	current_grace_period_timer += delta
@@ -75,7 +76,12 @@ func stop():
 func reset():
 	position = start_pos
 	current_speed = speed
-	weapon.auto_fire = true
+	respawning = false
+	sprite.material.set("shader_material/width",0)
+	current_grace_period_timer = 0
+	var timer = get_node("Respawn_timer")
+	if timer:
+		timer.queue_free()
 	
 func respawn():
 	weapon.auto_fire = false
@@ -96,7 +102,6 @@ func _on_respawn_finished():
 	if timer:
 		timer.queue_free()
 	respawning = false
-	weapon.auto_fire = true
 	sprite.material.set("shader_material/width",0)
 	current_grace_period_timer = 0
 

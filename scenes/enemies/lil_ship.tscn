@@ -13,10 +13,10 @@ size = Vector2(27.5, 31.5)
 [node name="Enemy" instance=ExtResource("1_2syaj")]
 scale = Vector2(2, 2)
 script = ExtResource("2_55lak")
-speed_increase_after_fire = 160.0
+speed_increase_after_fire = 140.0
 sprite = ExtResource("3_nihyu")
-health = 8
-points = 200
+health = 12
+points = 300
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource("3_nihyu")

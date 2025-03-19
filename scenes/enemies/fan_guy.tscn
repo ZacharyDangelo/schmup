@@ -49,7 +49,7 @@ _data = {
 [node name="FanGuy" instance=ExtResource("1_s6ami")]
 scale = Vector2(2, 2)
 script = ExtResource("2_hy01u")
-speed = 425.0
+speed = 400.0
 sprite = ExtResource("3_ijkvd")
 has_weapon = false
 health = 3

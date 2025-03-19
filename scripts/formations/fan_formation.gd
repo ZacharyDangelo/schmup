@@ -17,10 +17,9 @@ func _ready():
 	backtrack_target_pos = Vector2(initial_target_pos.x + backtrack_distance, self.global_position.y + y_drop)
 	handle_movement = true
 	current_timer = 0
-	if handle_movement:
-		for enemy in enemies:
-			enemy.target_pos = initial_target_pos
-			enemy.killed_in_formation.connect(kill_enemy)
+	for enemy in enemies:
+		enemy.target_pos = initial_target_pos
+		enemy.killed_in_formation.connect(kill_enemy)
 
 func _process(delta):
 	super(delta)
@@ -35,6 +34,8 @@ func move_enemies(delta):
 		if enemy.global_position.distance_to(enemy.target_pos) <= distance_grace \
 		and enemy.global_position.distance_to(initial_target_pos) <= distance_grace:
 			enemy.target_pos = Vector2(backtrack_target_pos)
+			#enemy.turn_towards(backtrack_target_pos)
 		if enemy.global_position.distance_to(enemy.target_pos) <= distance_grace \
 		and enemy.global_position.distance_to(backtrack_target_pos) <= distance_grace:
 			enemy.target_pos = Vector2(-999,enemy.global_position.y)
+			#enemy.turn_towards(Vector2(-999,enemy.global_position.y))

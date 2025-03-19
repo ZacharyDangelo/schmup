@@ -16,7 +16,7 @@ script = ExtResource("2_ctivy")
 rotation_speed = 120.0
 spark_particles = ExtResource("3_1jbif")
 sprite = ExtResource("3_3uqxq")
-health = 20
+health = 35
 points = 1000
 
 [node name="Sprite" parent="." index="0"]
