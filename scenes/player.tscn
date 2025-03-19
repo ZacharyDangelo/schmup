@@ -1,10 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7hgmmou0ia8o"]
+[gd_scene load_steps=17 format=3 uid="uid://c7hgmmou0ia8o"]
 
 [ext_resource type="Script" uid="uid://dpgi5jhhlypvx" path="res://scripts/player/player.gd" id="1_4vd5h"]
 [ext_resource type="Texture2D" uid="uid://cv1bja2088xja" path="res://sprites/Arwing.png" id="2_p5reh"]
 [ext_resource type="Shader" uid="uid://nk0fpw1caai4" path="res://shaders/player_respawn.gdshader" id="2_qlg0r"]
 [ext_resource type="Script" uid="uid://ihbo2yls6gth" path="res://scripts/weapons/spread_weapon.gd" id="3_i7dnc"]
 [ext_resource type="PackedScene" uid="uid://qd4i4sjjsbsm" path="res://scenes/projectile.tscn" id="4_syuc0"]
+[ext_resource type="Script" uid="uid://eaw1y7ateugt" path="res://scripts/player/sfx.gd" id="6_fjrip"]
+[ext_resource type="Texture2D" uid="uid://b0qrnt3363vco" path="res://sprites/explosion.png" id="6_y4r1p"]
+[ext_resource type="AudioStream" uid="uid://dax55xkdiqqh8" path="res://audio/sfx/player_hit.wav" id="7_smehm"]
+[ext_resource type="AudioStream" uid="uid://di6rp1twm3tse" path="res://audio/sfx/player_shoot.wav" id="7_ur7pv"]
+[ext_resource type="AudioStream" uid="uid://cklqdkf6kc8g3" path="res://audio/sfx/player_explosion.wav" id="8_smehm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tuyoq"]
 shader = ExtResource("2_qlg0r")
@@ -32,6 +37,42 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_p5reh")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
 
 [sub_resource type="Animation" id="Animation_j2kvs"]
 resource_name = "butt_fire"
@@ -50,10 +91,62 @@ tracks/0/keys = {
 "values": [0, 1]
 }
 
+[sub_resource type="Animation" id="Animation_d2wvv"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("6_y4r1p"), null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eonfi"]
 _data = {
 &"RESET": SubResource("Animation_im1b3"),
-&"butt_fire": SubResource("Animation_j2kvs")
+&"butt_fire": SubResource("Animation_j2kvs"),
+&"death": SubResource("Animation_d2wvv")
 }
 
 [node name="Player" type="Node2D" node_paths=PackedStringArray("sprite")]
@@ -90,5 +183,12 @@ shape = SubResource("RectangleShape2D_0blvs")
 libraries = {
 &"": SubResource("AnimationLibrary_eonfi")
 }
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"
+script = ExtResource("6_fjrip")
+shoot_stream = ExtResource("7_ur7pv")
+hit_stream = ExtResource("7_smehm")
+death_stream = ExtResource("8_smehm")
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

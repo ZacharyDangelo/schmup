@@ -14,9 +14,6 @@ func _ready():
 func spawn_level():
 	var new_level = levels[GameData.current_level].instantiate()
 	new_level.position = Vector2.ZERO
-	var level_stop = new_level.get_node("LevelStop")
-	if level_stop:
-		level_stop.level_stopped.connect(_on_level_over)
 	var level_enemies = new_level.get_node("Enemies")
 	if level_enemies:
 		level_enemies.on_all_enemies_killed.connect(_on_level_over)

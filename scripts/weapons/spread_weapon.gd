@@ -2,6 +2,7 @@ extends "res://scripts/weapons/base_weapon.gd"
 
 @export var spread_projectile_count: int
 @export var spread_amount_deg: float
+@onready var sfx = $"../SFX"
 
 
 
@@ -13,6 +14,7 @@ func _process(delta):
 		fire()
 
 func fire():
+	sfx.play_shoot_sound()
 	var curr_rotation = -spread_amount_deg
 	for i in range(0,spread_projectile_count):
 		var proj = projectile.instantiate()

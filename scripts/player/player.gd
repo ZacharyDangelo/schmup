@@ -9,6 +9,8 @@ signal on_life_lost(lives_remaining: int)
 @export var respawn_time: float = 1.6
 @export var grace_period_time: float = .5
 @onready var weapon = $Weapon
+@onready var sfx = $SFX
+@onready var animation_player = $AnimationPlayer
 
 
 var start_pos
@@ -25,7 +27,7 @@ var last_trail_point: Vector2
 
 func _ready():
 	screen_size = get_viewport_rect().size
-	get_node("AnimationPlayer").play("butt_fire")
+	animation_player.play("butt_fire")
 	camera = get_node('%Camera')
 	dead = false
 	respawning = false
@@ -80,6 +82,7 @@ func reset():
 	current_speed = speed
 	current_grace_period_timer = 0
 	var timer = get_node("Respawn_timer")
+	animation_player.play("butt_fire")
 	if timer:
 		timer.queue_free()
 	
@@ -104,16 +107,20 @@ func _on_respawn_finished():
 	respawning = false
 	sprite.material.set("shader_material/width",0)
 	current_grace_period_timer = 0
+	animation_player.play("butt_fire")
 
 func _on_hit_box_area_entered(area):
 	if respawning or current_grace_period_timer <= grace_period_time:
 		return
 	current_lives -= 1
 	if current_lives == 0:
+		sfx.play_death_sound()
 		dead = true
+		animation_player.play("death")
 		on_died.emit()
 		camera.stop()
 	else:
+		sfx.play_hit_sound()
 		on_life_lost.emit(current_lives)
 		respawn()
 		
