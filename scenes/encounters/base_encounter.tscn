@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://fup8yxbrkf2p"]
+
+[ext_resource type="Script" uid="uid://cssgkir1yybuv" path="res://scripts/level/encounter.gd" id="1_agbks"]
+[ext_resource type="Script" uid="uid://w5xntudt707w" path="res://scripts/level/encounter_enemy_container.gd" id="2_rymmt"]
+
+[node name="BaseEncounter" type="Node2D"]
+script = ExtResource("1_agbks")
+
+[node name="EnemyContainer" type="Node2D" parent="."]
+script = ExtResource("2_rymmt")

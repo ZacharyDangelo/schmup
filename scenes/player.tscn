@@ -60,6 +60,7 @@ _data = {
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_4vd5h")
 sprite = NodePath("Sprite2D")
+max_lives = 1
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
