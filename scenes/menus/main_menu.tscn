@@ -25,7 +25,7 @@ options_button_clicked_stream = ExtResource("4_uxao6")
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
 script = ExtResource("9_50h1w")
-scroll_speed = 125.0
+scroll_speed = 65.0
 
 [node name="BG" type="ColorRect" parent="."]
 visible = false

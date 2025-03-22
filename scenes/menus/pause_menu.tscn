@@ -1,0 +1,108 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckwao30cvl7pp"]
+
+[ext_resource type="Script" uid="uid://d0xesaek3logc" path="res://scripts/menus/pause_menu.gd" id="1_gsnt3"]
+[ext_resource type="Texture2D" uid="uid://b0bkar6t4rp6d" path="res://black.png" id="2_2wrho"]
+[ext_resource type="FontFile" uid="uid://t8h1shroylrt" path="res://fonts/monogram.ttf" id="2_gsnt3"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gsnt3")
+
+[node name="BG" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.396078)
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_2wrho")
+
+[node name="PanelContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -535.0
+offset_top = -2.0
+offset_right = 536.0
+offset_bottom = 478.0
+grow_horizontal = 2
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_gsnt3")
+theme_override_font_sizes/font_size = 64
+text = "PAUSED"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="MasterLabel" type="Label" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_gsnt3")
+theme_override_font_sizes/font_size = 48
+text = "Master Volume:"
+
+[node name="MasterSlider" type="HSlider" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+tick_count = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="SFXLabel" type="Label" parent="PanelContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_gsnt3")
+theme_override_font_sizes/font_size = 48
+text = "SFX Volume:"
+
+[node name="SFXSlider" type="HSlider" parent="PanelContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+tick_count = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="MusicLabel" type="Label" parent="PanelContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_gsnt3")
+theme_override_font_sizes/font_size = 48
+text = "Music Volume:"
+
+[node name="MusicSlider" type="HSlider" parent="PanelContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+tick_count = 1
+
+[node name="Button" type="Button" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_gsnt3")
+theme_override_font_sizes/font_size = 64
+text = "RESUME"
+
+[connection signal="value_changed" from="PanelContainer/HBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/HBoxContainer2/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/HBoxContainer3/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="pressed" from="PanelContainer/Button" to="." method="_on_resume_button_pressed"]
