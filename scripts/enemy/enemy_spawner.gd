@@ -19,15 +19,17 @@ func _ready():
 	is_shaking = false
 	
 func _process(delta):
-	global_position += Vector2(speed * delta, 0)
+	handle_movement(delta)
 	spawn_timer += delta
 	if spawn_timer >= spawn_delay:
 		spawn_enemy()
+
+func handle_movement(delta):
+	global_position += Vector2(speed * delta, 0)
 	
 func spawn_enemy():
 	var enemy_node = enemy.instantiate()
-	enemy_node.global_position = spawn_point.global_position
-	get_tree().current_scene.add_child(enemy_node)
+	get_tree().get_current_scene().add_child(enemy_node)
 	spawn_timer = 0
 
 
@@ -55,7 +57,7 @@ func shake():
 	var original_local_position = sprite_node.position
 	
 	# Settings for shake intensity and duration
-	var shake_intensity = 5.0  # Adjust as needed
+	var shake_intensity = 2.5  # Adjust as needed
 	var shake_duration = 0.1   # Total duration for the shake sequence
 	var flash_duration = 0.1   # Duration for the red flash
 	

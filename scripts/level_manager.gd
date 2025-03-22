@@ -7,7 +7,6 @@ extends Node2D
 @onready var camera = %Camera
 @onready var level_over_menu = $"../UI/LevelOverMenu"
 @onready var game_over_menu = $"../UI/GameOverMenu"
-
 func _ready():
 	spawn_level()
 

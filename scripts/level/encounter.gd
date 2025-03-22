@@ -6,9 +6,9 @@ enum EncounterState { IDLE, SPAWNING, ACTIVE, OVER}
 @onready var enemy_container = $EnemyContainer
 
 @export var time_before_next_encounter: float
-@export_group("Not Implemented")
-@export var require_kill_all_enemies: bool
 @export var time_limit: float 
+@export var require_kill_all_enemies: bool
+@export_group("Not Implemented")
 @export var type: EncounterResource.Encounter_Type
 @export var camera_speed_multiplier: float
 
@@ -48,13 +48,20 @@ func handle_idle_state(delta):
 # continue the level.
 # TODO: Implement data driven transition flags.
 func handle_active_state(delta):
-	handle_wait(delta,time_limit, EncounterState.OVER)
+	if time_limit != 0:
+		handle_wait(delta,time_limit, EncounterState.OVER)
+	if require_kill_all_enemies:
+		check_enemies_killed(EncounterState.OVER)
 
 # Waits for limit amount of time, then transitions to next_state
 func handle_wait(delta,limit, next_state):
 	current_wait_timer += delta
 	if current_wait_timer >= limit:
 		current_wait_timer = 0
+		change_state(next_state)
+
+func check_enemies_killed(next_state):
+	if enemy_container.get_child_count() == 0:
 		change_state(next_state)
 
 # Spawning state is when the encounter is waiting to spawn enemies.

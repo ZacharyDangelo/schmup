@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfesa3mi08bsb"]
+
+[ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/base_enemy.tscn" id="1_kufyg"]
+[ext_resource type="Script" uid="uid://vncd0ial18ee" path="res://scripts/enemy/interceptor.gd" id="2_leyjb"]
+[ext_resource type="Texture2D" uid="uid://baeoqldtioveu" path="res://sprites/spinny_guy.png" id="3_yghn5"]
+
+[node name="Enemy" instance=ExtResource("1_kufyg")]
+script = ExtResource("2_leyjb")
+distance_threshold = 5.0
+spawning_speed = 400.0
+distance_after_spawn = Vector2(-150, 0)
+orbit_speed = 3.0
+orbit_radius = 150.0
+moving_speed = 200.0
+distance_from_parent = Vector2(0, 0)
+attack_move_speed = 900.0
+attack_delay = 1.2
+attack_offset = Vector2(0, -250)
+attack_distance = 170.0
+sprite = ExtResource("3_yghn5")
+health = 10
+points = 300

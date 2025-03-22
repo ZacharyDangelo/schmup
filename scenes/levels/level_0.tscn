@@ -132,4 +132,11 @@ position = Vector2(5786, 300)
 y_drop = 160.0
 
 [node name="StarsLayer" parent="Background" index="1"]
+motion_scale = Vector2(0.05, 1)
 motion_mirroring = Vector2(2560, 0)
+
+[node name="Sprite2D" parent="Background/StarsLayer" index="0"]
+position = Vector2(-639, 0)
+
+[node name="Stars2Layer" parent="Background" index="2"]
+motion_scale = Vector2(0.15, 1)

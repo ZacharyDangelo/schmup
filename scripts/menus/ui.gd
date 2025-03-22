@@ -10,6 +10,8 @@ var level_over_menu_score_label
 @onready var lives_container = $HUD/HBoxContainer/Lives_HBoxContainer
 @onready var hud = $HUD
 
+
+
 var is_player_dead
 var current_timer = 0
 

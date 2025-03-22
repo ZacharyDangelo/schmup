@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://ctvcpsgtj7ey1"]
+[gd_scene load_steps=17 format=3 uid="uid://ctvcpsgtj7ey1"]
 
 [ext_resource type="Script" uid="uid://c1515u0x6siac" path="res://scripts/menus/main_menu.gd" id="1_ovrgc"]
 [ext_resource type="FontFile" uid="uid://t8h1shroylrt" path="res://fonts/monogram.ttf" id="1_xqga4"]
 [ext_resource type="PackedScene" uid="uid://cc6kmyavd64y" path="res://main.tscn" id="2_2o76q"]
+[ext_resource type="AudioStream" uid="uid://cy3kn2nsw142p" path="res://audio/sfx/Click_Electronic_14.wav" id="3_3w8rc"]
 [ext_resource type="PackedScene" uid="uid://d14hctsvsawuv" path="res://particles/explosion_3.tscn" id="4_6bivr"]
+[ext_resource type="AudioStream" uid="uid://chtwg2r41vfa0" path="res://audio/sfx/Click_Electronic_00.wav" id="4_uxao6"]
 [ext_resource type="Script" uid="uid://b8rlcg032brtn" path="res://scripts/background.gd" id="5_1hnlc"]
 [ext_resource type="Script" uid="uid://cxp8vy6fig0k1" path="res://scripts/particle_loader.gd" id="5_88kup"]
 [ext_resource type="Texture2D" uid="uid://b0bkar6t4rp6d" path="res://black.png" id="6_50h1w"]
@@ -13,10 +15,13 @@
 [ext_resource type="PackedScene" uid="uid://csn63u5sq0lc" path="res://particles/explosion_new.tscn" id="8_euy4r"]
 [ext_resource type="Script" uid="uid://dmteefmvn0akr" path="res://scripts/camera.gd" id="9_50h1w"]
 [ext_resource type="PackedScene" uid="uid://dpvv84ha3ohgk" path="res://particles/explosion_z.tscn" id="10_bh4e2"]
+[ext_resource type="AudioStream" uid="uid://c4bpda4foie4s" path="res://audio/music/schmup_main_menu_take_3_v2.mp3" id="16_vr0hv"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_ovrgc")
 main_scene = ExtResource("2_2o76q")
+play_button_clicked_stream = ExtResource("3_3w8rc")
+options_button_clicked_stream = ExtResource("4_uxao6")
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
 script = ExtResource("9_50h1w")
@@ -145,6 +150,12 @@ motion_mirroring = Vector2(2560, 0)
 position = Vector2(338, -288)
 scale = Vector2(2, 2)
 texture = ExtResource("8_bre17")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_vr0hv")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [connection signal="pressed" from="Main/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Main/OptionsButton" to="." method="_on_options_button_pressed"]
