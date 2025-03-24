@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://csn63u5sq0lc" path="res://particles/explosion_new.tscn" id="8_euy4r"]
 [ext_resource type="Script" uid="uid://dmteefmvn0akr" path="res://scripts/camera.gd" id="9_50h1w"]
 [ext_resource type="PackedScene" uid="uid://dpvv84ha3ohgk" path="res://particles/explosion_z.tscn" id="10_bh4e2"]
-[ext_resource type="AudioStream" uid="uid://c4bpda4foie4s" path="res://audio/music/schmup_main_menu_take_3_v2.mp3" id="16_vr0hv"]
+[ext_resource type="AudioStream" uid="uid://cbnnu8pcplrdc" path="res://audio/music/schmup_song_4_v4.mp3" id="16_vr0hv"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_ovrgc")
@@ -87,12 +87,49 @@ layout_mode = 2
 theme_override_constants/separation = 24
 
 [node name="MasterLabel" type="Label" parent="Options/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_xqga4")
-theme_override_font_sizes/font_size = 128
-text = "Volume:"
+theme_override_font_sizes/font_size = 48
+text = "Master Volume:"
 
 [node name="MasterSlider" type="HSlider" parent="Options/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+tick_count = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Options"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="SFXLabel" type="Label" parent="Options/HBoxContainer2"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xqga4")
+theme_override_font_sizes/font_size = 48
+text = "SFX Volume:"
+
+[node name="SFXSlider" type="HSlider" parent="Options/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+tick_count = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Options"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="MusicLabel" type="Label" parent="Options/HBoxContainer3"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xqga4")
+theme_override_font_sizes/font_size = 48
+text = "Music Volume:"
+
+[node name="MusicSlider" type="HSlider" parent="Options/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -160,4 +197,6 @@ parameters/looping = true
 [connection signal="pressed" from="Main/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Main/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="value_changed" from="Options/HBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="Options/HBoxContainer2/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="Options/HBoxContainer3/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="pressed" from="Options/Button" to="." method="_on_button_pressed"]

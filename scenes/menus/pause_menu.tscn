@@ -14,7 +14,7 @@ grow_vertical = 2
 script = ExtResource("1_gsnt3")
 
 [node name="BG" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0.396078)
+modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0

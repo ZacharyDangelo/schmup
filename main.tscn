@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cc6kmyavd64y"]
+[gd_scene load_steps=13 format=3 uid="uid://cc6kmyavd64y"]
 
 [ext_resource type="Script" uid="uid://dmteefmvn0akr" path="res://scripts/camera.gd" id="1_e7bqo"]
 [ext_resource type="PackedScene" uid="uid://6lmn3axmdtv8" path="res://scenes/levels/test_level.tscn" id="2_efxa6"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dn0komujy6t5i" path="res://sprites/Arwing_HUD.png" id="9_efxa6"]
 [ext_resource type="FontFile" uid="uid://t8h1shroylrt" path="res://fonts/monogram.ttf" id="9_k3u0t"]
 [ext_resource type="PackedScene" uid="uid://dyo0mpj1x00rm" path="res://scenes/menus/level_over_menu.tscn" id="10_vqstw"]
+[ext_resource type="PackedScene" uid="uid://ckwao30cvl7pp" path="res://scenes/menus/pause_menu.tscn" id="12_dg77c"]
 
 [node name="Game" type="Node"]
 
@@ -125,6 +126,9 @@ text = "00:00.00"
 visible = false
 offset_top = 91.0
 offset_bottom = 91.0
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("12_dg77c")]
+visible = false
 
 [connection signal="on_died" from="Player" to="UI" method="_on_player_on_died"]
 [connection signal="on_life_lost" from="Player" to="UI" method="_on_player_on_life_lost"]

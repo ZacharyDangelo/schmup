@@ -9,6 +9,7 @@ var level_over_menu_score_label
 @onready var timer_label = $HUD/HBoxContainer/TimerLabel
 @onready var lives_container = $HUD/HBoxContainer/Lives_HBoxContainer
 @onready var hud = $HUD
+@onready var pause_menu = $PauseMenu
 
 
 
@@ -23,16 +24,28 @@ func _ready():
 	level_over_menu_score_label = level_over_menu.get_node("PanelContainer/ScoreLabel")
 
 	GameData.on_score_changed.connect(update_score_label)
+	pause_menu.connect("on_game_resumed",func():hud.show())
 
 func _process(delta):
-	if not is_player_dead:
-		current_timer += delta
-		var minutes = int(current_timer / 60)
-		var seconds = int(current_timer) % 60
-		var milliseconds = int((current_timer - int(current_timer)) * 100)
-		# Format using template strings with padding
-		timer_label.text = "%02d:%02d.%02d" % [minutes, seconds, milliseconds]
+	if is_player_dead:
+		return
+	handle_timer(delta)
+	if Input.is_action_just_pressed("pause") and can_pause():
+		Engine.time_scale = 0
+		pause_menu.show()
+		hud.hide()
+	
+func can_pause():
+	return !game_over_menu.visible and !level_over_menu.visible
 
+
+func handle_timer(delta):
+	current_timer += delta
+	var minutes = int(current_timer / 60)
+	var seconds = int(current_timer) % 60
+	var milliseconds = int((current_timer - int(current_timer)) * 100)
+	# Format using template strings with padding
+	timer_label.text = "%02d:%02d.%02d" % [minutes, seconds, milliseconds]
 
 func update_score_label(value: int):
 	score_label.text = "Score: " + str(GameData.score)

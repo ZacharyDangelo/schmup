@@ -24,5 +24,13 @@ func _on_play_button_pressed():
 	get_tree().change_scene_to_packed(main_scene)
 
 
-func _on_master_slider_value_changed(value):
+func _on_music_slider_value_changed(value: float) -> void:
+	Settings.change_music_volume(value)
+
+
+func _on_sfx_slider_value_changed(value: float) -> void:
+	Settings.change_sfx_volume(value)
+
+
+func _on_master_slider_value_changed(value: float) -> void:
 	Settings.change_master_volume(value)
