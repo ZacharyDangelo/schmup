@@ -119,6 +119,9 @@ func shake():
 		tween.tween_property(sprite_node, "position", original_local_position + random_offset, shake_duration / 4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(sprite_node, "position", original_local_position, shake_duration / 4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(sprite_node, "modulate", Color(1, 1, 1), flash_duration / 2).set_delay(flash_duration / 2)
+#############
+### Util
+#############
 
 func get_camera():
 	var camera_group = get_tree().get_nodes_in_group("Camera")
@@ -127,6 +130,10 @@ func get_camera():
 		return
 	return camera_group[0]
 
+
+#############
+### Signal Callbacks
+#############
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
 	awake = true

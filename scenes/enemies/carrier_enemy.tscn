@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvchakldbsm2n"]
+[gd_scene load_steps=6 format=3 uid="uid://bvchakldbsm2n"]
 
 [ext_resource type="PackedScene" uid="uid://cvifnl2n5ssax" path="res://scenes/enemies/base_enemy_spawner.tscn" id="1_xbnf5"]
 [ext_resource type="Script" uid="uid://d0byfi5j2die6" path="res://scripts/enemy/carrier_enemy.gd" id="2_1yf84"]
 [ext_resource type="PackedScene" uid="uid://cfesa3mi08bsb" path="res://scenes/enemies/interceptor.tscn" id="3_7j61t"]
+[ext_resource type="Texture2D" uid="uid://ca7hbv2o2rssa" path="res://sprites/GuyThatSpawnsShitOutOfHim_ReDo.png" id="4_46xnc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbnf5"]
 size = Vector2(124, 125)
@@ -11,10 +12,21 @@ size = Vector2(124, 125)
 script = ExtResource("2_1yf84")
 max_interceptors = 4
 health = 500
-speed = 100
+speed = 120
 points = 5000
 enemy = ExtResource("3_7j61t")
 spawn_delay = 2.0
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(2, 2)
+texture = ExtResource("4_46xnc")
+hframes = 5
+
+[node name="DoorSprite" parent="." index="1"]
+visible = false
+
+[node name="Area2D" parent="." index="3"]
+collision_mask = 9
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2(-1, 0.5)
@@ -26,3 +38,5 @@ scale = Vector2(4.75, 6.2)
 
 [node name="InterceptorContainer" type="Node2D" parent="." index="5"]
 position = Vector2(-32, 0)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

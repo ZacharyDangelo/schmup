@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfesa3mi08bsb"]
+[gd_scene load_steps=7 format=3 uid="uid://cfesa3mi08bsb"]
 
 [ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/base_enemy.tscn" id="1_kufyg"]
 [ext_resource type="Script" uid="uid://vncd0ial18ee" path="res://scripts/enemy/interceptor.gd" id="2_leyjb"]
-[ext_resource type="Texture2D" uid="uid://baeoqldtioveu" path="res://sprites/spinny_guy.png" id="3_yghn5"]
+[ext_resource type="Texture2D" uid="uid://0gvkt4hld3jc" path="res://sprites/LilGuysThatSpawnsOutOfBigGuy1.png" id="3_nqdo6"]
+[ext_resource type="Script" uid="uid://bq58ir0joie02" path="res://scripts/weapons/interceptor_weapon.gd" id="4_1u0yl"]
+[ext_resource type="PackedScene" uid="uid://b46nsvqq01mx5" path="res://scenes/enemies/projectiles/base_enemy_projectile.tscn" id="5_nqdo6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yghn5"]
+size = Vector2(24, 24)
 
 [node name="Enemy" instance=ExtResource("1_kufyg")]
+scale = Vector2(2, 2)
 script = ExtResource("2_leyjb")
 distance_threshold = 5.0
 spawning_speed = 400.0
@@ -17,6 +23,25 @@ attack_move_speed = 900.0
 attack_delay = 1.2
 attack_offset = Vector2(0, -250)
 attack_distance = 170.0
-sprite = ExtResource("3_yghn5")
-health = 10
+sprite = ExtResource("3_nqdo6")
+health = 25
 points = 300
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("3_nqdo6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(-0.5, 1.19209e-07)
+shape = SubResource("RectangleShape2D_yghn5")
+
+[node name="Weapon" parent="." index="3"]
+script = ExtResource("4_1u0yl")
+weapon_type = 1
+projectile = ExtResource("5_nqdo6")
+
+[node name="FirePoint" type="Node2D" parent="Weapon" index="0"]
+position = Vector2(-11, 10.5)
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="4"]
+position = Vector2(-0.25, 0.6)
+scale = Vector2(1.025, 1)

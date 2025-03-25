@@ -63,6 +63,7 @@ func handle_moving_state(delta):
 
 func handle_orbit_state(delta):
 	curr_angle += orbit_speed * delta  # Rotate over time
+	rotation = lerp_angle(rotation, curr_angle, delta * .56)
 	# Calculate new position around center_enemy
 	var offset = Vector2(orbit_radius, 0).rotated(curr_angle)
 	global_position = carrier_node.global_position + offset
@@ -73,18 +74,28 @@ func handle_orbit_state(delta):
 		curr_attack_timer = 0
 	
 func handle_attacking_state(delta):
+	var dir = global_position.direction_to(attack_position)
+	var target_angle = dir.angle()
 	# Move towards attack target
-	global_position += global_position.direction_to(attack_position) * delta * attack_move_speed
+	global_position += dir * delta * attack_move_speed
+	rotation = lerp_angle(rotation, target_angle + PI, delta * 1)
 	# If close enough, start shooting
 	if global_position.x - attack_position.x < attack_distance:
 		curr_state = State.FIRING
 
 func handle_firing_state(delta):
+	var dir = global_position.direction_to(player.get_center_position())
+	var target_angle = dir.angle()
+	rotation = target_angle + PI
+	weapon.fire()
 	curr_state = State.RECOVERY
 
 func handle_recovery_state(delta):
+	var dir = position.direction_to(movement_target)
+	var target_angle = dir.angle()
 	# Move back to orbit
 	position += position.direction_to(movement_target) * attack_move_speed * delta
+	rotation = lerp_angle(rotation, target_angle + PI, delta * 5)
 	# If close enough, resume orbiting
 	if position.distance_to(movement_target) <= distance_threshold:
 		curr_angle = (position - carrier_node.position).angle()

@@ -11,6 +11,7 @@ signal on_life_lost(lives_remaining: int)
 @onready var weapon = $Weapon
 @onready var sfx = $SFX
 @onready var animation_player = $AnimationPlayer
+@onready var collision_shape_2d = $HitBox/CollisionShape2D
 
 
 var start_pos
@@ -99,6 +100,18 @@ func respawn():
 	timer.start()
 	respawning = true 
 	
+#############
+### Util
+#############
+
+func get_center_position():
+	# If the collision shape is correctly centered, no need to add an offset.
+	return collision_shape_2d.global_position
+
+
+#############
+### Signal Callbacks
+#############
 	
 func _on_respawn_finished():
 	var timer = get_node("Respawn_timer")
