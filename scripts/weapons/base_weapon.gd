@@ -8,6 +8,7 @@ enum WeaponType { PLAYER, ENEMY}
 @export var fire_delay: float
 @export_group("Projectile")
 @export var projectile: PackedScene
+@export var projectile_speed: float = -1
 
 var active
 
@@ -38,6 +39,8 @@ func create_projectile():
 		proj.dir = Vector2.RIGHT
 	else:
 		proj.dir = Vector2.LEFT
+	if projectile_speed != -1:
+		proj.speed = projectile_speed
 	return proj
 
 func fire():

@@ -70,7 +70,8 @@ func handle_orbit_state(delta):
 	curr_attack_timer += delta
 	if curr_attack_timer >= attack_delay and curr_angle >= 8:
 		curr_state = State.ATTACKING
-		attack_position = player.global_position - attack_offset
+		var attack_dir = [-1,1].pick_random()
+		attack_position = player.global_position - (attack_offset * attack_dir)
 		curr_attack_timer = 0
 	
 func handle_attacking_state(delta):

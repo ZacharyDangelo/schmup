@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvchakldbsm2n"]
+[gd_scene load_steps=10 format=3 uid="uid://bvchakldbsm2n"]
 
 [ext_resource type="PackedScene" uid="uid://cvifnl2n5ssax" path="res://scenes/enemies/base_enemy_spawner.tscn" id="1_xbnf5"]
 [ext_resource type="Script" uid="uid://d0byfi5j2die6" path="res://scripts/enemy/carrier_enemy.gd" id="2_1yf84"]
@@ -8,12 +8,80 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbnf5"]
 size = Vector2(124, 125)
 
+[sub_resource type="Animation" id="Animation_km2s2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_e6ik5"]
+resource_name = "closing"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_46xnc"]
+resource_name = "spawning"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn_enemy"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e6ik5"]
+_data = {
+&"RESET": SubResource("Animation_km2s2"),
+&"closing": SubResource("Animation_e6ik5"),
+&"spawning": SubResource("Animation_46xnc")
+}
+
 [node name="Carrier" instance=ExtResource("1_xbnf5")]
 script = ExtResource("2_1yf84")
 max_interceptors = 4
 health = 500
 speed = 120
-points = 5000
+points = 10000
 enemy = ExtResource("3_7j61t")
 spawn_delay = 2.0
 
@@ -33,10 +101,15 @@ position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_xbnf5")
 
 [node name="VisibleOnScreenEnabler2D" parent="." index="4"]
-position = Vector2(-37.5, -3.8147e-06)
-scale = Vector2(4.75, 6.2)
+position = Vector2(233, 1)
+scale = Vector2(4.2, 6.2)
 
 [node name="InterceptorContainer" type="Node2D" parent="." index="5"]
 position = Vector2(-32, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+libraries = {
+&"": SubResource("AnimationLibrary_e6ik5")
+}
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -18,3 +18,4 @@ func _on_button_pressed():
 	SFXManager.play(click_sfx)
 	GameData.score = 0
 	GameData.set_level(0)
+	GameData.current_lives = 3

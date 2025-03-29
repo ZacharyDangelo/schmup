@@ -3,6 +3,7 @@ extends Node
 signal on_score_changed(new_score: int)
 var score: int
 var current_level:int = 0
+var current_lives:int = 3
 
 
 func add_score(value: int):

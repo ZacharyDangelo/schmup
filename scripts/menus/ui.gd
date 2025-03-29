@@ -25,6 +25,11 @@ func _ready():
 
 	GameData.on_score_changed.connect(update_score_label)
 	pause_menu.connect("on_game_resumed",func():hud.show())
+	if GameData.current_lives == 2:
+		lives_container.get_child(2).set_indexed("modulate:a",0)
+	if GameData.current_lives == 1:
+		lives_container.get_child(1).set_indexed("modulate:a",0)
+		
 
 func _process(delta):
 	if is_player_dead:
@@ -57,5 +62,5 @@ func _on_player_on_died():
 	hud.hide()
 
 
-func _on_player_on_life_lost(lives_remaining):
-	lives_container.get_child(lives_remaining).set_indexed("modulate:a",0)
+func _on_player_on_life_lost():
+	lives_container.get_child(GameData.current_lives).set_indexed("modulate:a",0)

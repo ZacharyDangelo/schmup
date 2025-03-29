@@ -1,7 +1,7 @@
 extends Node2D
 
 signal on_died()
-signal on_life_lost(lives_remaining: int)
+signal on_life_lost()
 
 @export var sprite: Sprite2D
 @export var speed: float
@@ -22,7 +22,6 @@ var camera
 var respawning
 var dead
 var current_speed
-var current_lives
 var current_grace_period_timer
 var last_trail_point: Vector2
 
@@ -34,7 +33,6 @@ func _ready():
 	respawning = false
 	start_pos = position
 	current_speed = speed
-	current_lives = max_lives
 	current_grace_period_timer = 999
 	sprite.material.set("shader_parameter/width",0)
 
@@ -125,8 +123,8 @@ func _on_respawn_finished():
 func _on_hit_box_area_entered(area):
 	if respawning or current_grace_period_timer <= grace_period_time:
 		return
-	current_lives -= 1
-	if current_lives == 0:
+	GameData.current_lives -= 1
+	if GameData.current_lives == 0:
 		sfx.play_death_sound()
 		dead = true
 		animation_player.play("death")
@@ -134,7 +132,7 @@ func _on_hit_box_area_entered(area):
 		camera.stop()
 	else:
 		sfx.play_hit_sound()
-		on_life_lost.emit(current_lives)
+		on_life_lost.emit()
 		respawn()
 		
 		

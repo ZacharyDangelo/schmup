@@ -1,29 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://cbbcrfdk0hpg6"]
 
 [ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/base_enemy.tscn" id="1_ypc6x"]
-[ext_resource type="Texture2D" uid="uid://drca58vguy6ky" path="res://sprites/EyeballguyJr.png" id="2_372qx"]
+[ext_resource type="Texture2D" uid="uid://bidsifv8cenua" path="res://sprites/ShootDownGuyV3.png" id="2_372qx"]
 [ext_resource type="Script" uid="uid://cufvsh0xh48mj" path="res://scripts/enemy/movement/slider_movement.gd" id="2_acj72"]
+[ext_resource type="Script" uid="uid://c8hi6g3r35pml" path="res://scripts/enemy/slider_guy.gd" id="2_q1q1l"]
 [ext_resource type="Script" uid="uid://by7smccfmbae5" path="res://scripts/weapons/up_down_shooter.gd" id="4_vp0mw"]
 [ext_resource type="PackedScene" uid="uid://dg4x1ryvv5njf" path="res://scenes/spinny_projectile.tscn" id="5_gt4if"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_psss8"]
 size = Vector2(31.6, 31.2)
-
-[sub_resource type="Animation" id="Animation_372qx"]
-resource_name = "idle"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-}
 
 [sub_resource type="Animation" id="Animation_q1q1l"]
 length = 0.001
@@ -42,24 +27,21 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i4ngo"]
 _data = {
-&"RESET": SubResource("Animation_q1q1l"),
-&"idle": SubResource("Animation_372qx")
+&"RESET": SubResource("Animation_q1q1l")
 }
 
 [node name="SliderGuy" instance=ExtResource("1_ypc6x")]
-position = Vector2(-1, 0)
 scale = Vector2(2, 2)
+script = ExtResource("2_q1q1l")
 sprite = ExtResource("2_372qx")
-health = 3
+health = 7
 points = 100
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource("2_372qx")
-hframes = 13
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2(-0.400003, -0.599999)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_psss8")
 
 [node name="Movement" parent="." index="2"]

@@ -12,7 +12,7 @@ size = Vector2(33, 31)
 [node name="UpDownEnemy" instance=ExtResource("1_cx8ys")]
 scale = Vector2(2, 2)
 sprite = ExtResource("2_y2mdc")
-health = 10
+health = 25
 points = 150
 
 [node name="Sprite" parent="." index="0"]
@@ -36,3 +36,5 @@ fire_delay = 1.2
 projectile = ExtResource("5_74vmf")
 
 [node name="FirePoint" type="Node2D" parent="Weapon" index="0"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]

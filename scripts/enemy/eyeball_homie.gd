@@ -13,13 +13,11 @@ var state
 var movement_target_pos
 var current_timer = 0 
 var locked_on_pos
-var animation_player
 
 func _ready():
 	super()
 	state = State.MOVING
 	movement_target_pos = null
-	animation_player = get_node("AnimationPlayer")
 	pass
 	
 func _process(delta):

@@ -1,142 +1,81 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddrq8dwlmc3ry"]
+[gd_scene load_steps=7 format=3 uid="uid://ddrq8dwlmc3ry"]
 
 [ext_resource type="PackedScene" uid="uid://ccsdnov6q6ssd" path="res://scenes/levels/base_level.tscn" id="1_f1xfs"]
+[ext_resource type="PackedScene" uid="uid://bkhexedgh372k" path="res://scenes/enemies/fly_by.tscn" id="2_osc7o"]
 [ext_resource type="PackedScene" uid="uid://cbbcrfdk0hpg6" path="res://scenes/enemies/slider_guy.tscn" id="3_kv27j"]
 [ext_resource type="PackedScene" uid="uid://bcehqyrqtpn2s" path="res://scenes/formations/fan_formation.tscn" id="4_mewj2"]
 [ext_resource type="PackedScene" uid="uid://bqrf22eoo27mn" path="res://scenes/enemies/spinny_guy.tscn" id="5_py2p7"]
-[ext_resource type="PackedScene" uid="uid://cbtgxv45hq0dt" path="res://scenes/enemies/eyeball_homie.tscn" id="6_jjvta"]
-[ext_resource type="PackedScene" uid="uid://lxrlrrkknvjd" path="res://scenes/formations/lil_ship_formation.tscn" id="7_pefny"]
 [ext_resource type="PackedScene" uid="uid://djuo0w5p7pc4p" path="res://scenes/enemies/up_down_guy.tscn" id="8_6ayib"]
 
 [node name="BaseLevel" instance=ExtResource("1_f1xfs")]
 
-[node name="Formation" parent="Enemies" index="0" instance=ExtResource("4_mewj2")]
-position = Vector2(872, -311)
-distance_before_turning = 120.0
-y_drop = 160.0
+[node name="Enemy" parent="Enemies" index="0" instance=ExtResource("2_osc7o")]
+position = Vector2(1233, -513)
 
-[node name="Formation2" parent="Enemies" index="1" instance=ExtResource("4_mewj2")]
-position = Vector2(872, 303)
-distance_before_turning = 120.0
-y_drop = -160.0
+[node name="Formation" parent="Enemies" index="1" instance=ExtResource("4_mewj2")]
+position = Vector2(677, -137)
 
-[node name="SliderGuy" parent="Enemies" index="2" instance=ExtResource("3_kv27j")]
-position = Vector2(1492, 298)
+[node name="Enemy2" parent="Enemies" index="2" instance=ExtResource("2_osc7o")]
+position = Vector2(1259, -458)
 
-[node name="Formation4" parent="Enemies" index="3" instance=ExtResource("4_mewj2")]
-position = Vector2(1474, -311)
-y_drop = 160.0
+[node name="Enemy3" parent="Enemies" index="3" instance=ExtResource("2_osc7o")]
+position = Vector2(1285, -408)
 
-[node name="Formation5" parent="Enemies" index="4" instance=ExtResource("4_mewj2")]
-position = Vector2(1220, 19)
+[node name="UpDownEnemy" parent="Enemies" index="4" instance=ExtResource("8_6ayib")]
+position = Vector2(1519, -24.8752)
 
-[node name="Formation6" parent="Enemies" index="5" instance=ExtResource("4_mewj2")]
-position = Vector2(2213, -311)
-y_drop = 160.0
+[node name="UpDownEnemy2" parent="Enemies" index="5" instance=ExtResource("8_6ayib")]
+position = Vector2(1676.96, -239)
 
-[node name="Formation8" parent="Enemies" index="6" instance=ExtResource("4_mewj2")]
-position = Vector2(2213, 303)
-y_drop = -160.0
+[node name="SliderGuy" parent="Enemies" index="6" instance=ExtResource("3_kv27j")]
+position = Vector2(2146, 291)
 
-[node name="SpinnyGuy" parent="Enemies" index="7" instance=ExtResource("5_py2p7")]
-position = Vector2(1778, 88)
+[node name="UpDownEnemy3" parent="Enemies" index="7" instance=ExtResource("8_6ayib")]
+position = Vector2(1794.96, 105)
 
-[node name="LilShipFormation" parent="Enemies" index="8" instance=ExtResource("7_pefny")]
-position = Vector2(2854.35, -146)
+[node name="SliderGuy2" parent="Enemies" index="8" instance=ExtResource("3_kv27j")]
+position = Vector2(2146, -294)
 
-[node name="LilShipFormation3" parent="Enemies" index="9" instance=ExtResource("7_pefny")]
-position = Vector2(3026, 88)
+[node name="Formation2" parent="Enemies" index="9" instance=ExtResource("4_mewj2")]
+position = Vector2(2393, -62)
 
-[node name="SpinnyGuy2" parent="Enemies" index="10" instance=ExtResource("5_py2p7")]
-position = Vector2(3315, -305)
+[node name="Formation3" parent="Enemies" index="10" instance=ExtResource("4_mewj2")]
+position = Vector2(2393, 20)
+y_drop = -80.0
 
-[node name="SliderGuy2" parent="Enemies" index="11" instance=ExtResource("3_kv27j")]
-position = Vector2(3776, 298)
+[node name="SliderGuy3" parent="Enemies" index="11" instance=ExtResource("3_kv27j")]
+position = Vector2(2852, -294)
 
-[node name="SpinnyGuy3" parent="Enemies" index="12" instance=ExtResource("5_py2p7")]
-position = Vector2(3479, -213)
+[node name="SliderGuy4" parent="Enemies" index="12" instance=ExtResource("3_kv27j")]
+position = Vector2(2852, 299)
 
-[node name="LilShipFormation4" parent="Enemies" index="13" instance=ExtResource("7_pefny")]
-position = Vector2(4013.35, -146)
+[node name="UpDownEnemy4" parent="Enemies" index="13" instance=ExtResource("8_6ayib")]
+position = Vector2(2699, 105)
 
-[node name="LilShipFormation5" parent="Enemies" index="14" instance=ExtResource("7_pefny")]
-position = Vector2(3403, -4.0415)
+[node name="SpinnyGuy" parent="Enemies" index="14" instance=ExtResource("5_py2p7")]
+position = Vector2(3109, -10)
 
-[node name="LilShipFormation6" parent="Enemies" index="15" instance=ExtResource("7_pefny")]
-position = Vector2(4185, 88)
+[node name="Enemy4" parent="Enemies" index="15" instance=ExtResource("2_osc7o")]
+position = Vector2(3227, -513)
 
-[node name="Formation7" parent="Enemies" index="16" instance=ExtResource("4_mewj2")]
-position = Vector2(4934, -311)
-y_drop = 160.0
+[node name="Enemy5" parent="Enemies" index="16" instance=ExtResource("2_osc7o")]
+position = Vector2(3253, -458)
 
-[node name="Formation9" parent="Enemies" index="17" instance=ExtResource("4_mewj2")]
-position = Vector2(4930, 21)
+[node name="Enemy6" parent="Enemies" index="17" instance=ExtResource("2_osc7o")]
+position = Vector2(3279, -408)
 
-[node name="Formation10" parent="Enemies" index="18" instance=ExtResource("4_mewj2")]
-position = Vector2(4934, 303)
-y_drop = -160.0
+[node name="UpDownEnemy5" parent="Enemies" index="18" instance=ExtResource("8_6ayib")]
+position = Vector2(3201, 105)
 
-[node name="SpinnyGuy4" parent="Enemies" index="19" instance=ExtResource("5_py2p7")]
-position = Vector2(4793, -174)
+[node name="Formation4" parent="Enemies" index="19" instance=ExtResource("4_mewj2")]
+position = Vector2(851, 101)
 
-[node name="SpinnyGuy5" parent="Enemies" index="20" instance=ExtResource("5_py2p7")]
-position = Vector2(5018, 160)
-
-[node name="SpinnyGuy6" parent="Enemies" index="21" instance=ExtResource("5_py2p7")]
-position = Vector2(1105, -174)
-
-[node name="SpinnyGuy7" parent="Enemies" index="22" instance=ExtResource("5_py2p7")]
-position = Vector2(980, 160)
-
-[node name="EyeballHomie" parent="Enemies" index="23" instance=ExtResource("6_jjvta")]
-position = Vector2(5781, -129)
-
-[node name="EyeballHomie2" parent="Enemies" index="24" instance=ExtResource("6_jjvta")]
-position = Vector2(5790, 163)
-
-[node name="SliderGuy3" parent="Enemies" index="25" instance=ExtResource("3_kv27j")]
-position = Vector2(1938, -320)
-
-[node name="Enemy" parent="Enemies" index="26" instance=ExtResource("8_6ayib")]
-position = Vector2(2058, 290)
-
-[node name="SpinnyGuy8" parent="Enemies" index="27" instance=ExtResource("5_py2p7")]
-position = Vector2(1925, -20)
-
-[node name="Formation11" parent="Enemies" index="28" instance=ExtResource("4_mewj2")]
-position = Vector2(5370, -311)
-y_drop = 160.0
-
-[node name="Formation12" parent="Enemies" index="29" instance=ExtResource("4_mewj2")]
-position = Vector2(5377, 301)
-y_drop = -160.0
-
-[node name="SpinnyGuy10" parent="Enemies" index="30" instance=ExtResource("5_py2p7")]
-position = Vector2(5482, 161)
-
-[node name="SpinnyGuy11" parent="Enemies" index="31" instance=ExtResource("5_py2p7")]
-position = Vector2(5252, -162)
-
-[node name="UpDownEnemy" parent="Enemies" index="32" instance=ExtResource("8_6ayib")]
-position = Vector2(4366, -239)
-
-[node name="UpDownEnemy2" parent="Enemies" index="33" instance=ExtResource("8_6ayib")]
-position = Vector2(4283, 266)
-
-[node name="Formation13" parent="Enemies" index="34" instance=ExtResource("4_mewj2")]
-position = Vector2(5795, -305)
-y_drop = 160.0
-
-[node name="Formation14" parent="Enemies" index="35" instance=ExtResource("4_mewj2")]
-position = Vector2(5786, 300)
-y_drop = 160.0
+[node name="Formation5" parent="Enemies" index="20" instance=ExtResource("4_mewj2")]
+position = Vector2(1081, -137)
 
 [node name="StarsLayer" parent="Background" index="1"]
 motion_scale = Vector2(0.05, 1)
-motion_mirroring = Vector2(2560, 0)
-
-[node name="Sprite2D" parent="Background/StarsLayer" index="0"]
-position = Vector2(-639, 0)
 
 [node name="Stars2Layer" parent="Background" index="2"]
 motion_scale = Vector2(0.15, 1)
+motion_mirroring = Vector2(2560, 0)

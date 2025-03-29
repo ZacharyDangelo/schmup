@@ -12,6 +12,7 @@ signal on_killed(points: int)
 @export_group("SFX")
 @export var on_hit_sound: AudioStream = preload("res://audio/sfx/click.wav")
 
+@onready var animation_player = $AnimationPlayer
 
 var player
 var weapon
@@ -33,6 +34,8 @@ func _ready():
 	hit_box = get_node("HitBox")
 	current_health = health
 	setup()
+	if animation_player and animation_player.has_animation("idle"):
+		animation_player.play("idle")
 
 
 func setup():
