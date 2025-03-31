@@ -1,0 +1,122 @@
+[gd_scene load_steps=12 format=3 uid="uid://gxre6o232ag"]
+
+[ext_resource type="PackedScene" uid="uid://ga7gbovh7j5q" path="res://scenes/base_enemy.tscn" id="1_kbqbi"]
+[ext_resource type="Script" uid="uid://cdehhx7hs28uv" path="res://scripts/enemy/eyeball_homie.gd" id="2_hqle3"]
+[ext_resource type="Texture2D" uid="uid://cnypjtelk36g2" path="res://sprites/EyeballGuy.png" id="3_fd4y0"]
+[ext_resource type="Texture2D" uid="uid://v8ddpokp3j3i" path="res://sprites/EyeballLeftHand.png" id="4_fd4y0"]
+[ext_resource type="Texture2D" uid="uid://d2rkv4wwv1vl0" path="res://sprites/EyeballRightHand.png" id="5_wwaop"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1fsuu"]
+radius = 17.6011
+
+[sub_resource type="Animation" id="Animation_kr7op"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_it1qs"]
+resource_name = "attacking"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_rt2jc"]
+resource_name = "locking"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ol2to"]
+resource_name = "waiting"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bb8xf"]
+_data = {
+&"RESET": SubResource("Animation_kr7op"),
+&"attacking": SubResource("Animation_it1qs"),
+&"locking": SubResource("Animation_rt2jc"),
+&"waiting": SubResource("Animation_ol2to")
+}
+
+[node name="EyeballHomie" instance=ExtResource("1_kbqbi")]
+scale = Vector2(7.5, 7.5)
+script = ExtResource("2_hqle3")
+lock_on_time = 1.2
+attack_delay = 1.4
+movement_speed = 525.0
+locked_on_movement_speed = 775.0
+movement_offset_x = 60.0
+movement_offset_y = 100.0
+sprite = ExtResource("3_fd4y0")
+has_weapon = false
+health = 275
+points = 10000
+metadata/_edit_group_ = true
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("3_fd4y0")
+hframes = 5
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource("CircleShape2D_1fsuu")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="4"]
+position = Vector2(-2.7, 0.804082)
+scale = Vector2(1.27, 1.02041)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+&"": SubResource("AnimationLibrary_bb8xf")
+}
+
+[node name="EyeballLeftHand" type="Sprite2D" parent="." index="7"]
+position = Vector2(0, -40.8)
+texture = ExtResource("4_fd4y0")
+flip_v = true
+
+[node name="EyeballRightHand" type="Sprite2D" parent="." index="8"]
+position = Vector2(0, 34.5333)
+texture = ExtResource("5_wwaop")

@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://d24sbvl77xyd6"]
+[gd_scene load_steps=6 format=3 uid="uid://d24sbvl77xyd6"]
 
 [ext_resource type="Script" uid="uid://bbi1dhcwr6lse" path="res://scripts/weapons/projectile.gd" id="1_okrl7"]
 [ext_resource type="Texture2D" uid="uid://cabhv4rfnkwow" path="res://sprites/EnemyBullett.png" id="2_h77bg"]
+[ext_resource type="Texture2D" uid="uid://bkcljxjtk6hm6" path="res://sprites/glow_blue_1.png" id="3_f0ucu"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_000v4"]
+blend_mode = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fd5x7"]
 radius = 6.0
@@ -13,6 +17,12 @@ ttl = 10.0
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_h77bg")
+
+[node name="Glow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
+material = SubResource("CanvasItemMaterial_000v4")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_f0ucu")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 16

@@ -2,11 +2,12 @@ extends Node2D
 
 
 @export var levels: Array[PackedScene]
-
+@onready var hud = $"../UI/HUD"
 @onready var player = %Player
 @onready var camera = %Camera
 @onready var level_over_menu = $"../UI/LevelOverMenu"
 @onready var game_over_menu = $"../UI/GameOverMenu"
+
 func _ready():
 	spawn_level()
 
@@ -22,6 +23,7 @@ func spawn_level():
 func _on_level_over():
 	if GameData.current_level != len(levels) - 1:
 		level_over_menu.show_menu()
+		hud.hide()
 	else:
 		game_over_menu.show_menu()
 		game_over_menu.victory()

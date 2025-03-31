@@ -29,6 +29,7 @@ func _ready():
 		lives_container.get_child(2).set_indexed("modulate:a",0)
 	if GameData.current_lives == 1:
 		lives_container.get_child(1).set_indexed("modulate:a",0)
+	update_score_label(1)
 		
 
 func _process(delta):
