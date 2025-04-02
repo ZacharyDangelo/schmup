@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8b8q02xohave"]
+
+[ext_resource type="PackedScene" uid="uid://if5wekt3j1bh" path="res://scenes/powerups/base_power_up.tscn" id="1_kngki"]
+[ext_resource type="Script" uid="uid://crqatwh6clthb" path="res://scripts/powerups/explosion_power_up.gd" id="2_woo0q"]
+
+[node name="PowerUp" instance=ExtResource("1_kngki")]
+script = ExtResource("2_woo0q")
+spawn_sound = null
+pickup_sound = null

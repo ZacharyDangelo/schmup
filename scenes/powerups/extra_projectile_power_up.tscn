@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3lfw1q0hk2sl"]
+
+[ext_resource type="PackedScene" uid="uid://if5wekt3j1bh" path="res://scenes/powerups/base_power_up.tscn" id="1_7wayf"]
+[ext_resource type="Script" uid="uid://dfhic4jgj8vbf" path="res://scripts/powerups/extra_projectile_power_up.gd" id="2_g8sud"]
+[ext_resource type="AudioStream" uid="uid://f5ditwrbtgyb" path="res://audio/sfx/powerUp_expire.wav" id="3_8bfrw"]
+
+[node name="PowerUp" instance=ExtResource("1_7wayf")]
+script = ExtResource("2_g8sud")
+powerup_duration = 10.0
+num_extra_projectiles = 3
+expire_sound = ExtResource("3_8bfrw")

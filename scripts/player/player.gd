@@ -35,12 +35,13 @@ func _ready():
 	current_speed = speed
 	current_grace_period_timer = 999
 	sprite.material.set("shader_parameter/width",0)
+	Util.player = self
 
 func _process(delta):
 	current_grace_period_timer += delta
 	# Move the player based on camera scroll speed
 	position += Vector2(camera.current_scroll_speed * delta,0)
-	if not dead and not respawning:
+	if not dead:
 		var input_vector = Vector2.ZERO
 		# Get movement input
 		if Input.is_action_pressed("move_down"):
@@ -98,6 +99,19 @@ func respawn():
 	timer.start()
 	respawning = true 
 	
+func add_projectile_power_up(num_extra_projectiles: int,powerup_duration: float, expire_sound: AudioStream):
+	var starting_projectile_count = weapon.spread_projectile_count
+	weapon.spread_projectile_count += num_extra_projectiles
+	# Powerup Timer
+	var timer = Timer.new()
+	timer.name = "Powerup_timer"
+	add_child(timer)
+	timer.wait_time = powerup_duration
+	timer.connect("timeout",func(): weapon.spread_projectile_count = starting_projectile_count)
+	timer.connect("timeout", func(): SFXManager.play(expire_sound))
+	timer.connect("timeout", func(): timer.queue_free())
+	timer.start()
+
 #############
 ### Util
 #############

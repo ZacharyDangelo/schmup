@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cc6kmyavd64y"]
+[gd_scene load_steps=15 format=3 uid="uid://cc6kmyavd64y"]
 
 [ext_resource type="Script" uid="uid://dmteefmvn0akr" path="res://scripts/camera.gd" id="1_e7bqo"]
 [ext_resource type="PackedScene" uid="uid://dhhj87l5mhte1" path="res://scenes/levels/level_2.tscn" id="2_dg77c"]
+[ext_resource type="PackedScene" uid="uid://6lmn3axmdtv8" path="res://scenes/levels/test_level.tscn" id="2_w48qg"]
 [ext_resource type="PackedScene" uid="uid://cda87mfppoffb" path="res://scenes/levels/level_3.tscn" id="4_efxa6"]
 [ext_resource type="PackedScene" uid="uid://c7hgmmou0ia8o" path="res://scenes/player.tscn" id="5_utn1q"]
 [ext_resource type="PackedScene" uid="uid://ddrq8dwlmc3ry" path="res://scenes/levels/level_0.tscn" id="6_i2owa"]
@@ -18,7 +19,7 @@
 
 [node name="LevelManager" type="Node2D" parent="."]
 script = ExtResource("7_0y5fu")
-levels = Array[PackedScene]([ExtResource("6_i2owa"), ExtResource("2_dg77c"), ExtResource("4_efxa6")])
+levels = Array[PackedScene]([ExtResource("2_w48qg"), ExtResource("6_i2owa"), ExtResource("2_dg77c"), ExtResource("4_efxa6")])
 
 [node name="Camera" type="Camera2D" parent="." groups=["Camera"]]
 unique_name_in_owner = true
