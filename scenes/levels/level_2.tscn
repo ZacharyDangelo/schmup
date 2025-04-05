@@ -44,90 +44,75 @@ position = Vector2(1778, 88)
 [node name="LilShipFormation" parent="Enemies" index="8" instance=ExtResource("5_nt80m")]
 position = Vector2(2854.35, -146)
 
-[node name="LilShipFormation3" parent="Enemies" index="9" instance=ExtResource("5_nt80m")]
-position = Vector2(3026, 88)
-
-[node name="SpinnyGuy2" parent="Enemies" index="10" instance=ExtResource("4_qsp8v")]
+[node name="SpinnyGuy2" parent="Enemies" index="9" instance=ExtResource("4_qsp8v")]
 position = Vector2(3315, -305)
 
-[node name="SliderGuy2" parent="Enemies" index="11" instance=ExtResource("3_3p04p")]
+[node name="SliderGuy2" parent="Enemies" index="10" instance=ExtResource("3_3p04p")]
 position = Vector2(3776, 298)
 
-[node name="SpinnyGuy3" parent="Enemies" index="12" instance=ExtResource("4_qsp8v")]
+[node name="SpinnyGuy3" parent="Enemies" index="11" instance=ExtResource("4_qsp8v")]
 position = Vector2(3479, -213)
 
-[node name="LilShipFormation4" parent="Enemies" index="13" instance=ExtResource("5_nt80m")]
+[node name="LilShipFormation4" parent="Enemies" index="12" instance=ExtResource("5_nt80m")]
 position = Vector2(4013.35, -146)
 
-[node name="LilShipFormation5" parent="Enemies" index="14" instance=ExtResource("5_nt80m")]
+[node name="LilShipFormation5" parent="Enemies" index="13" instance=ExtResource("5_nt80m")]
 position = Vector2(3403, -4.0415)
 
-[node name="LilShipFormation6" parent="Enemies" index="15" instance=ExtResource("5_nt80m")]
+[node name="LilShipFormation6" parent="Enemies" index="14" instance=ExtResource("5_nt80m")]
 position = Vector2(4185, 88)
 
-[node name="Formation7" parent="Enemies" index="16" instance=ExtResource("2_8qukl")]
+[node name="Formation7" parent="Enemies" index="15" instance=ExtResource("2_8qukl")]
 position = Vector2(4934, -311)
 y_drop = 160.0
 
-[node name="Formation9" parent="Enemies" index="17" instance=ExtResource("2_8qukl")]
+[node name="Formation9" parent="Enemies" index="16" instance=ExtResource("2_8qukl")]
 position = Vector2(4930, 21)
 
-[node name="Formation10" parent="Enemies" index="18" instance=ExtResource("2_8qukl")]
+[node name="Formation10" parent="Enemies" index="17" instance=ExtResource("2_8qukl")]
 position = Vector2(4934, 303)
 y_drop = -160.0
 
-[node name="SpinnyGuy4" parent="Enemies" index="19" instance=ExtResource("4_qsp8v")]
+[node name="SpinnyGuy4" parent="Enemies" index="18" instance=ExtResource("4_qsp8v")]
 position = Vector2(4793, -174)
 
-[node name="SpinnyGuy5" parent="Enemies" index="20" instance=ExtResource("4_qsp8v")]
+[node name="SpinnyGuy5" parent="Enemies" index="19" instance=ExtResource("4_qsp8v")]
 position = Vector2(5018, 160)
 
-[node name="SpinnyGuy6" parent="Enemies" index="21" instance=ExtResource("4_qsp8v")]
+[node name="SpinnyGuy6" parent="Enemies" index="20" instance=ExtResource("4_qsp8v")]
 position = Vector2(1105, -174)
 
-[node name="SpinnyGuy7" parent="Enemies" index="22" instance=ExtResource("4_qsp8v")]
+[node name="SpinnyGuy7" parent="Enemies" index="21" instance=ExtResource("4_qsp8v")]
 position = Vector2(980, 160)
 
-[node name="EyeballHomie" parent="Enemies" index="23" instance=ExtResource("6_brxtv")]
+[node name="EyeballHomie" parent="Enemies" index="22" instance=ExtResource("6_brxtv")]
 position = Vector2(5781, -129)
 
-[node name="EyeballHomie2" parent="Enemies" index="24" instance=ExtResource("6_brxtv")]
+[node name="EyeballHomie2" parent="Enemies" index="23" instance=ExtResource("6_brxtv")]
 position = Vector2(5790, 163)
 
-[node name="SliderGuy3" parent="Enemies" index="25" instance=ExtResource("3_3p04p")]
+[node name="SliderGuy3" parent="Enemies" index="24" instance=ExtResource("3_3p04p")]
 position = Vector2(1938, -320)
 
-[node name="Enemy" parent="Enemies" index="26" instance=ExtResource("7_tv7cl")]
+[node name="Enemy" parent="Enemies" index="25" instance=ExtResource("7_tv7cl")]
 position = Vector2(2058, 290)
 
-[node name="SpinnyGuy8" parent="Enemies" index="27" instance=ExtResource("4_qsp8v")]
-position = Vector2(1925, -20)
-
-[node name="Formation11" parent="Enemies" index="28" instance=ExtResource("2_8qukl")]
+[node name="Formation11" parent="Enemies" index="26" instance=ExtResource("2_8qukl")]
 position = Vector2(5370, -311)
 y_drop = 160.0
 
-[node name="Formation12" parent="Enemies" index="29" instance=ExtResource("2_8qukl")]
+[node name="Formation12" parent="Enemies" index="27" instance=ExtResource("2_8qukl")]
 position = Vector2(5377, 301)
 y_drop = -160.0
 
-[node name="SpinnyGuy10" parent="Enemies" index="30" instance=ExtResource("4_qsp8v")]
-position = Vector2(5482, 161)
-
-[node name="SpinnyGuy11" parent="Enemies" index="31" instance=ExtResource("4_qsp8v")]
-position = Vector2(5252, -162)
-
-[node name="UpDownEnemy" parent="Enemies" index="32" instance=ExtResource("7_tv7cl")]
+[node name="UpDownEnemy" parent="Enemies" index="28" instance=ExtResource("7_tv7cl")]
 position = Vector2(4366, -239)
 
-[node name="UpDownEnemy2" parent="Enemies" index="33" instance=ExtResource("7_tv7cl")]
-position = Vector2(4283, 266)
-
-[node name="Formation13" parent="Enemies" index="34" instance=ExtResource("2_8qukl")]
+[node name="Formation13" parent="Enemies" index="29" instance=ExtResource("2_8qukl")]
 position = Vector2(5795, -305)
 y_drop = 160.0
 
-[node name="Formation14" parent="Enemies" index="35" instance=ExtResource("2_8qukl")]
+[node name="Formation14" parent="Enemies" index="30" instance=ExtResource("2_8qukl")]
 position = Vector2(5786, 300)
 y_drop = 160.0
 
