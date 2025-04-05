@@ -8,7 +8,7 @@ var dir
 
 func _ready():
 	super()
-	var midpoint = get_parent().get_camera().get_screen_center_position()
+	var midpoint = Util.get_camera().get_screen_center_position()
 	if get_parent().global_position.y < midpoint.y:
 		dir = -1
 	else:

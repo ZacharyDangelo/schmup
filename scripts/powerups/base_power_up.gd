@@ -38,6 +38,7 @@ func _process(delta):
 
 func on_pickup():
 	SFXManager.play(pickup_sound)
+	self.queue_free()
 
 func _on_area_2d_area_entered(area):
 	on_pickup()

@@ -137,7 +137,7 @@ func _on_respawn_finished():
 func _on_hit_box_area_entered(area):
 	if respawning or current_grace_period_timer <= grace_period_time:
 		return
-	GameData.current_lives -= 1
+	GameData.set_lives(GameData.current_lives - 1)
 	if GameData.current_lives == 0:
 		sfx.play_death_sound()
 		dead = true

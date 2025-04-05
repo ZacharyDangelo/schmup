@@ -17,10 +17,6 @@
 
 [node name="Game" type="Node"]
 
-[node name="LevelManager" type="Node2D" parent="."]
-script = ExtResource("7_0y5fu")
-levels = Array[PackedScene]([ExtResource("2_w48qg"), ExtResource("6_i2owa"), ExtResource("2_dg77c"), ExtResource("4_efxa6")])
-
 [node name="Camera" type="Camera2D" parent="." groups=["Camera"]]
 unique_name_in_owner = true
 position_smoothing_enabled = true
@@ -35,6 +31,10 @@ stream = ExtResource("12_ycdy4")
 volume_db = -4.0
 autoplay = true
 bus = &"Music"
+
+[node name="LevelManager" type="Node2D" parent="."]
+script = ExtResource("7_0y5fu")
+levels = Array[PackedScene]([ExtResource("6_i2owa"), ExtResource("2_dg77c"), ExtResource("4_efxa6"), ExtResource("2_w48qg")])
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("5_utn1q")]
 unique_name_in_owner = true
@@ -104,15 +104,15 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="TextureRect" type="TextureRect" parent="UI/HUD/HBoxContainer/Lives_HBoxContainer"]
+[node name="1" type="TextureRect" parent="UI/HUD/HBoxContainer/Lives_HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("9_efxa6")
 
-[node name="TextureRect2" type="TextureRect" parent="UI/HUD/HBoxContainer/Lives_HBoxContainer"]
+[node name="2" type="TextureRect" parent="UI/HUD/HBoxContainer/Lives_HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("9_efxa6")
 
-[node name="TextureRect3" type="TextureRect" parent="UI/HUD/HBoxContainer/Lives_HBoxContainer"]
+[node name="3" type="TextureRect" parent="UI/HUD/HBoxContainer/Lives_HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("9_efxa6")
 

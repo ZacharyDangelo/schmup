@@ -7,6 +7,12 @@ signal on_killed(points: int)
 @export_group("Stats")
 @export var health: int
 @export var points: int
+@export var powerup_chance: float = 5 # 5%
+@export var powerups: Array[PackedScene] = [
+	preload("res://scenes/powerups/explosion_power_up.tscn"),
+	preload("res://scenes/powerups/extra_projectile_power_up.tscn"),
+	preload("res://scenes/powerups/extra_life_power_up.tscn")
+]
 @export_group("FX")
 @export var explosion_particles: PackedScene = preload("res://particles/explosion_new.tscn")
 @export_group("SFX")
@@ -47,7 +53,7 @@ func setup():
 		return
 	on_killed.connect(GameData.add_score)
 	player = player_group[0]
-	camera = get_camera()
+	camera = Util.get_camera()
 	
 
 func _process(delta):
@@ -86,9 +92,20 @@ func take_damage():
 func kill(score: bool):
 	if score:
 		on_killed.emit(points)
+		spawn_powerup()
 		spawn_explosion()
 	queue_free()
 	
+func spawn_powerup():
+	var rng = randi_range(1, 100)
+	var valid_powerups = powerups.slice(0,2)
+	if GameData.current_lives != 3:
+		valid_powerups.append(powerups[2])
+	if rng > (100 - powerup_chance):
+		var powerup = powerups.pick_random().instantiate()
+		powerup.global_position = self.global_position
+		get_tree().current_scene.add_child(powerup)
+
 func spawn_explosion():
 	if not explosion_particles: 
 		return
@@ -122,17 +139,6 @@ func shake():
 		tween.tween_property(sprite_node, "position", original_local_position + random_offset, shake_duration / 4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(sprite_node, "position", original_local_position, shake_duration / 4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(sprite_node, "modulate", Color(1, 1, 1), flash_duration / 2).set_delay(flash_duration / 2)
-#############
-### Util
-#############
-
-func get_camera():
-	var camera_group = get_tree().get_nodes_in_group("Camera")
-	if not camera_group:
-		push_error('Cant find camera in sine_cannon fire function')
-		return
-	return camera_group[0]
-
 
 #############
 ### Signal Callbacks

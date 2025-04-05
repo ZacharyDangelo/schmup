@@ -36,15 +36,16 @@ func spawn_enemy():
 func _on_area_2d_area_entered(area):
 	take_damage()
 	if current_health <= 0:
-		die()
+		kill(true)
 
 func take_damage():
 	current_health -= 1
 	SFXManager.play(audio_stream)
 	shake()
 
-func die():
-	GameData.add_score(points)
+func kill(score):
+	if score:
+		GameData.add_score(points)
 	self.queue_free()
 	
 func shake():

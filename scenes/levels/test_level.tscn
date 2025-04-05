@@ -1,12 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://6lmn3axmdtv8"]
+[gd_scene load_steps=6 format=3 uid="uid://6lmn3axmdtv8"]
 
 [ext_resource type="PackedScene" uid="uid://ccsdnov6q6ssd" path="res://scenes/levels/base_level.tscn" id="1_0jsg6"]
+[ext_resource type="PackedScene" uid="uid://bqrf22eoo27mn" path="res://scenes/enemies/spinny_guy.tscn" id="2_48ne7"]
 [ext_resource type="PackedScene" uid="uid://b23myxyy81il5" path="res://scenes/levels/markers/level_stop.tscn" id="3_fr1um"]
 [ext_resource type="PackedScene" uid="uid://bvchakldbsm2n" path="res://scenes/enemies/carrier_enemy.tscn" id="3_v45ci"]
+[ext_resource type="PackedScene" uid="uid://b8b8q02xohave" path="res://scenes/powerups/explosion_power_up.tscn" id="4_v45ci"]
 
 [node name="BaseLevel" instance=ExtResource("1_0jsg6")]
 
-[node name="Carrier" parent="Enemies" index="0" instance=ExtResource("3_v45ci")]
+[node name="SpinnyGuy" parent="Enemies" index="0" instance=ExtResource("2_48ne7")]
+position = Vector2(500, 246.091)
+scale = Vector2(4, 4)
+
+[node name="Carrier" parent="Enemies" index="1" instance=ExtResource("3_v45ci")]
 position = Vector2(2128, 0)
 
 [node name="Stars2Layer" parent="Background" index="2"]
@@ -14,3 +20,6 @@ motion_mirroring = Vector2(2560, 0)
 
 [node name="LevelStop" parent="." index="7" instance=ExtResource("3_fr1um")]
 position = Vector2(3042, -248)
+
+[node name="PowerUp" parent="." index="8" instance=ExtResource("4_v45ci")]
+position = Vector2(295.008, -3.66309)

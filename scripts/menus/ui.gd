@@ -24,6 +24,7 @@ func _ready():
 	level_over_menu_score_label = level_over_menu.get_node("PanelContainer/ScoreLabel")
 
 	GameData.on_score_changed.connect(update_score_label)
+	GameData.on_lives_changed.connect(update_lives_hud)
 	pause_menu.connect("on_game_resumed",func():hud.show())
 	if GameData.current_lives == 2:
 		lives_container.get_child(2).set_indexed("modulate:a",0)
@@ -58,10 +59,15 @@ func update_score_label(value: int):
 	level_over_menu_score_label.text =  "Score: " + str(GameData.score)
 	game_over_menu_score_label.text = "Score: " + str(GameData.score)
 
+func update_lives_hud(value: int):
+	var i = 1
+	for child in lives_container.get_children():
+		var node_name_as_int = int(child.name)
+		if value >= node_name_as_int:
+			child.modulate.a = 1
+		else:
+			child.modulate.a = 0
+
 func _on_player_on_died():
 	is_player_dead = true
 	hud.hide()
-
-
-func _on_player_on_life_lost():
-	lives_container.get_child(GameData.current_lives).set_indexed("modulate:a",0)

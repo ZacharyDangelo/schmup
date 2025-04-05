@@ -25,7 +25,7 @@ var sway_starting_position: Vector2
 
 func _ready():
 	enemy_node = get_parent()  
-	camera = enemy_node.get_camera() 
+	camera = Util.get_camera() 
 	# Calculate target x position so the enemy stops at 'distance_from_edge' inside the camera bounds.
 	target_x = camera.get_right_position_bounds() - distance_from_edge
 	max_y = camera.get_upper_position_bounds()
